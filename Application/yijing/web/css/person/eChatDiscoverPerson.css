@@ -1,0 +1,33 @@
+.eChatDiscover{
+	width:94%;
+	height: 2.5em;
+	border:0;
+	margin:auto;
+	border-bottom:1px solid #efefef;
+	padding:0.5em 0 0.8em 0;
+}
+
+.eChatDiscover dt{
+	width: 2.5em;
+    height: 2.5em;
+    border: 1px solid #efefef;
+    overflow: hidden;
+    position: absolute;
+}
+
+.eChatDiscover img{
+    width: 100%;
+}
+
+.eChatDiscover dd{
+	height: 100%;
+    margin-left: 3.5em;
+}
+
+.eChatDiscover .option{
+	font-size:smaller;
+	font-weight: 100;
+	line-height:2.5em;
+}
+
+

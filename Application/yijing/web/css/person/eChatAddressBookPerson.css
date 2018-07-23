@@ -1,0 +1,63 @@
+.eChatAddressBook{
+	width:94%;
+	height: 3.5em;
+	border:0;
+	margin:auto;
+	border-bottom:1px solid #efefef;
+	padding:0.5em 0 0.8em 0;
+}
+
+.eChatAddressBook dt{
+	width: 3.5em;
+    height: 3.5em;
+    border: 1px solid #efefef;
+    overflow: hidden;
+    position: absolute;
+}
+
+.eChatAddressBook img{
+    width: 100%;
+}
+
+.eChatAddressBook dd{
+	height: 100%;
+    margin-left: 4.5em;
+}
+
+.eChatAddressBook .nick{
+	font-size:smaller;
+	font-weight: 100;
+	line-height:3.5em;
+}
+
+.eChatAddressGroup{
+	width:94%;
+	height: 3.5em;
+	border:0;
+	margin:auto;
+	border-bottom:1px solid #efefef;
+	padding:0.5em 0 0.8em 0;
+}
+
+.eChatAddressGroup dt{
+	width: 3.5em;
+    height: 3.5em;
+    border: 1px solid #efefef;
+    overflow: hidden;
+    position: absolute;
+}
+
+.eChatAddressGroup img{
+    width: 100%;
+}
+
+.eChatAddressGroup dd{
+	height: 100%;
+    margin-left: 4.5em;
+}
+
+.eChatAddressGroup .nick{
+	font-size:smaller;
+	font-weight: 100;
+	line-height:3.5em;
+}

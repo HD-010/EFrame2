@@ -1,0 +1,162 @@
+/* 这里是聊天页面主体 */ 
+#eChat_main{
+    border: 1px solid silver;
+	width: 45%;
+	min-width:16em;
+    height: 100%;
+	display:inline-block;
+	margin-left:20%;
+}
+
+#chatList{
+	 border:0;
+	 width:100%;
+	 height:56%;
+	 overflow: auto;
+}
+
+#chatList table{
+	 border='0';
+	 width:100%;
+	 border-collapse:separate;
+	 border-spacing:0 1em;
+	 font-size:1.5em;
+}
+
+/* 这里是聊天页面菜单 */
+#chatMenu{
+	 border:0;
+	 border-top:1px solid #D5D5D5;
+	 width:100%;
+	 height:6%;
+	 background-color:#F9F9F9;
+}
+
+#chatMenu{
+	width:100%;
+}
+
+#chatMenu #chatFace{
+	 display: inline-block;
+	 width: 2.2em;
+	 height: 2.2em;
+	 border: 0;
+	 border-radius:1.1em;
+	 vertical-align: middle;
+	 margin: 0.3em 0.4em 0 1.5em;
+	 background-image: url(http://47.93.201.12:8383/images/tools.png);
+	 background-size: 38em 3.4em;
+	 background-repeat: no-repeat;
+	 background-position: -0.39em -0.55em;
+}
+
+#chatMenu #chatFace ul{
+	 display:none;
+	 border: 1px solid red;
+	 position: absolute;
+	 width:45%;
+	 max-width:40em;
+	 margin-top: 2.8em;
+	 margin-left: -1.5em;
+	 height: 22%;
+	 background-color:white;
+}
+
+#chatMenu #chatFace ul li{
+	display:inline-block;
+	margin-left:1em;
+}
+
+#chatMenu #chatFace ul label{
+	display:inline-block;
+	width:3em;
+	height:3em;
+	border:1px solid silver;
+}
+
+#chatMenu #chatFace input{
+	visibility:hidden;
+}
+
+#chatMenu #chatImg{
+	display: inline-block;
+	width: 2.5em;
+	height: 2.2em;
+	border: 0;
+	vertical-align: middle;
+	margin: 0.3em 0.4em 0 0.75em;
+	background-image: url(http://47.93.201.12:8383/images/tools.png);
+	background-size:38em 3.4em;
+	background-repeat: no-repeat;
+	background-position: -16.5em -0.55em;
+}
+
+#chatMenu #chatImg label,#chatMenu #chatFile label{
+	width:100%;
+	height:100%;
+	display:inherit;
+}
+
+#chatMenu #chatImg label input, #chatMenu #chatFile label input{
+	width:1em;
+	visibility:hidden;
+}
+
+#chatMenu #chatFile{
+	display: inline-block;
+	width: 2.5em;
+	height: 2.2em; 
+	border: 0;
+	vertical-align: middle;
+	margin: 0.3em 0.4em 0 0.75em;
+	background-image: url(http://47.93.201.12:8383/images/tools.png);
+	background-size:38em 3.4em;
+	background-repeat: no-repeat;
+	background-position: -12.6em -0.55em;
+}
+
+
+/* 这里是文本内容输入区 */
+#chatText{
+	 border:0;
+	 border-top:1px solid #D5D5D5;
+	 width:100%;
+	 height:21.5%;
+}
+
+#chatText textarea{
+	width:100%;
+	height:100%;
+	border:0;
+	outline:none;
+	padding:0.2em;
+	font-size:160%;
+}
+
+/* 这里是聊天页面底部  */
+#chatfoot{
+	 border:0;
+	 border-top:1px solid #D5D5D5;
+	 width:100%;
+	 height:7.5%;
+	 background-color:#F9F9F9;
+	 font-size:150%;
+}
+#chatfoot li{
+	width:20%;
+	float:right;
+	margin-top:0.8em;
+	height:2em;
+	line-height:2em;
+}
+
+#chatfoot #messageSend{
+	 display:inline-block;
+	 width:80%;
+	 height:90%;
+	 font-size:102%;
+}
+
+#chatfoot .optOther{
+	width:55%;
+}

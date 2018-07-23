@@ -1,0 +1,67 @@
+.eChatMessage{
+	width:94%;
+	height: 4.5em;
+	border:0;
+	margin:auto;
+	border-bottom:1px solid #efefef;
+	padding:0.4em 0 0.7em 0;
+}
+
+.eChatMessage dt{
+	width: 4.5em;
+    height: 4.5em;
+    border: 1px solid #efefef;
+    overflow: hidden;
+    position: absolute;
+}
+
+.eChatMessage dt span[name=number]{
+	border: 0;
+	width:1.2em;
+	height:1.2em;
+    display: inline-block;
+    position: fixed;
+    margin-left: -1em;
+    border-radius: 0.6em;
+    background-color: red;
+    color: white;
+    font-size: xx-small;
+	text-align:center;
+}
+
+.eChatMessage img{
+    width: 100%;
+}
+
+.eChatMessage dd{
+	height: 100%;
+    margin-left: 5.5em;
+}
+
+.eChatMessage table{
+    height: 3.2em;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+    width: 100%;
+    margin-top: 0.1em;
+}
+
+.eChatMessage .nick{
+	font-size:smaller;
+	font-weight: 700;
+}
+
+.eChatMessage .message{
+	font-size: xx-small;
+	font-weight: 100;
+	color: darkcyan;
+}
+
+.eChatMessage .addon{
+	width: 4em;
+    text-align: right;
+	color: darkcyan;
+	font-size: xx-small;
+}
+

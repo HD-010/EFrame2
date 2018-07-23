@@ -1,0 +1,58 @@
+/*
+Copyright (c) 2018, EChat Inc. All rights reserved.
+version: 1.0.0
+build: 2676
+*/
+
+#eChat_list{
+	border: 1px solid silver;
+	border-right:0;
+    width: 20%;
+    height: 100%;
+	display:inline-block;
+	position: absolute;
+	-webkit-user-select: none;
+}
+
+#eChat_list .list{
+	border: 0;
+	border-bottom:1px solid seashell;
+    position: initial;
+    height: 86%;
+	overflow-y: scroll;
+}
+
+
+#eChat_list .list .option{
+    height: 2.5em;
+    line-height: 2.5em;
+	border-bottom: 1px solid seashell;
+    padding-left: 0.5em;
+	background-color: initial;	/*lightblue*/
+    color: brown;				/*aliceblue*/
+    font-weight: 700;
+}
+
+#eChat_list .list .discription{
+	height: 2.5em;
+    line-height: 2.5em;
+	border-bottom: 1px solid seashell;
+    padding-left: 1.5em;
+    background-color: initial;
+	margin-top:0.08em;
+    display: none;
+}
+#eChat_list .list .discription .listTag,#eChat_list .list .discription .listNick{
+	display:inline-block;
+}
+#eChat_list .list .discription .listTag{
+	border: 1px solid red;
+    min-width: 1em;
+    height: 1em;
+    vertical-align: top;
+    border-radius: 0.5em;
+    line-height: 1em;
+    padding: 0.01em;
+    display: none;
+}
+

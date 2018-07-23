@@ -1,0 +1,80 @@
+.logHead{
+	border: 0;
+    position: initial;
+    width: 100%;
+    height: 10%;
+	background-color: #52A4F1;
+}
+.logHead .log{
+	font-size: xx-large;
+    color: aliceblue;
+    margin-left: 1em;
+}
+
+.loginIn{
+    border: 0;
+    position: initial;
+    width: 100%;
+    height: 100%;
+}
+
+.loginRight{
+	border:0;
+    display: inline-block;
+    border: 0;
+    width: 98%;
+    height: inherit;
+	margin:auto;
+}
+.loginRight .right{
+    border: 0;
+    margin-top: 40%;
+    height: 50%;
+	overflow: initial;
+}
+
+.loginRight table{
+	width:80%;
+	max-width:25em;
+	margin-left:10%;
+	margin-top:1em;
+}
+.loginRight table th{
+	height:2.5em;
+	text-align:center;
+}
+.loginRight table td{
+	min-width:4em;
+	height:2.5em;
+}
+
+.loginRight table .opt{
+	border:0;
+	width:5em;
+	text-align:center;
+}
+.loginRight table .bt{
+	text-align:center;
+}
+.loginRight table .bt input{
+    width: 40%;
+    color: aliceblue;
+	font-size: smaller;
+    text-align: center;
+    height: 2.2em;
+    background-color: #52A4F1;
+    border-radius: 0.3em;
+}
+
+.loginRight table td .input{
+	width:60%;
+	text-align:center;
+}
+
+.loginRight table td input{
+	width:94%;
+	line-height:2em;
+	text-align:center;
+	font-size:70%;
+	margin-left:0.6em;
+}

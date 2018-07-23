@@ -1,0 +1,18 @@
+body{font-family:Arial,"宋体";font-size:12px; background:url(../images/bg.jpg) center top repeat-y #0a6754;}
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote{margin:0px;padding:0px;}
+ul,li,ol,dl,dt,dd{list-style:none;list-style-type:none}
+img{border:0px;}
+em{font-style:normal;}
+a{color:#000;text-decoration:none;}
+a:hover{color:#000;text-decoration:underline}
+input{vertical-align:middle;}
+.atcenter{margin:0 auto;}
+.clear{clear:both;height:1px;line-height:1px;overflow:hidden;overflow-y:hidden;overflow-x:hidden; text-align:center;}
+
+/*分页*/
+.mypage{white-space:nowrap;text-align:center;padding-bottom:10px;padding-top:10px;} 
+.mypage a:hover{background:#ebebeb} 
+.mypage a,.mypage strong{width:23px;height:22px;line-height:22px;font-size:12px;text-align:center;line-height:22px;display:inline-block;border:1px solid #dce9f2;background:#fff;margin-right:2px;margin-left:2px;text-decoration:none;vertical-align:middle} 
+.mypage strong{background:#f0f7fe} 
+.mypage .n{width:60px;font-family:"宋体";line-height:24px;overflow:hidden} 
+.mypage .m{width:40px;font-family:"宋体";line-height:24px;overflow:hidden} 
