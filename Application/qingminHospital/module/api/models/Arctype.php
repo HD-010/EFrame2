@@ -9,7 +9,7 @@ class Arctype
     protected $arctype;         //所有栏目信息
     protected $arctypeTop;      //所有顶级栏目信息
     protected $arctypeSun;      //子栏目信息
-    
+    protected $topId;           //顶级id
     
     /**
      * 获取栏目信息（所有栏目信息）
@@ -17,19 +17,31 @@ class Arctype
      */
     public function getArctype(){
         //获取顶级栏目、子栏目并将他们合并
-        $this->getArctypeTop()->getArctypeSun()->heBinArctype();
+        $this->setArctypeTop()->setArctypeSun()->heBinArctype();
         
         //返回栏目信息
         return $this->arctype;
     }
     
+    /**
+     * 获取子栏目信息
+     * @return unknown
+     * 调用该方法前需要调用 Arctype::setTopId();
+     */
+    public function getArctypeSun(){
+        //获取子栏目信息
+        $this->setArctypeSun();
+        //返回栏目信息
+        return $this->arctypeSun;
+    }
+    
     //获取顶级栏目信息
-    public function getArctypeTop(){
+    public function setArctypeTop(){
         
         //查找顶级栏目（总的有两级）
         $o = [
             [
-                "dedecms_arctype" => [
+                "qingminhospital_arctype" => [
                     "id","topid","typename","typedir",
                 ],
             ],
@@ -52,17 +64,18 @@ class Arctype
    
     
     //获取子级栏目信息
-    public function getArctypeSun(){
-        
+    public function setArctypeSun(){
+        //设置顶级栏目id
+        $this->setTopId();
         //查找子栏目
         $o = [
             [
-                "dedecms_arctype" => [
+                "qingminhospital_arctype" => [
                     "id","topid","typename","typedir",
                 ],
             ],
             "WHERE" => [
-                "topid in (select `id` from dedecms_arctype where topid = '0')",
+                "topid ".$this->topId,
             ],
             
             "ORDER_BY" => [
@@ -77,12 +90,23 @@ class Arctype
         return $this;
     }
     
+    //设置topid
+    public function setTopId($topId=null){
+        $this->topId = $topId ? " = ".$topId : " in (select `id` from qingminhospital_arctype where topid = '0')";
+        
+        return $this;
+    }
+    
     //合并子栏目到顶级栏目
     public function heBinArctype(){
         //合并子栏目到顶级栏目
         for($i = 0; $i < count($this->arctypeSun); $i++){
             $topid = $this->arctypeSun[$i]['topid'];
-            $this->arctypeTop[$topid]['sun'][] = $this->arctypeSun[$i];
+            for($j = 0; $j < count($this->arctypeTop); $j ++){
+                if(T::arrayValue($j.'.id', $this->arctypeTop) == $topid){
+                    $this->arctypeTop[$j]['sun'][] = $this->arctypeSun[$i];
+                }
+            }
         }
         $this->arctype = $this->arctypeTop;
         

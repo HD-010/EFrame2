@@ -11,6 +11,7 @@ use EFrame\Helper\T;
 <title>{dede:global.cfg_webname/}</title>
 <meta http-equiv="keywords" content="{dede:global.cfg_keywords/}" />
 <meta http-equiv="description" content="{dede:global.cfg_description/}"/>
+<base href="http://qingminhospital.eframe2.e01.ren" />
 <link rel="stylesheet" type="text/css" href="/css/common.css"/>
 <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
@@ -21,11 +22,11 @@ use EFrame\Helper\T;
 </head>
 <body>
 <?php 
-    $this->renderWidget('header',$data['arctype']);
-    
-    echo  $this->contents();
-    
-    $this->renderWidget('footer');
+$this->renderWidget('header',$data['arctype']);
+
+echo  $this->contents();
+
+$this->renderWidget('footer');
 ?>
 
 </body>

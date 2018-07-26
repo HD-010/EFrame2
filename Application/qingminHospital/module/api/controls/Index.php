@@ -19,6 +19,7 @@ class Index extends Control
         //获取栏目名称
         $data["arctype"] = (new Arctype())->getArctype();
         
+        //T::print_pre(App::config());
         //T::print_pre($data);
         return $this->render('index',$data);
     }

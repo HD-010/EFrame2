@@ -50,5 +50,6 @@ $this->renderWidget('recommend_headlines','testdata');
 
 
 <?php 
-$this->renderWidget('footernave',$data['arctype']);
+//底部栏目展示
+$this->renderWidget('footer_nave',$data['arctype']);
 ?>

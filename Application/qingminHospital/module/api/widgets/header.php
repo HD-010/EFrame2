@@ -15,16 +15,18 @@ use EFrame\Helper\T;
 <!-- 导航 -->
 <div class="wp nav">
 <ul>
-<li class="cur"><a href="index.html">网站首页</a></li>
+<li class="cur"><a href="/api/index/index">网站首页</a></li>
 
 <?php 
 
     //$arctype = $data['arctype'];
     $arctype = $data;
+    //T::print_pre($arctype);
     foreach($arctype as $k => $arctypeTop):
+    $webServer = App::params('@webServer');
 ?>
-<li>
-	<a href="<?=App::params('@webServer').T::arrayValue('typedir',$arctypeTop) ?>"><?=T::arrayValue('typename',$arctypeTop) ?></a>
+<li class="cur">
+	<a onclick="setArctypeTop(this)" href="<?=$webServer.T::arrayValue('typedir',$arctypeTop) ?>" data='<?=T::arrayValue('typedir',$arctypeTop) ?>'><?=T::arrayValue('typename',$arctypeTop) ?></a>
 	<?php 
 	if($arctypeSun = T::arrayValue('sun', $arctypeTop,false)): 
 	?>
@@ -34,7 +36,7 @@ use EFrame\Helper\T;
 		foreach($arctypeSun as $sun):
 	    ?>
 			<li>
-				<a href='<?=App::params('@webServer').T::arrayValue('typedir',$sun) ?>'><?=T::arrayValue('typename',$sun) ?></a>
+				<a onclick="setArctypeSun(this)" href='<?=$webServer.T::arrayValue('typedir',$sun) ?>' data='<?=T::arrayValue('typedir',$sun) ?>'><?=T::arrayValue('typename',$sun) ?></a>
 			</li>
 		<?php endforeach;?>	
 		</ul>
@@ -44,3 +46,26 @@ use EFrame\Helper\T;
 <?php endforeach;?>
 </ul>
 </div>
+
+<script>
+var pageMap = {top:{},sun:{}};
+
+function setArctypeTop(o){
+	pageMap = {top:{},sun:{}};
+	pageMap.top.text = o.innerHTML;
+	pageMap.top.href = o.href;
+	savePageMap(pageMap);
+}
+
+function setArctypeSun(o){
+	pageMap.sun.text = o.innerHTML;
+	pageMap.sun.href = o.href;
+	savePageMap(pageMap);
+}
+
+function savePageMap(){
+	localStorage.pageMap = JSON.stringify(pageMap);
+}
+
+
+</script>

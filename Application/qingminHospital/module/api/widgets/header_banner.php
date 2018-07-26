@@ -10,7 +10,22 @@
     $testdata = [
         [
             'linkarr' => 'href',
-            'picarr' => 'imgsrc',
+            'picarr' => '/uploads/image/20180129/20180129103947344734.jpg',
+            'textarr' => '文字描述……。',
+        ],
+        [
+            'linkarr' => 'href',
+            'picarr' => '/uploads/image/20180225/20180225144242354235.jpg',
+            'textarr' => '文字描述……。',
+        ],
+        [
+            'linkarr' => 'href',
+            'picarr' => '/uploads/image/20180327/20180327155023352335.jpg',
+            'textarr' => '文字描述……。',
+        ],
+        [
+            'linkarr' => 'href',
+            'picarr' => '/uploads/image/20180319/20180319085833373337.jpg',
             'textarr' => '文字描述……。',
         ],
     ] ;
