@@ -2,6 +2,7 @@
 namespace EFrame\base;
 
 use EFrame\base\Query;
+use EFrame\Helper\T;
 
 /**
  * 数据库连接助手
@@ -58,6 +59,9 @@ class MysqlDB extends Query
      */
     public function query($sql=null){
         $sql = $sql ? $sql : $this->sql;
+        
+        $sql = $this->processPrefix($sql);
+        
         $res = $this->pdo->query($sql);
         if($res){
             $this->res = $res;
@@ -71,6 +75,9 @@ class MysqlDB extends Query
      */
     public function exec($sql=null){
         $sql = $sql ? $sql : $this->sql;
+        
+        $sql = $this->processPrefix($sql);
+        
         $res = $this->pdo->exec($sql);
         if($res){
             $this->res = $res;

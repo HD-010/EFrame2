@@ -13,8 +13,7 @@ use EFrame\Helper\T;
 // $webServer = App::params('@webServer');
 ?>
 
-
-<div class="wp flv"><script src="/js/_flv.html" language="javascript" type="text/javascript"></script></div>
+<?php $this->renderWidget('header_banner',$data['banner']);?>
 
 
 <div class="wp">
@@ -25,7 +24,7 @@ use EFrame\Helper\T;
 $this->renderWidget('son_arctype_left',$data['arctypeSon']);
 
 //左则服务项目列表
-$this->renderWidget('service_nav_left','testdata');
+$this->renderWidget('service_nav_left');
 
 //宣传专栏
 $this->renderWidget('propaganda_column_left',$data['propagandaColumn']);

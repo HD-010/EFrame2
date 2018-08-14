@@ -30,9 +30,10 @@
         ],
     ] ;
     
-    $banner = $data || [];
+    $banner = $data ? $data : [];
     if($data === 'testdata') $banner = $testdata;
     if(empty($banner)) return;
+    $rel = App::params('@relImg');
 ?>
 
 <div class="wp flv1">
@@ -48,12 +49,12 @@
 
     //这里设置调用标记
     <?php 
-    for($i = 1; $i <= count($banner); $i ++):
-        $j = $i - 1;
+    for($i = 0; $i < count($banner); $i ++):
+        $j = $i + 1;
     ?>
-        linkarr[<?=$i ?>] = "<?=T::arrayValue('linkarr', $banner[$j]); ?>";
-        picarr[<?=$i ?>]  = "<?=T::arrayValue('picarr', $banner[$j]); ?>";
-        textarr[<?=$i ?>]="<?=T::arrayValue('textarr', $banner[$j]); ?>";
+        linkarr[<?=$j ?>] = "<?=T::arrayValue('0', $banner[$i]); ?>";
+        picarr[<?=$j ?>]  = "http://<?=$rel.T::arrayValue('1', $banner[$i]); ?>";
+        textarr[<?=$j ?>]="<?=T::arrayValue('textarr', $banner[$i],''); ?>";
     <?php endfor; ?>
     
     

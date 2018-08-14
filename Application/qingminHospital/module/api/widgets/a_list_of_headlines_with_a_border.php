@@ -13,24 +13,24 @@ $testdata = [
     'themeimg' => '/images/q10.jpg',       //主题图片
     'list' => [
         [
-            'title' => '两学一做学习教育',
-            'href' => '/.......',
+            'name' => '两学一做学习教育',
+            'id' => '/.......',
         ],
         [
-            'title' => '民主考评',
-            'href' => '/.......',
+            'name' => '民主考评',
+            'id' => '/.......',
         ],
         [
-            'title' => '创建无烟医院',
-            'href' => '/.......',
+            'name' => '创建无烟医院',
+            'id' => '/.......',
         ],
     ],
 ];
 
-$alistofheadlineswithaboorder = $data || [];
+$alistofheadlineswithaboorder = $data ? $data : [];
 if($data === 'testdata') $alistofheadlineswithaboorder = $testdata;
 if(empty($alistofheadlineswithaboorder)) return;
-$webServer = App::params('@webServer');
+$url = App::params('@webServer')."/pai/artical/read?aid=";
 ?>
 
 <div class="icos1" style="background-image:url(<?=$webServer.T::arrayValue('themeimg', $alistofheadlineswithaboorder) ?>)">
@@ -40,7 +40,7 @@ $webServer = App::params('@webServer');
 			for($i = 0; $i < count($alistofheadlineswithaboorder['list']); $i ++):
 			$list = $alistofheadlineswithaboorder['list'][$i];
 			?>
-			<li><a href='<?=$webServer.T::arrayValue('href', $list) ?>'><?=T::arrayValue('title', $list) ?></a></li>
+			<li><a href='<?=$url.T::arrayValue('id', $list) ?>'><?=T::arrayValue('name', $list) ?></a></li>
 			<?php endfor; ?>
 		</ul>
 		<div class="clear">&nbsp;</div>

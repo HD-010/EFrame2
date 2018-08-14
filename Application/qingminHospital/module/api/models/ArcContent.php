@@ -1,5 +1,5 @@
 <?php 
-namespace qingminHospital\module\api\models;
+namespace qingminhospital\module\api\models;
 
 use App;
 use EFrame\Helper\T;
@@ -9,13 +9,12 @@ use EFrame\Helper\T;
 class ArcContent
 {
     public function getContent(){
-        $queryString  = $_SERVER['REQUEST_URI']; 
-        
+        $queryString  = strtolower('/'.App::module().'/'.App::control().'/'.App::action()); 
         //查询栏目内容
         $o = [
             [
-                "qingminhospital_arctype" => [
-                    "id","topid","typename","content","typedir",
+                "@#_arctype" => [
+                    "id","topid","typename","seotitle","content","typedir",
                 ],
             ],
             "WHERE" => [

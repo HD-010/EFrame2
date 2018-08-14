@@ -8,24 +8,24 @@ $testdata = [
     'typename' => '友情链接',       //主题图片
     'list' => [
         [
-            'src' => '/.....',
-            'alt' => '安徽省卫计委',
-            'href' => '/.......',
+            'logo' => '/.....',
+            'msg' => '安徽省卫计委',
+            'url' => '/.......',
         ],
         
         [
             'src' => '/.....',
-            'alt' => '安徽省卫计委',
+            'msg' => '安徽省卫计委',
             'href' => '/.......',
         ],
     ],
 ];
 
 
-$friendlink = $data || [];
+$friendlink = $data ? $data : [];
 if($data === 'testdata') $friendlink = $testdata;
 if(empty($friendlink)) return;
-$webServer = App::params('@webServer');
+$rel = App::params('@relImg');
 
 ?>
 
@@ -43,8 +43,8 @@ $webServer = App::params('@webServer');
 				for($i = 0; $i < count($friendlink['list']); $i ++):
 				    $list = $friendlink['list'][$i];
 				?>
-					<li><a href='<?=$webServer.T::arrayValue('href', $list) ?>' target='_blank'><img
-						src='<?=$webServer.T::arrayValue('src', $list) ?>' alt='<?=T::arrayValue('alt', $list) ?>' /></a></li>
+					<li><a href='<?=T::arrayValue('url', $list) ?>' target='_blank'><img
+						src='http://<?=$rel.T::arrayValue('logo', $list) ?>' alt='<?=T::arrayValue('msg', $list) ?>' /></a></li>
 				<?php endfor;?>
 			</ul>
 		</div>

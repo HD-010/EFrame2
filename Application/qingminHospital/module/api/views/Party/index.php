@@ -14,32 +14,31 @@ use EFrame\Helper\T;
 ?>
 
 
-<div class="wp flv"><script src="/js/_flv.html" language="javascript" type="text/javascript"></script></div>
-
+<?php $this->renderWidget('header_banner',$data['banner']);?>
 
 <div class="wp">
 <div class="lm">
 
 <?php 
 // 左则子栏目列表  
-$this->renderWidget('son_arctype_left','testdata');
+$this->renderWidget('son_arctype_left',$data['arctypeSon']);
 
 //左则服务项目列表
-$this->renderWidget('service_nav_left','testdata');
+$this->renderWidget('service_nav_left');
 
 //宣传专栏
-$this->renderWidget('propaganda_column_left','testdata');
+$this->renderWidget('propaganda_column_left',$data['propagandaColumn']);
 
 //左则新闻展示栏
-$this->renderWidget('news_left','testdata');
+$this->renderWidget('news_left',$data['newsLeft']);
 ?>
 </div>
 <?php 
 //面包削
-$this->renderWidget("page_map",'testdata');
+$this->renderWidget("page_map");
 
 //文章内容展示模块
-$this->renderWidget("artical_contents_addon_title","testdata");
+$this->renderWidget("artical_contents_addon_title",$data['articalContentsAddonTitle']);
 ?>
 
 </div>

@@ -18,53 +18,24 @@ $testdata = [
             'href' => '/.....',
             'pubdate' => '2012/12/18',
         ],
-        [
-            'title' => '动态心电图及其临床应用',
-            'href' => '/.....',
-            'pubdate' => '2012/12/18',
-        ],
-        [
-            'title' => '体外震波碎石术',
-            'href' => '/.....',
-            'pubdate' => '2012/12/18',
-        ],
-        [
-            'title' => '吸烟会增加年龄相关性黄斑变性的发',
-            'href' => '/.....',
-            'pubdate' => '2012/12/18',
-        ],
-        [
-            'title' => '动态心电图及其临床应用',
-            'href' => '/.....',
-            'pubdate' => '2012/12/18',
-        ],
-        [
-            'title' => '体外震波碎石术',
-            'href' => '/.....',
-            'pubdate' => '2012/12/18',
-        ],
-        [
-            'title' => '吸烟会增加年龄相关性黄斑变性的发',
-            'href' => '/.....',
-            'pubdate' => '2012/12/18',
-        ],
-        
-        
     ],
 ];
-$newsList = $data || [];
+$newsList = $data ? $data : [];
 if($data === 'testdata') $newsList = $testdata;
 if(empty($newsList)) return;
 $webServer = App::params("@webServer");
+$relImg = App::params("@relImg");
+$url = App::params('@webServer').'/api/artical/read?aid=';
 ?>
 
 <div class="artlists">
 	<ul>
 	<?php 
+	if(empty($newsList['list'])) echo "<font style='color:#5c5656;'>还没有数据……</font>";
 	for($i = 0; $i < count($newsList['list']); $i ++ ):
 	$list = $newsList['list'][$i];
 	?>
-		<li><span><a target='_blank' href='<?=$webServer.T::arrayValue('href', $list)?>'><?=T::arrayValue('title', $list)?></a></span><em>[<?=T::arrayValue('pubdate', $list)?>]</em></li>
+		<li><span><a target='_blank' href='<?=$url.T::arrayValue('id', $list)?>'><?=T::arrayValue('title', $list)?></a></span><em>[<?=date('m-d',T::arrayValue('pubdate', $list))?>]</em></li>
 	<?php endfor;?>
 	</ul>
 </div>

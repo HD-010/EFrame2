@@ -13,17 +13,17 @@ use EFrame\Helper\T;
 $testdata = [
     [
         'href' => '.....?id=2843',
-        'title' => '为进一步深入学习贯彻习近平新时代中国特色社会主义思想和党的十九大精神，7月17日下午，医院邀请市委十九大精神宣讲团成员、市委党校理论研究室主任汪庆玲教授来院作习近平新时代中国特色社会主义思想宣讲报告。医院领导班子，全体党员及党外干部300余人参会。党委书记、院长王义文主持报告会。',
+        'name' => '为进一步深入学习贯彻习近平新时代中国特色社会主义思想和党的十九大精神，7月17日下午，医院邀请市委十九大精神宣讲团成员、市委党校理论研究室主任汪庆玲教授来院作习近平新时代中国特色社会主义思想宣讲报告。医院领导班子，全体党员及党外干部300余人参会。党委书记、院长王义文主持报告会。',
         'imgsrc' => '...xx.jpg',
     ],
     [
         'href' => '.....?id=2843',
-        'title' => '为进一步深入学习贯彻习近平新时代中国特色社会主义思想和党的十九大精神，7月17日下午，医院邀请市委十九大精神宣讲团成员、市委党校理论研究室主任汪庆玲教授来院作习近平新时代中国特色社会主义思想宣讲报告。医院领导班子，全体党员及党外干部300余人参会。党委书记、院长王义文主持报告会。',
+        'name' => '为进一步深入学习贯彻习近平新时代中国特色社会主义思想和党的十九大精神，7月17日下午，医院邀请市委十九大精神宣讲团成员、市委党校理论研究室主任汪庆玲教授来院作习近平新时代中国特色社会主义思想宣讲报告。医院领导班子，全体党员及党外干部300余人参会。党委书记、院长王义文主持报告会。',
         'imgsrc' => '...xx.jpg',
     ],
     [
         'href' => '.....?id=2843',
-        'title' => '为进一步深入学习贯彻习近平新时代中国特色社会主义思想和党的十九大精神，7月17日下午，医院邀请市委十九大精神宣讲团成员、市委党校理论研究室主任汪庆玲教授来院作习近平新时代中国特色社会主义思想宣讲报告。医院领导班子，全体党员及党外干部300余人参会。党委书记、院长王义文主持报告会。',
+        'name' => '为进一步深入学习贯彻习近平新时代中国特色社会主义思想和党的十九大精神，7月17日下午，医院邀请市委十九大精神宣讲团成员、市委党校理论研究室主任汪庆玲教授来院作习近平新时代中国特色社会主义思想宣讲报告。医院领导班子，全体党员及党外干部300余人参会。党委书记、院长王义文主持报告会。',
         'imgsrc' => '...xx.jpg',
     ],
 ];
@@ -31,10 +31,11 @@ $testdata = [
 
 //$windownewsrecommendation = $data['windownewsrecommendation'];
 
-$windownewsrecommendation = $data || [];
+$windownewsrecommendation = $data ? $data : [];
 if($data === 'testdata') $windownewsrecommendation = $testdata;
 if(empty($windownewsrecommendation)) return;
-
+$url = App::params('@webServer').'/api/artical/read?id=';
+$rel = App::params('@webServer');
 ?>
 
 <div class="jsimg">
@@ -48,9 +49,9 @@ if(empty($windownewsrecommendation)) return;
 
 						<?php for($i = 0; $i < count($windownewsrecommendation); $i ++):?>
 						<li>
-							<a target='_blank' href='<?=App::params('@webServer').T::arrayValue($i.'.href', $windownewsrecommendation)?>'><img
-								alt='<?=T::arrayValue($i.'.title', $windownewsrecommendation)?>'
-								src='<?=App::params('@webServer').T::arrayValue($i.'.imgsrc', $windownewsrecommendation)?>' />
+							<a target='_blank' href='<?=$url.T::arrayValue($i.'.id', $windownewsrecommendation)?>'><img
+								alt='<?=T::arrayValue($i.'.name', $windownewsrecommendation)?>'
+								src='<?=$rel.T::arrayValue($i.'.litpic', $windownewsrecommendation)?>' />
 							</a>
 						</li>
 						<?php endfor;?>

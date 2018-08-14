@@ -11,11 +11,11 @@ use EFrame\Helper\T;
  */
 //测试数据(最多（佳）展示11条新闻)
 $testdata = [
-    'typename' => '医院新闻',       //类型所属分类名称
+    'type' => '医院新闻',       //类型所属分类名称
     'typehref' => 'articles5a33.html?classid=60', //指向所属栏目的路由
     'list' => [
         [
-            'title' => '医院举办党的十九大精神宣讲报告会',
+            'name' => '医院举办党的十九大精神宣讲报告会',
             'href' => '/article625b.html',
             'pubtime' => '2018-07-18',
         ],
@@ -26,9 +26,10 @@ $testdata = [
 
 //$recommendheadlines = $data['recommendheadlines'];
 
-$newsrecommendationlist = $data || [];
+$newsrecommendationlist = $data ? $data : [];
 if($data === 'testdata') $newsrecommendationlist = $testdata;
 if(empty($newsrecommendationlist)) return;
+$url = App::params("@webServer").'/api/artical/read?id=';
 
 ?>
 
@@ -46,7 +47,7 @@ if(empty($newsrecommendationlist)) return;
 			?>
     			<li>
     			<span>
-    			<a href='<?=App::params('@webServer').T::arrayValue('href', $list) ?>'><?=T::arrayValue('title', $list) ?></a>
+    			<a href='<?=$url.T::arrayValue('id', $list) ?>'><?=T::arrayValue('name', $list) ?></a>
     			</span>
     			<em><?=T::arrayValue('pubtime', $list); ?></em>
     			</li>

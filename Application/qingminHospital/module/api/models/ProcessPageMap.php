@@ -1,5 +1,5 @@
 <?php 
-namespace qingminHospital\module\api\models;
+namespace qingminhospital\module\api\models;
 
 use App;
 use Eframe\Helper\T;

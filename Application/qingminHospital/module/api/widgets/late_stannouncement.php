@@ -16,14 +16,15 @@ $testdata = [
     'typehref' => 'articles5a33.html?classid=60', //指向所属栏目的路由
     'list' => [
         [
-            'title' => '急诊外科大楼部分医用设备招标公告',
+            'name' => '急诊外科大楼部分医用设备招标公告',
             'href' => '/article625b.html',
         ],
     ],
 ];
-$latestannouncement = $data || [];
+$latestannouncement = $data ? $data : [];
 if($data === 'testdata') $latestannouncement = $testdata;
 if(empty($latestannouncement)) return;
+$url = App::params("@webServer")."/api/artical/read?aid=";
 ?>
 
 <div class="s2">
@@ -37,7 +38,7 @@ if(empty($latestannouncement)) return;
 			for($i = 0; $i < count($latestannouncement['list']); $i ++ ):
 			$list = $latestannouncement['list'][$i];
 			?>
-			<li><a href='<?=App::params('@webServer').T::arrayValue('href', $list) ?>'><?=T::arrayValue('title', $list) ?></a></li>
+			<li><a href='<?=$url.T::arrayValue('id', $list) ?>'><?=T::arrayValue('name', $list) ?></a></li>
 			<?php endfor;?>
 		</ul>
 	</div>

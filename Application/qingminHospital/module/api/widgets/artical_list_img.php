@@ -1,16 +1,27 @@
+<?php 
+use EFrame\Helper\T;
+
+$imageList = $data ? $data : [];
+if($data === 'testdata') $imageList = $testdata;
+if(empty($imageList)) return;
+$webServer = App::params("@webServer");
+$relImg = App::params("@relImg");
+$url = App::params('@webServer').'/api/image/show?aid=';
+?>
+
+
 <div class="imglist1">
 	<ul>
+	<?php 
+	for($i = 0 ;$i < count($imageList); $i ++):
+	$list = $imageList[$i];
+	?>
 		<li><a target="_blank"
-			href="file:///D:/temp/11252/www.xcsyy.com/article17f6.html?id=1430"><img
-				src="./list_image_files/20140208140889358935.jpg"></a><span><a
-				href="file:///D:/temp/11252/www.xcsyy.com/article17f6.html?id=1430">飞利浦Allura
-					Xper FD-20F平板数字血管造影系统</a></span></li>
-		<li><a target="_blank"
-			href="file:///D:/temp/11252/www.xcsyy.com/articlefafd.html?id=1268"><img
-				src="./list_image_files/20130107161166026602.jpg"></a><span><a
-				href="file:///D:/temp/11252/www.xcsyy.com/articlefafd.html?id=1268">彩超
-					IU22</a></span></li>
+			href="<?=$url.$list['id'] ?>"><img
+				src="http://<?=$relImg.$list['litpic'] ?>"></a><span><a
+				href="<?=$url.$list['id'] ?>"><?=$list['name'] ?></a></span></li>
 		
+	<?php endfor;?>	
 	</ul>
 </div>
 <div class="clear">&nbsp;</div>

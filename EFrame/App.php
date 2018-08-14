@@ -3,7 +3,7 @@
 
 use \EFrame\base\Base;
 use \EFrame\Helper\T;
-use \EFrame\Base\Error;
+use \EFrame\base\Error;
 
 require_once('Autoloader.php');
 //require_once('base/Base.php');
@@ -17,7 +17,7 @@ class App{
     public static $view;
     public static $control;
     public static $model;
-    public static $block;
+    public static $service;
     public static $db;
     public static $user;
     
@@ -67,8 +67,8 @@ class App{
     public static function module(){
         return self::$route['module'];
     }
-    
-    
+
+
     /**
      * 根据模块名称返回模块对象
      * @param unknown $modelName
@@ -95,6 +95,18 @@ class App{
     public static function control(){
         //控制器名大写
         return ucfirst(T::arrayValue('control', self::$route,'Index'));
+    }
+
+    /**
+     * 根据服务名称(类名称)初始化这个服务对象
+     * $serviceName string 服务类名称
+     * @return object
+     */
+    public static function service($serviceName){
+        //初始化一个服务
+        self::$service->init($serviceName);
+
+        return self::$service;
     }
     
     /**
@@ -137,6 +149,21 @@ class App{
         return self::$request;    
     }
     
+    /**
+     * 获取当前使用的数据库配置名称
+     * @return mixed
+     */
+    public static function getDBInfo(){
+        return self::$db['DBInfo'];
+    }
+    
+    /**
+     * 设置当前使用的数据库配置名称
+     * @param unknown $configName 数据库配置名称
+     */
+    public static function setDBInfo($configName){
+        self::$db['DBInfo'] = $configName;
+    }
     
     /**
      * 返回数据库连接对象
@@ -150,6 +177,7 @@ class App{
 
         if(!array_key_exists($configName,self::$db)){
             self::$db[$configName] = Base::DB($configName);
+            self::setDBInfo($configName);
         }
         
         return self::$db[$configName];
@@ -158,13 +186,15 @@ class App{
     /**
      * 初始化基础模块
      */
-    public static function baseInit(){
+    protected static function baseInit(){
+        //初始化服务层对象
+        self::$service = Base::service();
+        //初始化模型对象
         self::$model = Base::model();
+        //初始化控制器对象
         self::$control = Base::control();
-        
+        //初始化视图对象
         self::$view = Base::view();
-        
-        self::$block = Base::block();
     }
     
     /**
@@ -199,7 +229,7 @@ class App{
     /**
      * 如果访问控制器下的操作不存在，则加载404页面,返回true
      */
-    public function load404(){
+    protected function load404(){
         //如果访问控制器下的操作不存在，则加载404页面
         
         if(self::$control === false) {

@@ -58,8 +58,9 @@ if ($data == 'testdata')
     if (empty($propaganda['list']))return;
     
 $webServer = App::params('@webServer');
+$url = App::params('@webServer').'/api/personage/show?aid=';
+$rel = App::params('@relImg');
 ?>
-
 
 <div class="d1 mt10"><span><?=T::arrayValue('serviceType.typename', $propaganda) ?></span></div>
 <div class="bd2">
@@ -69,7 +70,7 @@ $webServer = App::params('@webServer');
 for($i = 0; $i < count($propaganda['list']); $i ++ ): 
 $list = $propaganda['list'][$i];
 ?>
-<li><a href='<?=$webServer.T::arrayValue('href', $list) ?>'><?=T::arrayValue('name', $list) ?></a></li>
+<li><a href='<?=$url.T::arrayValue('id', $list) ?>'><?=T::arrayValue('name', $list) ?></a></li>
 
 <?php endfor;?>
 </ul>

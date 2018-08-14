@@ -1,6 +1,8 @@
 <?php
 namespace EFrame\base;
 
+use EFrame\Helper\T;
+
 /**
  * @author yx010
  *  sql语句构造类
@@ -78,14 +80,14 @@ class Query{
      * App::db()->insertCommond($o)->showQuery();
      */
     public function showQuery(){
-        return $this->sql;
+        return $this->processPrefix($this->sql);
     }
     
     //========================select查询语句构造========================
     /**
      * 初始化select查询对象
      */
-    public function queryRInit($qObj){
+    protected function queryRInit($qObj){
         $this->QObj = [
             [
                 "tableName1" => [
@@ -163,7 +165,7 @@ class Query{
     /**
      * 初始化delet删除对象
      */
-    public function queryDInit($qObj){
+    protected function queryDInit($qObj){
         $this->QObj = [
             "MAIN_TABLE" => '',     //tableName',
             "FETCH_TABLE" => [      //受影响的表
@@ -219,7 +221,7 @@ class Query{
     /**
      * 初始化update更新对象
      */
-    public function queryUInit($qObj){
+    protected function queryUInit($qObj){
         $this->QObj = [
             "MAIN_TABLE" => '',     //tableName',
             "SET" => [      //受影响的表
@@ -275,7 +277,7 @@ class Query{
     /**
      * 初始化insert更新对象
      */
-    public function queryCInit($qObj){
+    protected function queryCInit($qObj){
         $this->QObj = [
          "TABLE" => 'tableName',
          "FIELDS"=>['fields1','fields2'],
@@ -333,7 +335,7 @@ class Query{
         ],
      ]
      */
-    public function fieldsQC(){
+    protected function fieldsQC(){
         $Q = $this->QObj[0];
         $mainTb = $fields = '';
 
@@ -366,7 +368,7 @@ class Query{
             ],
         ] 
      */
-    public function leftJoin(){
+    protected function leftJoin(){
         $relation = '';
         
         if(!array_key_exists('LEFT_JOIN',$this->QObj)) return '';
@@ -388,7 +390,7 @@ class Query{
             ],
         ]
      */
-    public function where(){
+    protected function where(){
         $where = ' WHERE ';
         $Q = $this->QObj["WHERE"];
         if(!is_array($Q) || empty($Q)) return '';
@@ -406,7 +408,7 @@ class Query{
             ],
         ]
      */
-    public function groupBy(){
+    protected function groupBy(){
         $groupBy = ' GROUP BY ';
         $Q = $this->QObj["GROUP_BY"];
         if(!is_array($Q) || empty($Q)) return '';
@@ -424,7 +426,7 @@ class Query{
             ],
         ]
      */
-    public function orderBy(){
+    protected function orderBy(){
         $orderBy = ' ';
         $Q = $this->QObj["ORDER_BY"];
         if(!is_array($Q) || empty($Q)) return '';
@@ -436,7 +438,7 @@ class Query{
             "LIMIT" => '0,1'
         ]
      */
-    public function limit(){
+    protected function limit(){
         $limit = ' ';
         $Q = $this->QObj["LIMIT"];
         if(!is_string($Q) || strlen($Q) < 1) return '';
@@ -452,7 +454,7 @@ class Query{
         ],
      ]
      */
-    public function fetchTb(){
+    protected function fetchTb(){
         $fetchTb = '';
         $Q = $this->QObj["FETCH_TABLE"];
         if(empty($Q)) return '';
@@ -468,7 +470,7 @@ class Query{
             ],
        ]
      */
-    public function set(){
+    protected function set(){
         $set = ' set ';
         $Q = $this->QObj["SET"];
         if(empty($Q)) return '';
@@ -488,7 +490,7 @@ class Query{
      ];
      * @return string
      */
-    public function insertTable(){
+    protected function insertTable(){
         return $this->QObj['TABLE'];
     }
     
@@ -504,7 +506,7 @@ class Query{
      ];
      * @return string
      */
-    public function insertFields(){
+    protected function insertFields(){
         $fields = implode(',', $this->QObj['FIELDS']);
         return ' ('.$fields.')';
     }
@@ -521,7 +523,7 @@ class Query{
      ];
      * @return string
      */
-    public function insertvalues(){
+    protected function insertvalues(){
         $fields = ' VALUES ';
         $fieldTem = [];
         for($i = 0; $i < count($this->QObj['VALUES']); $i++){
@@ -535,7 +537,7 @@ class Query{
     /**
      * 
      */
-    public function implode($delimiter,$array){
+    protected function implode($delimiter,$array){
         $str = '';
         
         //分隔符长度
@@ -565,7 +567,7 @@ class Query{
      * @param unknown $pieces 字段集合
      * @return string
      */
-    public function fieldImplode($glue, $pieces){
+    protected function fieldImplode($glue, $pieces){
         $str = $action = $param = '';
         for($i = 0; $i < count($pieces); $i++){
             $ops = false;
@@ -587,6 +589,18 @@ class Query{
             }
         }
         return substr($str,1);
+    }
+    
+    /**
+     * 替换数据表前缀
+     * @param unknown $query 需要替换数据表前缀的sql语句
+     * @return mixed
+     */
+    protected function processPrefix($query){
+        //替换表前缀，还原表名
+        $DBInfo = \App::getDBInfo();
+        $dbprefix = \App::config('DBconfig')[$DBInfo]['dbprefix'];
+        return str_replace('@#', $dbprefix, $query);
     }
     
     

@@ -26,7 +26,7 @@ use EFrame\Helper\T;
     $webServer = App::params('@webServer');
 ?>
 <li class="cur">
-	<a onclick="setArctypeTop(this)" href="<?=$webServer.T::arrayValue('typedir',$arctypeTop) ?>" data='<?=T::arrayValue('typedir',$arctypeTop) ?>'><?=T::arrayValue('typename',$arctypeTop) ?></a>
+	<a onmouseover="setArctypeTop(this)" href="<?=$webServer.T::arrayValue('typedir',$arctypeTop) ?>" data='<?=T::arrayValue('typedir',$arctypeTop) ?>'><?=T::arrayValue('typename',$arctypeTop) ?></a>
 	<?php 
 	if($arctypeSun = T::arrayValue('sun', $arctypeTop,false)): 
 	?>

@@ -12,29 +12,30 @@ use EFrame\Helper\T;
 //测试数据
  $testdata = [
     'tyleNmae' => '市级（院级）重点学科（特色专科）',   //分类名称
-    'lines' => [
+    'list' => [
         [
-            'title' => '骨科',
-            'href' => ''
+            'name' => '骨科',
+            'id' => ''
         ],                              //标题组
         [
-            'title' => '泌尿外科',
-            'href' => ''
+            'name' => '泌尿外科',
+            'id' => ''
         ],                              //标题组
     ]
  ];
 
-//$recommendheadlines = $data['recommendheadlines'];
+//$recommendheadlist = $data['recommendheadlist'];
 
-$recommendheadlines = $data || [];
-if($data === 'testdata') $recommendheadlines = $testdata;
-if(empty($recommendheadlines)) return;
+ $recommendheadlist = $data ? $data : [];
+if($data === 'testdata') $recommendheadlist = $testdata;
+if(empty($recommendheadlist)) return;
+$url = App::params('@webServer')."/api/artical/read?aid=";
 ?>
 <div class="wp ssbgs">
-	<span><strong><?=T::arrayValue('tyleNmae', $recommendheadlines)?></strong>：</span>
-	<?php for($i = 0; $i < count($recommendheadlines['lines']); $i ++):?>
+	<span><strong><?=T::arrayValue('tyleNmae', $recommendheadlist)?></strong>：</span>
+	<?php for($i = 0; $i < count($recommendheadlist['list']); $i ++):?>
 	
-    	<span><a href='<?=App::params('@webServer').T::arrayValue($i.'.href', $recommendheadlines['lines'])?>'><?=T::arrayValue($i.'.title', $recommendheadlines['lines'])?></a></span>
+    	<span><a href='<?=$url.T::arrayValue($i.'.id', $recommendheadlist['list'])?>'><?=T::arrayValue($i.'.name', $recommendheadlist['list'])?></a></span>
 	
 	<?php endfor;?>
 	

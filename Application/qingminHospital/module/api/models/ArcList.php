@@ -1,5 +1,5 @@
 <?php 
-namespace qingminHospital\module\api\models;
+namespace qingminhospital\module\api\models;
 
 use App;
 use EFrame\Helper\T;
@@ -10,25 +10,25 @@ class ArcList
 {
     public function getList(){
         $queryString  = $_SERVER['REQUEST_URI']; 
-        //$str = "select * from qingminhospital_addonpersonage where typeid=(select id from qingminhospital_arctype where typedir = '')";
+        //$str = "select * from @#_addonpersonage where typeid=(select id from @#_arctype where typedir = '')";
         //查询栏目内容
         $o = [
             [
-                "qingminhospital_archives" => [
+                "@#_archives" => [
                     'litpic'
                 ],
-                "qingminhospital_addonpersonage" => [
+                "@#_addonpersonage" => [
                     "*",
                 ],
             ],
             "LEFT_JOIN" =>[
-                "qingminhospital_addonpersonage" => " ON qingminhospital_archives.typeid = qingminhospital_addonpersonage.typeid",
+                "@#_addonpersonage" => " ON @#_archives.typeid = @#_addonpersonage.typeid",
             ],
             "WHERE" => [
-                "qingminhospital_archives.typeid = (select id from qingminhospital_arctype where typedir = '".$queryString."')",
+                "@#_archives.typeid = (select id from @#_arctype where typedir = '".$queryString."')",
             ],
             "ORDER_BY" => [
-                "qingminhospital_archives.sortrank",
+                "@#_archives.sortrank",
             ],
             
             "LIMIT" => '0,10'
@@ -41,6 +41,7 @@ class ArcList
         
         
     }
+    
     
 }
 

@@ -1,5 +1,5 @@
 <?php
-namespace qingminHospital\module\api\models;
+namespace qingminhospital\module\api\models;
 
 use App;
 use EFrame\Helper\T;
@@ -41,7 +41,7 @@ class Arctype
         //查找顶级栏目（总的有两级）
         $o = [
             [
-                "qingminhospital_arctype" => [
+                "@#_arctype" => [
                     "id","topid","typename","typedir",
                 ],
             ],
@@ -55,6 +55,7 @@ class Arctype
             
             "LIMIT" => '0,10'
         ];
+        
         $arctypeTop = App::DB()->selectCommond($o)->query()->fetchAll();
         //T::print_pre(arctype);
         $this->arctypeTop = $arctypeTop;
@@ -66,11 +67,11 @@ class Arctype
     //获取子级栏目信息
     public function setArctypeSun(){
         //设置顶级栏目id
-        $this->setTopId();
+        //$this->setTopId();
         //查找子栏目
         $o = [
             [
-                "qingminhospital_arctype" => [
+                "@#_arctype" => [
                     "id","topid","typename","typedir",
                 ],
             ],
@@ -83,6 +84,7 @@ class Arctype
             ],
             
         ];
+     
         $arctypeSun = App::DB()->selectCommond($o)->query()->fetchAll();
         //T::print_pre($sunArctype);
         $this->arctypeSun = $arctypeSun;
@@ -92,7 +94,7 @@ class Arctype
     
     //设置topid
     public function setTopId($topId=null){
-        $this->topId = $topId ? " = ".$topId : " in (select `id` from qingminhospital_arctype where topid = '0')";
+        $this->topId = $topId ? " = ".$topId : " in (select `id` from @#_arctype where topid = '0')";
         
         return $this;
     }

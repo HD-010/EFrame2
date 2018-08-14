@@ -2,11 +2,11 @@
 namespace EFrame\base;
 
 use \App;
-use \EFrame\Base\Route;
-use \EFrame\Base\View;
-use \EFrame\Base\Control;
-use \EFrame\Base\Model;
-use \EFrame\Base\Block;
+use \EFrame\base\Route;
+use \EFrame\base\View;
+use \EFrame\base\Control;
+use \EFrame\base\Module;
+use \EFrame\base\Service;
 use \EFrame\base\Request;
 use \EFrame\base\Error;
 
@@ -73,6 +73,7 @@ class Base{
             print $e->getMessage();
             return false;
         }
+      
         return $control;
         
     }
@@ -85,12 +86,12 @@ class Base{
         return new \EFrame\base\Model();
     }
     /**
-     * 实例化一个block对象
-     * @param unknown $blockName
+     * 实例化一个service对象
+     * @param unknown $serviceName
      * @return unknown
      */
-    public static function block(){
-        return new \EFrame\base\Block();
+    public static function service(){
+        return new \EFrame\base\Service();
     }
     
     public static function authorize(){

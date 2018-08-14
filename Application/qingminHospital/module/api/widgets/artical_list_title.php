@@ -44,28 +44,45 @@ $testdata = [
         
     ],
 ];
-$articalList = $data || [];
+$articalList = $data ? $data : [];
 if($data === 'testdata') $articalList = $testdata;
 if(empty($articalList)) return;
-$webServer = App::params("@webServer");
+$webServer = App::params('@webServer');
+$url = App::params('@webServer').'/api/artical/read?aid=';
+$rel = App::params('@relImg');
+//T::print_pre($articalList);
 ?>
 
+<?php 
 
-<div class="rm" style="margin-bottom:1.5em;">
-<div class="ew"><div class="clasname"><?=T::arrayValue('typename', $articalList) ?></div></div>
-<div class="mc">
-<div class="dmlist">
-<ul>
-
-<?php for($i = 0; $i < count($testdata['list']); $i++):
-$list = $testdata['list'][$i];
+for($j = 0;$j < count($articalList['clumns']);$j++ ):
+$clum = $articalList['clumns'][$j];
+$dlumid = $clum['id'];
 ?>
-<li><a href='<?=$webServer.T::arrayValue('href', $list) ?>' title='<?=T::arrayValue('title', $list) ?>'><?=T::arrayValue('title', $list) ?></a></li>
+<div class="rm" style="margin-bottom: 1.5em;">
+	<div class="ew">
+		<div class="clasname"><?=T::arrayValue('typename', $clum) ?></div>
+	</div>
+	<div class="mc">
+		<div class="dmlist">
+			<ul>
+
+<?php
+
+for ($i = 0; $i < count($articalList['arclist']); $i ++) :
+$list = $articalList['arclist'][$i];
+if($list['typeid'] != $dlumid) continue;
+    ?>
+<li><a href='<?=$url.T::arrayValue('id', $list) ?>'
+					title='<?=T::arrayValue('name', $list) ?>'><?=T::arrayValue('name', $list) ?></a></li>
 <?php endfor;?>
 
 </ul>
-<div class="clear">&nbsp;</div>
+			<div class="clear">&nbsp;</div>
+		</div>
+	</div>
 </div>
-</div>
-</div>
-
+<?php 
+unset($articalList['arclist'][$i]);
+endfor;
+?>

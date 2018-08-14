@@ -11,10 +11,12 @@ use EFrame\Helper\T;
 // if($data == 'testdata') $arcticle = $testdata;
 // if(empty($arcticle)) return;
 // $webServer = App::params('@webServer');
+
+
 ?>
+<?php $this->renderWidget('header_banner',$data['banner']);?>
 
 
-<div class="wp flv"><script src="/js/_flv.html" language="javascript" type="text/javascript"></script></div>
 
 
 <div class="wp">
@@ -22,27 +24,27 @@ use EFrame\Helper\T;
 
 <?php 
 // 左则子栏目列表  
-$this->renderWidget('son_arctype_left','testdata');
+$this->renderWidget('son_arctype_left',$data['arctypeSon']);
 
 //左则服务项目列表
-$this->renderWidget('service_nav_left','testdata');
+$this->renderWidget('service_nav_left');
 
 //宣传专栏
-$this->renderWidget('propaganda_column_left','testdata');
+$this->renderWidget('propaganda_column_left',$data['propagandaColumn']);
 
 //左则新闻展示栏
-$this->renderWidget('news_left','testdata');
+$this->renderWidget('news_left',$data['newsLeft']);
 ?>
 </div>
 <?php 
 //面包削
-$this->renderWidget("page_map",'testdata');
+$this->renderWidget("page_map");
 
 //文章内容展示模块
-$this->renderWidget("news_list_title","testdata");
+$this->renderWidget("down_list_title",$data['filesList']);
 
-//页模块
-$this->renderWidget('paging','testdata');
+//分页模块
+$this->renderWidget('paging');
 ?>
 
 </div>

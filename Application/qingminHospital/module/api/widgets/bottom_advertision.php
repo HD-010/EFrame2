@@ -8,32 +8,23 @@ $testdata = [
     'themeimg' => '/images/as.jpg',       //主题图片
     'list' => [
         [
-            'src' => '/.....',
-            'alt' => '飞利浦Allura Xper FD-20F平板数字血管造影系统',
-            'href' => '/.......',
+            'id' => '',     //文章id
+            'typeid' => 15, //栏目id
+            'name' => '飞利浦Allura Xper FD-20F平板数字血管造影系统',
+            'litpic' => '/.......',
         ],
-        [
-            'src' => '',
-            'alt' => '飞利浦Allura Xper FD-20F平板数字血管造影系统',
-            'href' => '/.......',
-        ],
-        [
-            'src' => '',
-            'alt' => '飞利浦Allura Xper FD-20F平板数字血管造影系统',
-            'href' => '/.......',
-        ],
-        
     ],
 ];
 
-$bottomadvertision = $data || [];
+$bottomadvertision = $data ? $data : [];
 if($data === 'testdata') $bottomadvertision = $testdata;
 if(empty($bottomadvertision)) return;
-$webServer = App::params('@webServer');
+$rel = App::params('@relImg');
+$url = App::params('@webServer').'/api/artical/read?aid=';
 ?>
 
 
-<div class="wp shebei" style="background-image:url(<?=$webServer.T::arrayValue('themeimg', $bottomadvertision) ?>)">
+<div class="wp shebei" style="background-image:url(<?=App::params('@webServer').T::arrayValue('themeimg', $bottomadvertision) ?>)">
 	<div class="simlist" id="hottitle">
 		<ul id="ulid">
 			<?php 
@@ -41,9 +32,9 @@ $webServer = App::params('@webServer');
 			$list = $bottomadvertision['list'][$i];
 			?>
 			<li>
-				<a href='<?=$webServer.T::arrayValue('href', $list) ?>'>
-					<img src='<?=$webServer.T::arrayValue('src', $list) ?>'
-						alt='<?=T::arrayValue('alt', $list) ?>' />
+				<a href='<?=$url.T::arrayValue('id', $list) ?>'>
+					<img src='http://<?=$rel.T::arrayValue('litpic', $list) ?>'
+						alt='<?=T::arrayValue('name', $list) ?>' />
 				</a>
 			</li>
 			<?php endfor;?>

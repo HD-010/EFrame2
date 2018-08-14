@@ -49,7 +49,7 @@ class Autoloader
         if (strpos($name, 'EFrame\\') === 0) {
             $class_file = __DIR__ . substr($class_path, strlen('EFrame')) . '.php';
         }else {
-            $class_file = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Application'.DIRECTORY_SEPARATOR.$class_path.'.PHP';
+            $class_file = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Application'.DIRECTORY_SEPARATOR.$class_path.'.php';
             
             /* if (self::$_autoloadRootPath) {
                 $class_file = self::$_autoloadRootPath . DIRECTORY_SEPARATOR . $class_path . '.php';
@@ -57,6 +57,9 @@ class Autoloader
             if (empty($class_file) || !is_file($class_file)) {
                 $class_file = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . "$class_path.php";
             } */
+        }
+        if(!realpath($class_file)){
+          echo  "文件不存在：".$class_file."<br/>";
         }
         
         if (is_file($class_file)) {
