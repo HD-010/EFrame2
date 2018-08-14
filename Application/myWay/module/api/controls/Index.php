@@ -34,7 +34,7 @@ class Index extends Control
 
         //加载数据模型
         $data['modelData'] = [];
-        foreach($models as $key => $val){``
+        foreach($models as $key => $val){
             //模型名称
             $modelNmae = str_replace('_','',ucfirst($val));
             //获取视图模型与其对应的数据

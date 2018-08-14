@@ -1,11 +1,18 @@
 <?php
 /**
+ * 用户视图模型服务
+ * 用于处理视图模型数据
  * Created by PhpStorm.
  * User: yx010
  * Date: 2018/8/12
  * Time: 8:56
  * 该类测试地址如：
  * http://newway.eframe2.e01.ren/api/index/index?m=idk2584s
+ * 调用方法如：
+ *  //获取用户从事行业代码
+ *  $userModelView = App::service('UserModelView')->options('UserModelView');
+    //用户从事行业代码
+    $data['industroyCode'] = $userModelView->getIndustroyCode();
  */
 namespace myWay\module\api\servicese;
 
@@ -57,7 +64,7 @@ class UserModelView
     }
 
     /**
-     * 获取用户视图模块配置
+     * 获取用户所有视图模块的配置信息
      * @return mixed
      */
     public function get(){
