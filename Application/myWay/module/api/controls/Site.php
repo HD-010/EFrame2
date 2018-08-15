@@ -7,11 +7,11 @@ use EFrame\Helper\T;
 
 
 /**
- * Class Index
- * 测试地址：http://newway.eframe2.e01.ren/api/index/index?m=idk2584s&v=index
+ * Class Site
+ * 测试地址：http://newway.eframe2.e01.ren/api/site/index?m=idk2584s&v=index
  * @package myWay\module\api\controls
  */
-class Index extends Control
+class Site extends Control
 {
 
     /**
@@ -38,6 +38,7 @@ class Index extends Control
             //模型名称
             $modelNmae = str_replace('_','',ucfirst($val));
             //获取视图模型与其对应的数据
+            echo "加载的数据模型：$modelNmae";
             $data['modelData'][$key] = App::model($modelNmae)->get();
         }
         //获取当前页面的视图名称

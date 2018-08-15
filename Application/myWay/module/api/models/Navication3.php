@@ -18,46 +18,18 @@ class Navication3
 
     public function get(){
         $this->setArctype();
-        $this->processDependence();
 
+        return $this->arctype;
     }
 
     //获取栏目列表的所有信息
     //获取顶级栏目列表信息
     public function setArctype(){
-
-        $o = [
-            [
-                "@#_arctype" => [
-                    "id","topid",
-                ],
-            ],
-            "WHERE" => [
-                "topid='0'",
-            ],
-
-            "ORDER_BY" => [
-
-                "topid, sortrank",
-            ],
-
-            "LIMIT" => '0,50'
-        ];
-
-        $arctype = App::DB()->selectCommond($o)->query()->fetchAll();
-
-        T::print_pre($arctype);
-        $this->arctype = $arctype;
+        $arctype = App::service('Arctype')->options('Arctype');
+        $this->arctype = $arctype->getArctype();
 
         return $this;
     }
 
-    //处理菜单不同级别的依赖关系
-    public function processDependence(){
-        $topid = T::implodeArr('id',$this->arctype);
-
-
-        T::print_pre($topid);
-    }
 
 }

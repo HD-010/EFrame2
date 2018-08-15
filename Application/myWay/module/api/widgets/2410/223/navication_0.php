@@ -10,7 +10,7 @@ use EFrame\Helper\T;
 
 <section class="navication_0" data-module_name="navication_0">
     <?php
-    T::print_pre($data);
+    //T::print_pre($data);
     ?>
 hearder_0
 </section>

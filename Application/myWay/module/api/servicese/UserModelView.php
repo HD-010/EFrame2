@@ -7,7 +7,7 @@
  * Date: 2018/8/12
  * Time: 8:56
  * 该类测试地址如：
- * http://newway.eframe2.e01.ren/api/index/index?m=idk2584s
+ * http://newway.eframe2.e01.ren/api/site/index?m=idk2584s
  * 调用方法如：
  *  //获取用户从事行业代码
  *  $userModelView = App::service('UserModelView')->options('UserModelView');
