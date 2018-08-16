@@ -4,6 +4,12 @@ namespace myWay\module\api\servicese;
 use App;
 use EFrame\Helper\T;
 
+/**
+ * 文章服务类
+ * Class Archives
+ *
+ * @package myWay\module\api\servicese
+ */
 class Archives{
     protected $typeId;              //栏目id
     protected $aid;                 //文章id
@@ -16,11 +22,18 @@ class Archives{
 
     /**
      * 获取文章列表
+     * 调用文章列表服务需要传入以下参数：
+     * tid
+     * ps
+     * cp
+     * flag
      * @return mixed
      */
     public function getList(){
         //初始化typyid
-        $this->typeId = App::request()->get('tid');
+        //$this->typeId = App::request()->get('tid');
+        //初始化flag
+        $this->flag = App::request()->get('flag');
         //初始化分页步长
         $this->pageSize = App::request()->get('ps',20);
         //初始化当前页数
@@ -32,18 +45,33 @@ class Archives{
 
     /**
      * 获取文章内容
+     * 调用url案例：
+     * http://newway.eframe2.e01.ren/api/site/index?m=idk2584s&v=index&tid=8&aid=7
+     * 调用文章内容服务需要传入以下参数：
+     * tid
+     * aid
      */
-    public function getContent(){
+    public function getArtical(){
         //初始化typeid，用于查找附加表
-        $this->typeId = App::request()->get('tid');
+        //$this->typeId = App::request()->get('tid');
         //初始化文章id(如果aid=-1表示aid错误，输入预置错误信息)
         $this->aid = App::request()->get('aid',-1);
-        //初始化分页步长
-        $this->pageSize = App::request()->get('ps',20);
-        //初始化当前页数
-        $this->currentPage = App::request()->get('cp',1);
+        //查询附加表
+        $this->setAddonTable();
+        //查询文章内容
+        $this->setArtical();
 
-        $this->setContent();
+        return $this->artical;
+    }
+
+    /**
+     * 设置参数
+     * param = ['typeId'=>7]
+     */
+    public function setParam($param = []){
+        $this->typeId = T::arrayValue('typeId',$param,null);
+
+        return $this;
     }
 
     /**
@@ -62,7 +90,9 @@ class Archives{
         //添加查询条件
         if($this->typeId) $q['WHERE'][] = '@#_archives.typeid = '.$this->typeId;
         if($this->flag) $q['WHERE'][] = '@#_archives.flag like %'.str_replace(',','%',$this->flag).'%';
-        $q['LIMIT'] = "($this->currentPage - 1) * $this->pageSize, $this->pageSize";
+        //分面开始数据
+        $startPage = ($this->currentPage - 1) * $this->pageSize;
+        $q['LIMIT'] = "$startPage,$this->pageSize";
 
         $res = App::DB()->selectCommond($q)->query()->fetchAll();
         //添加数据状态
@@ -76,7 +106,7 @@ class Archives{
      * 查询文章内容
      * @return $this
      */
-    protected function setContent(){
+    protected function setArtical(){
         $q = [
             [
                 "@#_archives" => [
@@ -92,8 +122,10 @@ class Archives{
         ];
 
         if($this->aid) $q['WHERE'][] = "@#_archives.id = $this->aid";
-        $q['LIMIT'] = "($this->currentPage - 1) * $this->pageSize, $this->pageSize";
-        $res = App::DB()->selectCommond($q)->query()->fetchAll();
+
+
+        //echo App::DB()->selectCommond($q)->showQuery();exit;
+        $res = App::DB()->selectCommond($q)->query()->fetch(1);
         $this->artical = T::addStatus($res);
 
         return $this;
@@ -110,12 +142,13 @@ class Archives{
                     'addtable'
                 ],
             ],
-            'WHERE'=>[
-                'id = $this->typeid',
-            ]
         ];
-        $res = App::DB()->selectCommond($q)->query()->fetchOne();
-
+        //组织查询条件
+        if($this->typeId) $q['WHERE'][] =  "id = (SELECT channel from @#_archives WHERE typeid = $this->typeId LIMIT 1)";
+        $q['LIMIT'] = '0,1';
+        //执行查询语句
+        $res = App::DB()->selectCommond($q)->query()->fetch();
+        //T::print_pre($res);
         $this->addonTable = $res['addtable'];
 
         return $this;

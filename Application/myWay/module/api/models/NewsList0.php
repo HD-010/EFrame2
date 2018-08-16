@@ -11,20 +11,33 @@ namespace myWay\module\api\models;
 use App;
 use EFrame\Helper\T;
 
-class RecommondNews0
+/**
+ * Class NewsList0
+ * 新闻列表类
+ * @package myWay\module\api\models
+ */
+class NewsList0
 {
     protected $newsList;
 
+    /**
+     * 返回新闻列表
+     * @return mixed
+     */
     public function get(){
         $this->setNewsList();
 
         return $this->newsList;
     }
 
-    //获取新闻列表
-    public function setNewsList(){
+    /**
+     * 获取新闻列表
+     * 需要指明typeid的值
+     * @return $this
+     */
+    protected function setNewsList(){
         $newsList = App::service('Archives')->options('Archives');
-        $this->newsList = $newsList->getList();
+        $this->newsList = $newsList->setParam(['typeId'=>7])->getList();
 
         return $this;
     }

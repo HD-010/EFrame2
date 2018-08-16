@@ -6,7 +6,7 @@ return $modelData = [
         'header_0'=>'header_0',
         //页面小部件名称
         'navication_0' => 'navication_3',
-        'recommondNews_0'=>'recommondNews0',
+        'NewsList_0'=>'NewsList_0',
 
     ],
     //页面名称

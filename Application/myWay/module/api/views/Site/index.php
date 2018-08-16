@@ -11,6 +11,7 @@ if(!is_array($industroyCode)) {
 for($i = 0; $i < count($data['pagemodel']); $i ++){
     //视图模块名称
     $modelName = T::arrayValue('pagemodel.'.$i,$data,null);
+    echo "视图模块名称:$modelName </br>";
     //视图模块数据
     $modelData = T::arrayValue('modelData.'.$modelName,$data,null);
     //返回视图小部件

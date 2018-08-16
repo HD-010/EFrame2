@@ -12,6 +12,11 @@ namespace myWay\module\api\models;
 use App;
 use EFrame\Helper\T;
 
+/**
+ * 导航栏数据，包含顶级栏目和二级栏目信息
+ * Class Navication3
+ * @package myWay\module\api\models
+ */
 class Navication3
 {
     protected $arctype;             //栏目信息
@@ -30,6 +35,4 @@ class Navication3
 
         return $this;
     }
-
-
 }
