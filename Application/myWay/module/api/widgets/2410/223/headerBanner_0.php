@@ -10,9 +10,9 @@ use EFrame\Helper\T;
 </style>
 
 <section class="hearderBanner_0" data-module_name="hearderBanner_0">
+这是headerBanner_0.php
     <?php
     T::print_pre($data);
     ?>
-hearderBanner_0
 
 </section>

@@ -9,8 +9,8 @@ use EFrame\Helper\T;
 </style>
 
 <section class="navication_0" data-module_name="navication_0">
+这是navication_0.php
     <?php
     //T::print_pre($data);
     ?>
-hearder_0
 </section>

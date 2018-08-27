@@ -7,7 +7,7 @@ return $modelConfig = [
     'pageModel' => [
         //视图文件名称
         'index' => ['header_0','headerBanner_0','navication_0','NewsList_0','footer_0'],       //首页模块名称
-        'news' => ['header_2','navication_0','newsList_0','footer_0'],                              //新闻栏目索引页模块名称
+        'news' => ['header_2','navication_0','newsList_0','footer_0'],                         //新闻栏目索引页模块名称
     ],
 
 ];

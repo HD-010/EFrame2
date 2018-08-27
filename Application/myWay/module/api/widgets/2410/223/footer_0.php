@@ -7,9 +7,9 @@ use EFrame\Helper\T;
 }
 </style>
 <section class="footer_0" data-module_name="footer_0">
+这是footer_0.php
     <?php
     T::print_pre($data);
     ?>
-    footer_0
 
 </section>
