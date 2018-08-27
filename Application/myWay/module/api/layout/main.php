@@ -43,6 +43,10 @@ section{
 }
 </style>
 
+
+
+
+
 <?php 
 echo  $this->contents();
 ?>

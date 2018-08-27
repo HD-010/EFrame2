@@ -11,7 +11,19 @@ use EFrame\Helper\T;
 
 <section class="hearderBanner_0" data-module_name="hearderBanner_0">
 这是headerBanner_0.php
-    <?php
+
+    <!--幻灯片图片开始-->
+    <div class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper"> {eyou:adv pid='1'}
+                <div class="swiper-slide"><img src="{$field.litpic}"></div>
+                {/eyou:adv} </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <!--幻灯片图片结束-->
+
+        <?php
     T::print_pre($data);
     ?>
 
