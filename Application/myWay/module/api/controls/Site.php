@@ -9,6 +9,8 @@ use EFrame\Helper\T;
 /**
  * Class Site
  * 测试地址：http://newway.eframe2.e01.ren/api/site/index?m=idk2584s&v=index
+ * 参数m:model id 与modelConfig,modelData,modelStyle的文件名称对应
+ * 参数v:需要展示的页面名称
  * @package myWay\module\api\controls
  */
 class Site extends Control
