@@ -7,7 +7,8 @@ use EFrame\Helper\T;
 /**
  * 文章服务类
  * Class Archives
- *
+ * 调用url案例：
+ * http://newway.eframe2.e01.ren/api/site/index?m=idk2584s&v=index&tid=8&aid=7
  * @package myWay\module\api\servicese
  */
 class Archives{
@@ -39,7 +40,7 @@ class Archives{
         //初始化当前页数
         $this->currentPage = App::request()->get('cp',1);
         $this->setList();
-
+        
         return $this->articalList;
     }
 
@@ -48,7 +49,8 @@ class Archives{
      * 调用url案例：
      * http://newway.eframe2.e01.ren/api/site/index?m=idk2584s&v=index&tid=8&aid=7
      * 调用文章内容服务需要传入以下参数：
-     * tid
+     * 参数：tid　typeid
+     * 参数：aid articalid  
      * aid
      */
     public function getArtical(){
