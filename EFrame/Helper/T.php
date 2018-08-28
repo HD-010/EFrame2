@@ -35,8 +35,19 @@ class T
         }
         return $value ? $value : $default;
     }
-    
-    
+
+    /**
+     * 获取限定长度的字符串,如果字符长度大于指定的长度截取限定长度以的字符，乘于的用...表示
+     * @param $str 可以是字符串，也可以是以.连接的key
+     * @param $array 如果是数组，则$str必须是以.连接的key
+     * @param $len  表示截取字符串的长度
+     * @return string
+     */
+    public static function limitStr($len,$str,$array=null){
+        if(is_array($array)) $str = self::arrayValue($str,$array,'');
+        if(is_array($str)) return false;
+        return strlen($str) > $len ? mb_substr($str,0,$len).'...' : $str;
+    }
     
     
     /**

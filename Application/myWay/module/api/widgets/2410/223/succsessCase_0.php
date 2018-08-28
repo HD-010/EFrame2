@@ -1,7 +1,7 @@
 <?php 
 use EFrame\Helper\T;
 
-T::print_pre($data);
+//T::print_pre($data);
 
 ?>
 <style>
@@ -21,14 +21,13 @@ T::print_pre($data);
             for($i = 0; $i < count($data['data']); $i ++):
             $list = $data['data'][$i];
             ?>
-            <dt><a href="{$field.arcurl}" title="<?=T::arrayValue('title', $list) ?>"><img src="<?=T::arrayValue('litpic', $list) ?>" alt="<?=T::arrayValue('title', $list) ?>"></a></dt>
+            <dt><a href="{$field.arcurl}" title="<?=T::arrayValue('title', $list) ?>"><img src="<?=T::arrayValue('litpic', $list) ?>" alt="<?=T::limitStr(10,'title', $list) ?>"></a></dt>
             <dd>
-                <h3><a href="{$field.arcurl}" title="<?=T::arrayValue('title', $list) ?>"><?=T::arrayValue('title', $list) ?></a></h3>
-                <p><?=T::arrayValue('description', $list) ?>...</p>
+                <h3><a href="{$field.arcurl}" title="<?=T::arrayValue('title', $list) ?>"><?=T::limitStr(10,'title', $list) ?></a></h3>
+                <p><?=T::limitStr(15,'description', $list) ?>...</p>
             </dd>
             <?php endfor?>
         </dl>
-        {/eyou:arclist} </div>
     <!--成功案例结束-->
 
 
