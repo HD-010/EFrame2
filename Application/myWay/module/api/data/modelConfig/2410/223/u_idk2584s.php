@@ -16,8 +16,24 @@ return $modelConfig = [
     //当前用户已配置好的页面模块名称
     'pageModel' => [
         //视图文件名称
-        'index' => ['header_0','headerBanner_0','navication_0','NewsList_0','ArticalList_0','footer_0'],       //首页模块名称
-        'news' => ['header_2','navication_0','newsList_0','footer_0'],                         //新闻栏目索引页模块名称
+        //首页模块名称
+        'index' => [
+            //页面头部
+            'header_0',
+            //头部广告
+            //'headerBanner_0',
+            //首页导航
+            'indexNavication_0',
+            //首页商品推荐
+            'indexCommodityRecommendation_0',
+            //关于我们
+            'aboutMe_0',
+            //成功案例
+            'succsessCase_0',
+            //最新资讯
+            'latestInformation_0'
+        ],       
+        'news' => ['header_2','navication_0','newsList_0','footer_0'],                                          //新闻栏目索引页模块名称
     ],
 
 ];

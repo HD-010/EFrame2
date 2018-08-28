@@ -15,9 +15,17 @@ return $modelData = [
         //页面小部件名称 => '数据模型名称'  数据模型名称与models中的模型名称相应
         'header_0'=>'header_0',
         //页面小部件名称
-        'navication_0' => 'navication_3',
-        'NewsList_0'=>'NewsList_0',
-        'ArticalList_0'=>'ArticalList_0',
+        //'headerBanner_0' => 'HeaderBanner_0',
+        //首页导航
+        'indexNavication_0'=>'Navication_0',
+        //首页商品推荐
+        'indexCommodityRecommendation_0'=>'ArticalList_0',
+        //关于我们
+        'aboutMe_0'=>'ArctypeInfor_0',
+        //成功案例
+        'succsessCase_0'=>'ArticalList_0',
+        //最新资讯
+        'latestInformation_0'=>'ArticalList_0',
     ],
     //页面名称
     'news' => [

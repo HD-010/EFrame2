@@ -16,8 +16,5 @@ use EFrame\Helper\T;
         <li><a href="{$field.typeurl}" title="{$field.typename}">{$field.typename}</a></li>
         {/eyou:channel}
     </ul>
-    <?php
-    //T::print_pre($data);
-    ?>
 </section>
 <!--导航结束-->

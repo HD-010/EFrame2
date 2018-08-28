@@ -7,7 +7,7 @@ use EFrame\Helper\T;
 }
 </style>
 <section class="footer_0" data-module_name="footer_0">
-这是footer_0.php
+这是searchList_0.php
 
     <!--搜索列表开始-->
     <div class="content">
@@ -20,8 +20,5 @@ use EFrame\Helper\T;
     </div>
     <!--搜索列表结束-->
 
-    <?php
-    T::print_pre($data);
-    ?>
 
 </section>

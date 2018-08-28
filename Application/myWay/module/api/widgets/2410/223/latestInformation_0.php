@@ -7,7 +7,7 @@ use EFrame\Helper\T;
 }
 </style>
 <section class="footer_0" data-module_name="footer_0">
-这是footer_0.php
+这是latestInformation_0.php
 
     <!--最新资讯开始-->
     {eyou:channelartlist typeid='3'}
@@ -24,9 +24,5 @@ use EFrame\Helper\T;
     <!--最新资讯结束-->
     {/eyou:channelartlist}
 
-
-    <?php
-    T::print_pre($data);
-    ?>
 
 </section>

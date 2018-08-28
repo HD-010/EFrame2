@@ -23,7 +23,11 @@ class Site extends Control
         //展示的页面名称
         $page = App::request()->get('v');
         $data = [];
-
+        
+        //网站信息
+        $siteInfor = App::service('SiteInfor')->options('SiteInfor');
+        App::$global['siteInfor'] = $siteInfor->getInfor();
+        //用户视图模块
         $userModelView = App::service('UserModelView')->options('UserModelView');
         //用户从事行业代码
         $data['industroyCode'] = $userModelView->getIndustroyCode();
@@ -40,7 +44,7 @@ class Site extends Control
             //模型名称
             $modelNmae = str_replace('_','',ucfirst($val));
             //获取视图模型与其对应的数据
-            echo "加载的数据模型：$modelNmae";
+            //echo "加载的数据模型：$modelNmae";
             $data['modelData'][$key] = App::model($modelNmae)->get();
         }
         //获取当前页面的视图名称

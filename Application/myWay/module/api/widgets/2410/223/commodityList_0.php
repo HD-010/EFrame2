@@ -7,7 +7,6 @@ use EFrame\Helper\T;
     }
 </style>
 <section class="recommondNews_0" data-module_name="recommondNews_0">
-这是commodifyShow_0.php
 
     <!--商品列表开始-->
     <div class="content">
@@ -19,8 +18,4 @@ use EFrame\Helper\T;
         <div class="page">{eyou:pagelist listitem="index,end,pre,next" listsize="2"/}</div>
     </div>
     <!--商品列表结束-->
-
-    <?php
-        T::print_pre($data);
-    ?>
 </section>

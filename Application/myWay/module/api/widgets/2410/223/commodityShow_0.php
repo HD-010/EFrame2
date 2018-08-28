@@ -22,7 +22,4 @@ use EFrame\Helper\T;
     </div>
     <!--商品展示结束-->
 
-    <?php
-        T::print_pre($data);
-    ?>
 </section>

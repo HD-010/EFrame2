@@ -7,7 +7,6 @@ use EFrame\Helper\T;
 }
 </style>
 <section class="footer_0" data-module_name="footer_0">
-这是footer_0.php
 
     <div class="footer">
         <div class="share">
@@ -36,8 +35,5 @@ use EFrame\Helper\T;
         </div>
     </div>
 
-    <?php
-    T::print_pre($data);
-    ?>
 
 </section>
