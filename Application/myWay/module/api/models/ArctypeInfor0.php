@@ -37,9 +37,10 @@ class ArctypeInfor0
      */
     protected function setArctypeInfor(){
         //获取栏目id
-        $typeId = App::request()->get('tid',7);
+        $typeId = App::request()->get('tid',8);
         //获取栏目下文章列表
-        $arctypeInfor = App::service('ArctypeInfor')->options('ArctypeInfor');
+        $serviceName = 'ArctypeInfor|'.$typeId;
+        $arctypeInfor = App::service($serviceName)->options($serviceName);
         //设置获取的文章列表
         $this->arctypeInfor = $arctypeInfor->setParam(['typeId'=>$typeId])->getContent();
 

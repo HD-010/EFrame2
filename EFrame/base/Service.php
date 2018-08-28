@@ -27,7 +27,7 @@ class Service{
 
     /**
      * 初始化服务名称对旬的服务对象
-     * @param $serviceName string 服务名称
+     * @param $serviceName string 服务名称 格式：service|子服务标识
      * @return $this
      */
    public function init($serviceName){
@@ -37,7 +37,7 @@ class Service{
        //初始化服务列表
        $this->serviceList = [];
        //创建一个新的服务对象，并将其加入服务列表
-       $this->serviceList[$serviceName] = $this->createService('$serviceName');
+       $this->serviceList[$serviceName] = $this->createService();
        return $this;
    }
 
@@ -67,7 +67,9 @@ class Service{
     protected function createService(){
         if(!$rootName = \App::rootName()) return;
         //获取服务路径
-        $serviceName= "\\".$rootName."\\module\\".\App::module()."\\servicese\\".$this->serviceName;
+        $service= (explode('|',$this->serviceName))[0];
+        //$serviceName= "\\".$rootName."\\module\\".\App::module()."\\servicese\\".$this->serviceName;
+        $serviceName= "\\".$rootName."\\module\\".\App::module()."\\servicese\\".$service;
         eval("\$serviceName = \"$serviceName\";");
         try{
             if(!class_exists($serviceName)) return false;

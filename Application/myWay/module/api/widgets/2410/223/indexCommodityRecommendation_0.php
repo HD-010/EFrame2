@@ -1,5 +1,8 @@
 <?php 
 use EFrame\Helper\T;
+
+if(!$data['status']) return;
+//T::print_pre($data);
 ?>
 <style>
     .recommondNews_0{
@@ -10,12 +13,12 @@ use EFrame\Helper\T;
 <?php //T::print_pre($data)?>
     <!--产品展示开始-->
     <div class="common_title">
-        <h2>推荐商品</h2>
+        <h2><?=T::arrayValue('arctypeInfor.0.typename',$data) ?></h2>
         <span>commodity recommendation</span></div>
     <div class="icon_nav">
         <ul class="clear-fix">
-        
-            <?php 
+
+            <?php
             if(!$data['status']) return ;
             for($i = 0; $i < count ($data['data']); $i ++):
             $list = $data['data'][$i];

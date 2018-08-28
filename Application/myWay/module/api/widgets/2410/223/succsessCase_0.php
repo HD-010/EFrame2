@@ -14,7 +14,7 @@ use EFrame\Helper\T;
     <!--成功案例开始-->
     <div class="commer_i">
         <div class="commer_i_c clear-fix">
-            <h3><i><?=T::arrayValue('data.0.typename', $data) ?></i><em>{eyou:field name='englist_name'/}</em></h3>
+            <h3><i><?=T::arrayValue('data.0.typename', $data) ?></i><em>englist_name</em></h3>
             <span><a href="{eyou:field name='typeurl'/}">查看更多>></a></span></div>
         <dl class="cmmer_cs clear-fix">
             <?php 

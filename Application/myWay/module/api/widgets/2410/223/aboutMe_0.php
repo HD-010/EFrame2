@@ -15,7 +15,7 @@ if(!T::arrayValue('status', $data)) return;
     <div class="new_i">
         <div class="common_title">
             <h2><?=T::arrayValue('data.0.typename', $data) ?></h2>
-            <span>{eyou:field name='englist_name'/}</span></div>
+            <span>about me</span></div>
         <div class="about_i_c">
             <p><?=T::arrayValue('data.0.content', $data) ?></p>
         </div>

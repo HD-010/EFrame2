@@ -30,7 +30,7 @@ class ArctypeInfor
     public function setParam($param = []){
         //设置栏目id
         $this->typeId = T::arrayValue('typeId', $param,false);
-        
+
         return $this;    
     }
     
@@ -43,13 +43,12 @@ class ArctypeInfor
                     "*",
                 ],
             ],
-            "LIMIT" => '0,10'
         ];
         
         //添加查询条件
-        if($this->typeId) $o['WHERE'] = "@#_arctype.id='".$this->typeId."'";
+        if($this->typeId) $o['WHERE'][] = "@#_arctype.id='".$this->typeId."'";
         $o['LIMIT'] = '0,1';
-        
+
         //执行查询语句
         $arctype = App::DB()->selectCommond($o)->query()->fetchAll();
         $this->arctype = T::addStatus($arctype);

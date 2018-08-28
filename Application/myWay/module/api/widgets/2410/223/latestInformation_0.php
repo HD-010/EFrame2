@@ -1,5 +1,8 @@
 <?php 
 use EFrame\Helper\T;
+
+if(!$data['status']) return;
+//T::print_pre($data);
 ?>
 <style>
 .footer_0{
@@ -7,22 +10,21 @@ use EFrame\Helper\T;
 }
 </style>
 <section class="footer_0" data-module_name="footer_0">
-这是latestInformation_0.php
 
     <!--最新资讯开始-->
-    {eyou:channelartlist typeid='3'}
     <div class="commer_i">
         <div class="commer_i_c clear-fix">
-            <h3><i>{eyou:field name='typename'/}</i><em>{eyou:field name='englist_name'/}</em></h3>
-            <span><a href="{eyou:field name='typeurl'/}">查看更多>></a></span> </div>
+            <h3><i><?=T::arrayValue('arctypeInfor.0.typename',$data) ?></i><em>englist_name</em></h3>
+            <span><a href="?m=idk2584s&v=index&tid=<?=T::arrayValue('typeId',$data) ?>">查看更多>></a></span> </div>
         <ul class="new_c">
-            {eyou:arclist row='5' titlelen='30' infolen='20'}
-            <li><a href="{$field.arcurl}" title="{$field.title}" style="font-weight:bold;color:#ff0000">{$field.title}</a></li>
-            {/eyou:arclist}
+            <?php
+            for($i=0; $i < count($data['data']); $i ++):
+            $list = $data['data'][$i];
+            ?>
+            <li><a href="m=idk2584s&v=index&tid=<?=T::arrayValue('typeId',$data) ?>&aid=<?=T::arrayValue('id',$list) ?>" title="<?=T::limitStr(10,'title',$list) ?>" style="font-weight:bold;color:#ff0000"><?=T::limitStr(10,'title',$list) ?></a></li>
+            <?php endfor?>
+
         </ul>
     </div>
     <!--最新资讯结束-->
-    {/eyou:channelartlist}
-
-
 </section>
