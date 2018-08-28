@@ -36,8 +36,14 @@ class ArticalList0
      * @return $this
      */
     protected function setArticalList(){
+        //获取栏目id
+        $typeId = App::request()->get('tid',7);
+        //获取栏目下文章列表
         $articalList = App::service('Archives')->options('Archives');
-        $this->articalList = $articalList->setParam(['typeId'=>6])->getList();
+        //设置获取的文章列表
+        $this->articalList = $articalList->setParam(['typeId'=>$typeId])->getList();
+        //设置栏目id
+        $this->articalList['typeId'] = $typeId;
 
         return $this;
     }

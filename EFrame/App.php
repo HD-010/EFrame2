@@ -20,6 +20,7 @@ class App{
     public static $service;
     public static $db;
     public static $user;
+    public static $global;
     
     public function __construct($config){
         $params = $config['params'];

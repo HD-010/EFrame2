@@ -7,12 +7,7 @@ use EFrame\Helper\T;
 }
 </style>
 <section class="footer_0" data-module_name="footer_0">
-这是footer_0.php
-    <div class="cbtn-top"><a href="javascript:;"><img src="{eyou:global name='web_templets_m' /}/skin/images/goTop.png"></a></div>
+    <div class="cbtn-top"><a href="javascript:;"><img src="/statci/images/system/goTop.png"></a></div>
 </div>
-
-    <?php
-    T::print_pre($data);
-    ?>
 
 </section>

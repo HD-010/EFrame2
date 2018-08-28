@@ -10,7 +10,6 @@ use EFrame\Helper\T;
 </style>
 
 <section class="hearderBanner_0" data-module_name="hearderBanner_0">
-这是headerBanner_0.php
 
     <!--幻灯片图片开始-->
     <div class="banner">
@@ -23,8 +22,5 @@ use EFrame\Helper\T;
     </div>
     <!--幻灯片图片结束-->
 
-        <?php
-    T::print_pre($data);
-    ?>
 
 </section>
