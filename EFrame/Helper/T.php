@@ -108,6 +108,30 @@ class T
         return $data;
     }
 
-    
+    /**
+     * 获取固定格式字符串中的字符串
+     * @param unknown $find 需要查找的字符或返回索引对应的值
+     * @param unknown $search　被查找的字符，格式如：ArticalList_0|tid=9|ut=news|ua=arcital
+     * 如果$index为int则返回相当索引的值,
+     */
+    public static function getStrVal($find,$search,$default=null){
+        $strArr = explode('|', $search);
+        //返回当前索引对应的值
+        
+        if(is_int($find)) return self::arrayValue($find, $strArr,$default);
+        
+        //查找匹配字符串内部表示的值
+        foreach($strArr as $str){
+            $pos = strpos($str,$find);
+            
+            if($pos !== false) {
+                $start = $pos + strlen($find);
+                return substr($str,$start);
+            }
+        }
+        
+        return $default ?  $default : false;
+        
+    }
     
 }

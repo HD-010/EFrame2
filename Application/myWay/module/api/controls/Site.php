@@ -37,19 +37,21 @@ class Site extends Control
         $modelData = $userModelView ->parse('modelData')->get();
         //当前页面模型对应的数据模型
         $models = T::arrayValue($page,$modelData);
+        //T::print_pre($models);exit;
 
         //加载数据模型
         $data['modelData'] = [];
         foreach($models as $key => $val){
             //模型名称
-            $modelNmae = str_replace('_','',ucfirst($val));
+            $modelNmae = str_replace('_','',T::getStrVal(0, $val));
             //获取视图模型与其对应的数据
             //echo "加载的数据模型：$modelNmae";
-            $data['modelData'][$key] = App::model($modelNmae)->get();
+            $data['modelData'][$key] = App::model($modelNmae)->get($val);
         }
+        
         //获取当前页面的视图名称
         $data['pagemodel'] = T::arrayValue('pageModel.'.$page,$modelConfig);
-
+        
         return $this->render('index',$data);
     }
     

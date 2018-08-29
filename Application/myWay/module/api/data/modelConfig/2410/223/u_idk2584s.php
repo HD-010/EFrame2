@@ -32,8 +32,15 @@ return $modelConfig = [
             'succsessCase_0',
             //最新资讯
             'latestInformation_0'
-        ],       
-        'news' => ['header_2','navication_0','newsList_0','footer_0'],                                          //新闻栏目索引页模块名称
+        ],   
+        //新闻栏目索引页模块名称
+        'news' => [
+            'header_2',
+            'navication_0',
+            'newsList_0',
+            'footer_0'
+        ], 
+        //
     ],
 
 ];

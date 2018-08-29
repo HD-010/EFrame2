@@ -5,9 +5,9 @@
  * 如：
  * index 页面名称
  * key　　header_0 :小部件名称
- * value header_0 :小部件的数据模型名称
+ * value header_0|tid=9|ut=news|ua=arcital :小部件的数据模型名称|typeid=9|url指向的栏目名称＝news|url指向的内容页名称=artical
  * 小部件的数据模型名称与models目录中的模型对应
- * 
+ * |tid=9|ut=news|ua=artical
  */
 return $modelData = [
     //页面名称
@@ -23,7 +23,7 @@ return $modelData = [
         //关于我们
         'aboutMe_0'=>'ArctypeInfor_0',
         //成功案例
-        'succsessCase_0'=>'ArticalList_0',
+        'succsessCase_0'=>'ArticalList_0|tid=9|ut=news|ua=arcital',
         //最新资讯
         'latestInformation_0'=>'ArticalList_0',
     ],

@@ -15,13 +15,14 @@ use EFrame\Helper\T;
 /**
  * 导航栏数据，包含顶级栏目和二级栏目信息
  * Class Navication3
+ * @param $param  模块参数（modelData携带的参数）
  * @package myWay\module\api\models
  */
 class Navication0
 {
     protected $arctype;             //栏目信息
 
-    public function get(){
+    public function get($param=null){
         $this->setArctype();
 
         return $this->arctype;
