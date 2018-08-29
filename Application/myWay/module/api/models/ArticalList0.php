@@ -37,7 +37,7 @@ class ArticalList0
      */
     protected function initParams($param){
         //模块中设置的默认typeid,如果没有设置则使用系统定义的默认值
-        $typeId = T::getStrVal('tid=',$param,8);
+        $typeId = T::getStrVal('tid',$param,8);
         
         //获取获取url中的栏目id参数，如查没有则采用模块中的设置　的
         $this->typeId = App::request()->get('tid',$typeId);

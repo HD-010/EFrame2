@@ -119,8 +119,8 @@ class T
         //返回当前索引对应的值
         
         if(is_int($find)) return self::arrayValue($find, $strArr,$default);
-        
         //查找匹配字符串内部表示的值
+        $find .= '=';
         foreach($strArr as $str){
             $pos = strpos($str,$find);
             
