@@ -20,6 +20,8 @@ class Site extends Control
      * 操作名称以action开头
      */
     function actionIndex(){
+        //展示的页面类型:展示的页面类型分为:index,list,artical等
+        $type = App::request()->get('t');
         //展示的页面名称
         $page = App::request()->get('v');
         $data = [];
@@ -51,7 +53,7 @@ class Site extends Control
         
         //获取当前页面的视图名称
         $data['pagemodel'] = T::arrayValue('pageModel.'.$page,$modelConfig);
-        
+        //T::print_pre($data);exit;
         return $this->render('index',$data);
     }
     

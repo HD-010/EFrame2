@@ -3,7 +3,7 @@
  * 说明：当前配置是一个新模块的开始
  * msn是行业行业唯一标识。结构如：industry首字母+行业代码+｜+子类行业代码
  * pageModel定义了页面模型的组成结构。
- * 如键名index,表示index页面，对应视图views/index.php
+ * 如键名index,表示页面名称为index，对应视图views/index.php
  *   键值是一个集合，每一个元素都为组成该页面的一个模型。
  *   如模型“header_0”,对应小部件widgets/行业代码/子行业代码/header_0.php
  *   
@@ -21,11 +21,11 @@ return $modelConfig = [
             //页面头部
             'header_0',
             //头部广告
-            'headerBanner_0',
+            //'headerBanner_0',
             //首页导航
-            'indexNavication_0',
+            //'indexNavication_0',
             //首页商品推荐
-            //'indexCommodityRecommendation_0',
+            'indexCommodityRecommendation_0',
             //关于我们
             //'aboutMe_0',
             //成功案例
@@ -33,14 +33,15 @@ return $modelConfig = [
             //最新资讯
             //'latestInformation_0'
         ],   
+
         //新闻栏目索引页模块名称
-        'news' => [
-            'header_2',
-            'navication_0',
-            'newsList_0',
+        'xinwenzhongxin' => [
+            'header_0',
+            'indexCommodityRecommendation_0',
+            'indexNavication_0',
             'footer_0'
-        ], 
-        //
+        ],
+        
     ],
 
 ];

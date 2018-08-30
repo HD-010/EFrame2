@@ -1,5 +1,7 @@
 <?php 
 use EFrame\Helper\T;
+
+//T::print_pre($data);
 ?>
 
 <style>
@@ -10,11 +12,12 @@ use EFrame\Helper\T;
 </style>
 <!--导航部分-->
 <section class="header_0" data-module_name="header_0">
-
+<div class="allpage">
+<div class="black-fixed iconfont">&#xe60f;</div>
     <!--页头开始-->
     <div class="black-fixed iconfont">&#xe60f;</div>
     <div class="header">
-        <div class="head"> <a href="?" class="logo"> <img src="<?=T::arrayValue('siteInfor.logo', App::$global)?>"/> </a>
+        <div class="head"> <a href="<?=T::arrayValue('param.hUrl', $data)?>" class="logo"> <img src="<?=T::arrayValue('siteInfor.logo', App::$global)?>"/> </a>
             <div class="nav-btn commonfont">&#xe60b;</div>
             <div class="search_hl iconfont">&#xe600;</div>
             <div class="search" style="display: block;">
@@ -29,6 +32,6 @@ use EFrame\Helper\T;
         </div>
     </div>
     <!--页头结束-->
-
+</div>
 </section>
 

@@ -10,36 +10,70 @@ namespace myWay\module\api\servicese;
 use App;
 use EFrame\Helper\T;
 
+/**
+ * 
+ * @author Administrator
+ *
+ */
 class Common
 {
     protected $param;
 
-    //解析modelData模块携带的参数
+    /**
+     * 解析modelData模块携带的参数
+     * @param unknown $param
+     * @return unknown　array
+     * 参数说明：
+     * m:module 的首字母，把每个用户的网站看作系统中的一个module
+     * c:channel　的首字母,把一个类型的事物看作一个channel,与数据表channeltype一一对应
+     * v:view 页面名称,每一个view表示一个页面。与$modelConfig['pageModel']中的项一一对应　
+     * tid:typeid 栏目id,表示当前视图展示的是该typeid下的内容
+     * aid: 表示当前视图展示的是该aid的内容,与数据表archives中的id一一对应
+     * 
+     * 这些参数可以在$modelData的页面下模块名称后进行配置。需要注意的是，这些参数的值可能来源及优先级如下：
+     * url传递 > 模块名称后配置的参数  > 系统给定的默认值
+     * 
+     * 返回的$param包括以下内容：
+     * lUrl：表示从模块内容访问栏目列表页的url地址的参数
+     * 结构：'index?m=idk2485s&c=image&v=页面名称&tid=typeid'
+     * 分析：从模块内容访问栏目列表页，需要知道该页面所属的频道模型名称(c)，以确定内容属性，进而确定内容的数据格式。
+     * 当数据格式确定下来后，便可以使用和数据格式匹配的视图小部件来展示数据
+     * aUrl：表示从模块内容访问文章内容页的url地址的参数
+     * 结构：'index?m=idk2584s&c=artical&v=@v&aid=@aid'
+     * 分析：从模块内容访问文章内容页，需要知道该页面所属的频道模型名称（c），以确定内容属性，进而确定内容的数据格式。
+     * tUrl：表示从导航项目访问栏目列表的url地址的参数，用于导航列表的url指向
+     * 结构：'index?m=idk2584s&c=soft&v=@v';
+     * 分析：从导航项目访问栏目列表，需要知道该项对应的栏目页所属的频道模型名称（c）,以确定内容属性，进而确定内容的数据格式。
+     * hUrl：首页访问地址的参数，这个参数是固定不变的
+     * 结构：'index?m=idk2584s&v=index'
+     * 
+     * 注：在该方法中只提供url的相关参数，返回的url不是一个正式的，需要在小部件中处理后可用
+     */
     public function parseModelParam($param){
-        //封装参数
-        $this->param['tid'] = T::getStrVal('tid',$param);
-
+        //module
+        $m = T::getStrVal('m', $param,'idk2584s');
+        $this->param['m'] = App::request()->get('m',$m);
+        //栏目id
+        $tid = T::getStrVal('tid',$param);
+        $this->param['tid'] = App::request()->get('tid',$tid);
+        //页面名称
+        $v = App::request()->get('v','index');
+        $this->param['v'] = T::getStrVal('v',$param,$v);
+        //页面类型
+        $c = T::getStrVal('c',$param);
+        $this->param['c'] = App::request()->get('c',$c);
+        
         //该模块对应栏目的访问地址的参数
-        $this->param['lUrl'] = 'index?m=idk2584s&v='.
-            T::getStrVal('l',$param,'index').
-            '&tid='.$this->param['tid'];
-
-        //该模块对应内容页的访问地址的参数
-        $this->param['cUrl'] = 'index?m=idk2584s&v='.
-            T::getStrVal('l',$param,'index').
-            '&aid=';
-
-        //栏目对应的访问地址的参数
-        $this->param['tUrl'] = 'index?m=idk2584s&v=';
-
+        $this->param['lUrl'] = 'index?@m&@c&@v&@tid';
+        //表示从模块内容访问文章内容页的url地址的参数
+        $this->param['aUrl'] = 'index?@m&@c&@v&@aid';
+        //表示从导航项目访问栏目列表的url地址的参数，用于导航列表的url指向
+        $this->param['tUrl'] = 'index?@m&@c&@v&@tid';
+        //首页访问地址的参数，这个参数是固定不变的
+        $this->param['hUrl'] = 'index?@m&v=index';
+            
         return $this->param;
     }
 
-/*    //解析栏目标识
-    //将#@_arctype表中typedir字段中的栏目名称解析出来
-    public function parseTypeUrl($arcType){
-T::print_pre($arcType);exit;
-        return $this->param;
-    }*/
 
 }

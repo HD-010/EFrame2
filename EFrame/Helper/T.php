@@ -112,15 +112,21 @@ class T
     /**
      * 获取固定格式字符串中的字符串
      * @param unknown $find 需要查找的字符或返回索引对应的值
-     * @param unknown $search　被查找的字符，格式如：ArticalList_0|tid=9|ut=news|ua=arcital
-     * 如果$index为int则返回相当索引的值,
+     * 如果$find为正整数则返回相当索引的值,如果$find是负整数，则返回到数第$find个元素
+     * @param unknown $search　被查找的字符，格式如：ArticalList_0|tid=9|ut=news|ua=arcital　或　{cmspath}/a/guanyuwomen/qiyewenhua
+     * @param $default 如果没有找到相应的值，则返回默认值
      */
     public static function getStrVal($find,$search,$default=null){
-        $strArr = explode('|', $search);
-        $strArr = preg_split('/\||//',$search);
+        $strArr = preg_split('/\||\//',$search);
         //返回当前索引对应的值
         
-        if(is_int($find)) return self::arrayValue($find, $strArr,$default);
+        if(is_int($find)) {
+            //如果$find为正整数则返回相当索引的值
+            if($find > -1) return self::arrayValue($find, $strArr,$default);
+            //如果$find是负整数，则返回到数第$find个元素
+            if($find < 0) return self::arrayValue(count($strArr) + $find, $strArr,$default);
+            
+        }
         //查找匹配字符串内部表示的值
         $find .= '=';
         foreach($strArr as $str){
@@ -134,6 +140,24 @@ class T
         
         return $default ?  $default : false;
         
+    }
+    
+    
+    /**
+     * 按健名把字符串中的占位符替换为健名=值，并返回替换后的字串
+     * @param array $replace　　如　[t=>'list',v=>'index']
+     * @param unknown $str　　如：'index?m=idk2584s&t=@t&v=@v'
+     * @return unknown|mixed  如：　'index?m=idk2584s&t=list&v=index'
+     * 
+     * 注：大该方法中如果参数没有完全替换，则会报错，提示无效url
+     */
+    public static function replaceToVal($str,$replace=[]){
+        $str = $str;
+        foreach($replace as $key => $val){
+            $str = str_replace('@'.$key, $key.'='.$val, $str);
+        }
+        
+        return $str;
     }
     
 }

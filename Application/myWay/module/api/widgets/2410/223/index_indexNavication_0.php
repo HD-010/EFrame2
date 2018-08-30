@@ -17,8 +17,21 @@ use EFrame\Helper\T;
         	<?php 
         	   for($i = 0; $i < count ($data) -1; $i ++):
                    $list = $data[$i];
+        	       
+        	       //定义栏目连接
+                   $typeUrl = T::replaceToVal(T::arrayValue('param.tUrl',$data),[
+                       'm'=>T::arrayValue('param.m', $data),
+                       'c'=>T::arrayValue('nid', $list),
+                       'v'=>T::getStrVal(-1, $list['typedir']),
+                       'tid'=>T::arrayValue('id', $list),
+                   ]);
+                   
+                   //定义栏目名称
+                   $typeName = T::arrayValue('typename', $list);
         	?>
-            <li><a title="<?=T::arrayValue('typename', $list) ?>" href="<?=T::arrayValue('param.tUrl',$data)?>"><?=T::arrayValue('typename', $list) ?></a></li>
+            
+            <li><a title="<?=$typeName?>" href="<?=$typeUrl?>"><?=$typeName?></a></li>
+            
             <?php endfor?>
         </ul>
         <div class="c"></div>

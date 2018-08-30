@@ -7,17 +7,20 @@ if(!is_array($industroyCode)) {
     return;
 }
 
-$page = App::request()->get('v');
+//声明视图类型：index,artical,image...  index表示首页，其它与channeltype表中nid一一对应
+//默认为index,即展示首页
+$pageType = App::request()->get('c','index');
 
 //根据视图模型名称和模型数据加载视图小部件
 for($i = 0; $i < count($data['pagemodel']); $i ++){
     //视图模块名称
     $modelName = T::arrayValue('pagemodel.'.$i,$data,null);
     //header|footer适用于行业内所有页面，不按页面分类处理
-    $widgetsName = preg_match('/header|footer/', $modelName) ? $modelName : $page.'_'.$modelName;
+    $widgetsName = preg_match('/header|footer/', $modelName) ? $modelName : $pageType.'_'.$modelName;
     //视图模块数据
     $modelData = T::arrayValue('modelData.'.$modelName,$data,null);
     //返回视图小部件
+    //echo $industroyCode[0].'\\'.$industroyCode[1].'\\'.$widgetsName."<br/>";
     $this->renderWidget($industroyCode[0].'\\'.$industroyCode[1].'\\'.$widgetsName,$modelData);
 }
 

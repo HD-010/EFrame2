@@ -19,6 +19,9 @@
     doc.addEventListener('DOMContentLoaded', recalc, false);
 })(document, window);
 
+/**
+ * 隐藏或显示导航栏
+ */
 $(document).ready(function() {
     var navbtn = $('.nav-btn');
     var box = $('.allpage'),
