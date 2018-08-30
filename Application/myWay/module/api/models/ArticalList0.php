@@ -18,6 +18,7 @@ use EFrame\Helper\T;
  */
 class ArticalList0
 {
+    protected $param;           //模块参数
     protected $typeId;          //栏目id
     protected $articalList;     //文章列表
 
@@ -29,6 +30,7 @@ class ArticalList0
     public function get($param=null){
         $this->initParams($param)->setArticalList();
         $this->setArctypeInfor();
+        $this->setParams();
         return $this->articalList;
     }
 
@@ -42,7 +44,15 @@ class ArticalList0
         //获取获取url中的栏目id参数，如查没有则采用模块中的设置　的
         $this->typeId = App::request()->get('tid',$typeId);
 
+        //调用公共服务
+        $this->param = App::service('Common')->options('Common')->parseModelParam($param);
+
         return $this;
+    }
+
+    //设置param
+    protected function setParams(){
+        $this->articalList['param'] = $this->param;
     }
 
     /**

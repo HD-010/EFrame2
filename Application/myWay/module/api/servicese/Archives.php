@@ -20,6 +20,7 @@ class Archives{
     protected $addonTable;          //付加表
     protected $pageSize;            //分面步长
     protected $currentPage;         //当前页
+    protected $param;
 
     /**
      * 获取文章列表

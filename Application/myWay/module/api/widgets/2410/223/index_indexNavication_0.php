@@ -1,5 +1,7 @@
 <?php 
 use EFrame\Helper\T;
+
+//T::print_pre($data);
 ?>
 
 <style>
@@ -13,9 +15,10 @@ use EFrame\Helper\T;
     <div class="nav_new">
         <ul>
         	<?php 
-        	   for($i = 0; $i < count ($data); $i ++):
+        	   for($i = 0; $i < count ($data) -1; $i ++):
+                   $list = $data[$i];
         	?>
-            <li><a title="<?=T::arrayValue($i.'.typename', $data) ?>" href="?m=idk2584s&v=index"><?=T::arrayValue($i.'.typename', $data) ?></a></li>
+            <li><a title="<?=T::arrayValue('typename', $list) ?>" href="<?=T::arrayValue('param.tUrl',$data)?>"><?=T::arrayValue('typename', $list) ?></a></li>
             <?php endfor?>
         </ul>
         <div class="c"></div>

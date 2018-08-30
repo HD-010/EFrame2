@@ -70,14 +70,14 @@ class Arctype
                     "id","topid","typename","typedir",
                 ],
                 "@#_channeltype" =>[
-                    "nid","typename","maintable","addtable",
+                    "nid","typename as nname","maintable","addtable",
                 ]
             ],
             "WHERE" => [
                 "@#_arctype.topid='0'",
             ],
             "LEFT_JOIN" => [
-                "@#_channeltype" => "ON @#_channeltype.id=@#_arctype.id",
+                "@#_channeltype" => "ON @#_channeltype.id=@#_arctype.channeltype",
             ],
             "ORDER_BY" => [
                 "sortrank",
@@ -108,14 +108,14 @@ class Arctype
                     "id","topid","typename","typedir",
                 ],
                 "@#_channeltype" =>[
-                    "nid","typename","maintable","addtable",
+                    "nid","typename as nname","maintable","addtable",
                 ]
             ],
             "WHERE" => [
                 "@#_arctype.topid ".$this->topId,
             ],
             "LEFT_JOIN" => [
-                "@#_channeltype" => "ON @#_channeltype.id=@#_arctype.id",
+                "@#_channeltype" => "ON @#_channeltype.id=@#_arctype.channeltype",
             ],
             "ORDER_BY" => [
                 "@#_arctype.topid",

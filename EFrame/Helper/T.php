@@ -23,6 +23,7 @@ class T
         $arr = $array;
         $keys = explode('.', $key);
         $error = '错误：不成以数组的形式访问字符串';
+        //$error = false;
         $value = $default;
     
         if(!is_array($arr)) return $error;
@@ -116,6 +117,7 @@ class T
      */
     public static function getStrVal($find,$search,$default=null){
         $strArr = explode('|', $search);
+        $strArr = preg_split('/\||//',$search);
         //返回当前索引对应的值
         
         if(is_int($find)) return self::arrayValue($find, $strArr,$default);
