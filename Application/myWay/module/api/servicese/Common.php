@@ -79,12 +79,18 @@ class Common
     public function parseVewFrefix(){
         $page = '';
         if(App::request()->get('tid')) $page .= 'list_';
-        if(App::request()->get('ad')) $page .= 'artical_';
+        if(App::request()->get('aid')) $page .= 'artical_';
         if(App::request()->get('c')) $page .= App::request()->get('c').'_';
-
+        
+        if(!$page) $page .= 'index_';
+        
         return $page;
     }
-    //解析视图名称
+    /**
+     * 解析视图名称
+     * 视图命名结构如：
+     * 页面类型_频道类型_视图名称_同类型编号.php
+     */
     public function parseView(){
         return  $this->parseVewFrefix().App::request()->get('v','index');
     }

@@ -26,7 +26,7 @@ if(!$data['status']) return;
             //文章地址
             $aUrl = T::replaceToVal(T::arrayValue('param.aUrl', $data),[
                 'm' => T::arrayValue('param.m', $data),
-                'c' => T::arrayValue('param.c', $data),
+                'c' => T::arrayValue('arctypeInfor.0.nid', $data),
                 'v' => T::arrayValue('param.v', $data),
                 'aid' => T::arrayValue('id', $list)
             ]);
@@ -34,7 +34,7 @@ if(!$data['status']) return;
             //更多的按钮指向的栏目链接
             $lUrl = T::replaceToVal(T::arrayValue('param.lUrl', $data),[
             'm' => T::arrayValue('param.m', $data),
-            'c' => T::arrayValue('param.c', $data),
+            'c' => T::arrayValue('arctypeInfor.0.nid', $data),
             'v' => T::arrayValue('param.v', $data),
             'tid' => T::arrayValue('typeId', $data)
             ]);

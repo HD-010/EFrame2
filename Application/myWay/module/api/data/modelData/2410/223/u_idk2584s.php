@@ -12,19 +12,19 @@
  */
 return $modelData = [
     //首页页面模块数据
-    'index'=>[
+    'index_index'=>[
         //页面小部件名称 => '数据模型名称'  数据模型名称与models中的模型名称相应
         'header_0'=>'header_0',
         //页面小部件名称
-        //'headerBanner_0' => 'HeaderBanner_0',
+        'headerBanner_0' => 'HeaderBanner_0',
         //首页导航
         'indexNavication_0'=>'Navication_0',
         //首页商品推荐
-        'indexCommodityRecommendation_0'=>'ArticalList_0|c=article|v=xinwenzhongxin|tid=11|',
+        'indexCommodityRecommendation_0'=>'ArticalList_0|v=chanpinyufuwu',
         //关于我们
         //'aboutMe_0'=>'ArctypeInfor_0',
         //成功案例
-        //'succsessCase_0'=>'ArticalList_0|tid=9|l=news|a=article',
+        //'succsessCase_0'=>'ArticalList_0',
         //最新资讯
         //'latestInformation_0'=>'ArticalList_0',
     ],
@@ -32,22 +32,33 @@ return $modelData = [
     //图片栏目列表页模块数据
     'list_article_xinwenzhongxin' => [
         'header_0' => 'Header_0',
-        'indexCommodityRecommendation_0' => 'ArticalList_0|tid=11|l=news|a=article',
-        'indexNavication_0' => 'Navication_0',
-        //'footer_0' => 'Footer_0',
+        'newList_0' => 'ArticalList_0|tid=11',
+        'footer_0' => 'Footer_0',
     ],
 
     //图片文章内容页模块数据
     'artical_article_xinwenzhongxin' => [
         'header_0' => 'Header_0',
+        'newsArticle_0' => 'ArticalArtical0',
         'footer_0' => 'Footer_0',
     ],
 
     //关于我们栏目列表页模块数据
     'list_article_guanyuwomen' => [
         'header_0' => 'Header_0',
-        'indexCommodityRecommendation_0' => 'ArticalList_0|tid=11|l=news|a=article',
-        'indexNavication_0' => 'Navication_0',
-        //'footer_0' => 'Footer_0',
+        'article_0' => 'ArctypeInfor0',
+        'footer_0' => 'Footer_0',
+    ],
+    
+    //产品与服务栏目索引页模块数据
+    'list_image_chanpinyufuwu' => [
+        'header_0' => 'Header_0',
+        'article_0' => 'ArticalArtical0',
+        'footer_0' => 'Footer_0',
+    ],
+    //产品与服务栏目索引页模块数据
+    'article_image_chanpinyufuwu' => [
+        'header_0' => 'Header_0',
+        'footer_0' => 'Footer_0',
     ],
 ];

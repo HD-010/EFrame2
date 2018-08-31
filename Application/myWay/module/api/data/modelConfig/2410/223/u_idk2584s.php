@@ -17,11 +17,11 @@ return $modelConfig = [
     'pageModel' => [
         //视图文件名称
         //首页模块名称
-        'index' => [
+        'index_index' => [
             //页面头部
             'header_0',
             //头部广告
-            //'headerBanner_0',
+            'headerBanner_0',
             //首页导航
             'indexNavication_0',
             //首页商品推荐
@@ -37,24 +37,36 @@ return $modelConfig = [
         //新闻栏目索引页模块名称
         'list_article_xinwenzhongxin' => [
             'header_0',
-            'indexCommodityRecommendation_0',
-            'indexNavication_0',
+            'newList_0',
             'footer_0'
         ],
 
         //图片文章内容页模块名称
         'artical_article_xinwenzhongxin' => [
             'header_0',
+            'newsArticle_0',
             'footer_0'
         ],
 
         //关于我们栏目索引页模块名称
         'list_article_guanyuwomen' => [
             'header_0',
-            'indexCommodityRecommendation_0',
-            'indexNavication_0',
+            'article_0',
             'footer_0'
         ],
+        
+        //产品与服务栏目索引页模块名称
+        'list_image_chanpinyufuwu' => [
+            'header_0',
+            'article_0',
+            'footer_0'
+        ],
+        //产品与服务栏目索引页模块名称
+        'article_image_chanpinyufuwu' => [
+            'header_0',
+            'footer_0'
+        ],
+
     ],
 
 ];

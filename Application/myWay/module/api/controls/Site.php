@@ -26,7 +26,8 @@ class Site extends Control
         $common = App::service('Common')->options('Common');
         $widgetsPrefix = $common->parseVewFrefix();
         $page = $common->parseView();
-        //exit($pagePrefix);
+        //exit($page);
+        //exit($widgetsPrefix);
 
         //定义传递到视图的数据集合
         $data = [];
@@ -54,7 +55,7 @@ class Site extends Control
             //模型名称
             $modelNmae = str_replace('_','',T::getStrVal(0, $val));
             //获取视图模型与其对应的数据
-            echo "加载的数据模型：$modelNmae";
+            //echo "加载的数据模型：$modelNmae";
             $data['modelData'][$key] = App::model($modelNmae)->get($val);
         }
         

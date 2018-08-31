@@ -40,8 +40,14 @@ class ArctypeInfor
         $o = [
             [
                 "@#_arctype" => [
-                    "*",
+                    "id","topid","typename","typedir","channeltype","description","seotitle","content",
                 ],
+                "@#_channeltype" => [
+                    "nid","addtable"
+                ]
+            ],
+            "LEFT_JOIN" =>[
+                "@#_channeltype" => " ON @#_arctype.channeltype = @#_channeltype.id",
             ],
         ];
         
@@ -50,6 +56,7 @@ class ArctypeInfor
         $o['LIMIT'] = '0,1';
 
         //执行查询语句
+        //echo App::DB()->selectCommond($o)->showQuery();
         $arctype = App::DB()->selectCommond($o)->query()->fetchAll();
         $this->arctype = T::addStatus($arctype);
         
