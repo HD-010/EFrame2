@@ -1,4 +1,34 @@
-这是行业分类信息表
+页面名称的命名规则
+
+首页命名规则举例说明
+'index_index' => [
+    //页面头部
+    'header_0',
+    'navication_1',
+]
+index：第一个表示页面类型为index
+index:第二个表示页面名称为index
+
+列表页命名规则举例说明
+'list_article_xinwenzhongxin' => [
+    'header_0',
+    '同一类型小部件名称'
+]
+list:表示页面类型为栏目列表页
+article:表示资源类型为article,在数据表中与channeltype表的nid对应
+xinwenzhongxin：表示页面名称，在数据表中与arctype表中的typedir字段表示的最后一级目录名称一至。
+
+内容页命名规则举例说明
+'artical_shop_commodityView' => [
+    'header_0',
+    '同一类型小部件名称'
+]
+artical:表示页面类型为内容页
+shop:表示资源类型为shop,在数据表中与channeltype表的nid对应
+commodityView：表示页面名称，在数据表中与arctype表中的typedir字段表示的最后一级目录名称一至。
+
+
+行业分类信息表
 
 分类信息如下：
 工业设备 (10790)

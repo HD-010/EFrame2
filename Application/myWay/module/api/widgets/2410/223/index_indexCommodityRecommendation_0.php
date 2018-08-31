@@ -20,30 +20,35 @@ if(!$data['status']) return;
 
             <?php
             if(!$data['status']) return ;
+
+            $m = T::arrayValue('param.m', $data);
+            $c = T::arrayValue('arctypeInfor.0.nid', $data);
+            $v = T::getStrVal(-1, $data['arctypeInfor'][0]['typedir']);
+            $tid = T::arrayValue('typeId', $data);
+
+            //更多的按钮指向的栏目链接
+            $lUrl = T::replaceToVal(T::arrayValue('param.lUrl', $data),[
+                'm' => $m,
+                'c' => $c,
+                'v' => $v,
+                'tid' => $tid
+            ]);
+
             for($i = 0; $i < count ($data['data']); $i ++):
             $list = $data['data'][$i];
             
             //文章地址
             $aUrl = T::replaceToVal(T::arrayValue('param.aUrl', $data),[
-                'm' => T::arrayValue('param.m', $data),
-                'c' => T::arrayValue('arctypeInfor.0.nid', $data),
-                'v' => T::arrayValue('param.v', $data),
+                'm' => $m,
+                'c' => $c,
+                'v' => $v,
                 'aid' => T::arrayValue('id', $list)
             ]);
-            
-            //更多的按钮指向的栏目链接
-            $lUrl = T::replaceToVal(T::arrayValue('param.lUrl', $data),[
-            'm' => T::arrayValue('param.m', $data),
-            'c' => T::arrayValue('arctypeInfor.0.nid', $data),
-            'v' => T::arrayValue('param.v', $data),
-            'tid' => T::arrayValue('typeId', $data)
-            ]);
-            
+
             //文章标题
             $title = T::arrayValue('title', $list);
-            
             ?>
-            
+
             <li><a href="<?=$aUrl?>" title="<?=$title?>"><img src="{$field.litpic}" alt="<?=$title ?>"></a> <span><a href="<?=$aUrl?>" title="<?=$title?>"><?=$title?></a></span></li>
 			
 			<?php endfor?>

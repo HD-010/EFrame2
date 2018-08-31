@@ -18,9 +18,9 @@ return $modelData = [
         //页面小部件名称
         'headerBanner_0' => 'HeaderBanner_0',
         //首页导航
-        'indexNavication_0'=>'Navication_0',
+        'navication_0'=>'Navication_0',
         //首页商品推荐
-        'indexCommodityRecommendation_0'=>'ArticalList_0|v=chanpinyufuwu',
+        'indexCommodityRecommendation_0'=>'ArticalList_0|tid=10',
         //关于我们
         //'aboutMe_0'=>'ArctypeInfor_0',
         //成功案例
@@ -51,13 +51,13 @@ return $modelData = [
     ],
     
     //产品与服务栏目索引页模块数据
-    'list_image_chanpinyufuwu' => [
+    'list_article_chanpinyufuwu' => [
         'header_0' => 'Header_0',
         'article_0' => 'ArticalArtical0',
         'footer_0' => 'Footer_0',
     ],
     //产品与服务栏目索引页模块数据
-    'article_image_chanpinyufuwu' => [
+    'article_article_chanpinyufuwu' => [
         'header_0' => 'Header_0',
         'footer_0' => 'Footer_0',
     ],

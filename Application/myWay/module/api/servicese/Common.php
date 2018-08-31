@@ -79,7 +79,7 @@ class Common
     public function parseVewFrefix(){
         $page = '';
         if(App::request()->get('tid')) $page .= 'list_';
-        if(App::request()->get('aid')) $page .= 'artical_';
+        if(App::request()->get('aid')) $page .= 'article_';
         if(App::request()->get('c')) $page .= App::request()->get('c').'_';
         
         if(!$page) $page .= 'index_';
