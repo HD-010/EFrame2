@@ -1,4 +1,4 @@
-/* eyoucms.com Ò×ÓÅCMS -- ºÃÓÃ,Ãâ·Ñ,°²È« */
+/* eyoucms.com ï¿½ï¿½ï¿½ï¿½CMS -- ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½,ï¿½ï¿½È« */
 @charset "utf-8";
 @font-face {
 	font-family: "member";
@@ -65,7 +65,7 @@ input[type="text"], input[type="password"], input[type="submit"], input[type="re
 }
 .content_new {
 	margin-top: 0!important;
-} /* Ê×Ò³²»ÒªÉÏ±ß¾à */
+} /* ï¿½ï¿½Ò³ï¿½ï¿½Òªï¿½Ï±ß¾ï¿½ */
 .common_bg {
 	background-color: #b30f1a!important;
 }
@@ -176,7 +176,7 @@ body {
 	-ms-transition: all 0.3s ease-in-out 0s;
 	transition: all 0.3s ease-in-out 0s;
 	right: 0;
-	min-height: 6rem;
+	/*min-height: 6rem;*/
 }
 .clicked {
 	right: 220px!important;
@@ -213,7 +213,7 @@ body {
 .nav li a {
 	display: block;
 	width: 100%;
-	font: 700 16px/50px 'Î¢ÈíÑÅºÚ';
+	font: 700 16px/50px 'Î¢ï¿½ï¿½ï¿½Åºï¿½';
 	color: #fff;
 	text-align: center;
 }
@@ -1124,7 +1124,7 @@ body {
 	float: left;
 	width: 70%;
 }
-/* site_nav Ðü¸¡Çò*/
+/* site_nav ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .site_btn {
 	position: fixed;
 	width: 0.7rem;
@@ -1156,7 +1156,7 @@ body {
 	border-radius: 50%;
 	color: #c2c2c2
 }
-/* ÁÙÊ±
+/* ï¿½ï¿½Ê±
 .site-nav{position:absolute;left:0;bottom:100%;width:100px;height:auto;overflow:hidden}   */
 .site-nav li {
 	overflow: hidden;
@@ -1709,7 +1709,7 @@ input {
 .view_collect a a {
 	color: #707070
 }
-/* »ÃµÆ */
+/* ï¿½Ãµï¿½ */
 .ax-tac {
 	text-align: center
 }
@@ -1736,7 +1736,7 @@ input {
 .slideBox .hd li.on {
 	background: #18284A!important;
 }
-/*ÆÁ±Îuc¹ã¸æ*/
+/*ï¿½ï¿½ï¿½ï¿½ucï¿½ï¿½ï¿½*/
 #uc_recommend_ad {
 	display: none !important;
 }
@@ -1775,7 +1775,7 @@ font-/weight: bold;
 	color: #fff;
 	background: #030a1e;
 }
-/* ÉÏÏÂÆª*/
+/* ï¿½ï¿½ï¿½ï¿½Æª*/
 .pagexxx {
 	display: block;
 	width: 100%;

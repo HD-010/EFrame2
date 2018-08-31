@@ -2,13 +2,15 @@
 use EFrame\Helper\T;
 
 //T::print_pre($data);
+$hUrl = T::replaceToVal(T::arrayValue('param.hUrl',$data),[
+        'm' => T::arrayValue('param.m',$data),
+]);
 ?>
 
 <style>
     .header_0{
-        border:1px solid;
+        border:0;
     }
-
 </style>
 <!--导航部分-->
 <section class="header_0" data-module_name="header_0">
@@ -17,7 +19,7 @@ use EFrame\Helper\T;
     <!--页头开始-->
     <div class="black-fixed iconfont">&#xe60f;</div>
     <div class="header">
-        <div class="head"> <a href="<?=T::arrayValue('param.hUrl', $data)?>" class="logo"> <img src="<?=T::arrayValue('siteInfor.logo', App::$global)?>"/> </a>
+        <div class="head"> <a href="<?=$hUrl?>" class="logo"> <img src="<?=T::arrayValue('siteInfor.logo', App::$global)?>"/> </a>
             <div class="nav-btn commonfont">&#xe60b;</div>
             <div class="search_hl iconfont">&#xe600;</div>
             <div class="search" style="display: block;">

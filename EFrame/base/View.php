@@ -18,8 +18,17 @@ class View{
      */
     public function renderWidget($fileName,$data=null){
         $widgetPath = App::params('@root').'/module/'.App::module().'/widgets/'.$fileName.'.php';
-        if(is_file($widgetPath)){
-            require($widgetPath);
+        try{
+            if(!is_file($widgetPath)){
+                throw new \Exception('视图文件不存在：'.$widgetPath);
+            }else{
+                require($widgetPath);
+            }
+        }catch(Exception $e){
+            $data['line'] = $e->getLine();
+            $data['file'] = $e->getLine();
+            $data['msg'] = $e->getMessage();
+            return $data;
         }
     }
     

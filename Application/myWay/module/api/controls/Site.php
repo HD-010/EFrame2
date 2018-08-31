@@ -8,7 +8,7 @@ use EFrame\Helper\T;
 
 /**
  * Class Site
- * 测试地址：http://newway.eframe2.e01.ren/api/site/index?m=idk2584s&v=index
+ * 测试地址：http://newway.eframe2.e01.ren/api/site/index?m=idk2584s
  * 参数m:model id 与modelConfig,modelData,modelStyle的文件名称对应
  * 参数v:需要展示的页面名称
  * @package myWay\module\api\controls
@@ -21,14 +21,20 @@ class Site extends Control
      */
     function actionIndex(){
         //展示的页面类型:展示的页面类型分为:index,list,artical等
-        $type = App::request()->get('t');
-        //展示的页面名称
-        $page = App::request()->get('v');
+        $type = App::request()->get('c');
+        //获取展示的页面名称
+        $common = App::service('Common')->options('Common');
+        $widgetsPrefix = $common->parseVewFrefix();
+        $page = $common->parseView();
+        //exit($pagePrefix);
+
+        //定义传递到视图的数据集合
         $data = [];
-        
         //网站信息
         $siteInfor = App::service('SiteInfor')->options('SiteInfor');
         App::$global['siteInfor'] = $siteInfor->getInfor();
+        App::$global['siteInfor']['widgetsPrefix'] = $widgetsPrefix;
+
         //用户视图模块
         $userModelView = App::service('UserModelView')->options('UserModelView');
         //用户从事行业代码
@@ -38,6 +44,7 @@ class Site extends Control
         //用户页面模型与数据模型的对照关系
         $modelData = $userModelView ->parse('modelData')->get();
         //当前页面模型对应的数据模型
+        //echo $page;
         $models = T::arrayValue($page,$modelData);
         //T::print_pre($models);exit;
 
@@ -47,13 +54,13 @@ class Site extends Control
             //模型名称
             $modelNmae = str_replace('_','',T::getStrVal(0, $val));
             //获取视图模型与其对应的数据
-            //echo "加载的数据模型：$modelNmae";
+            echo "加载的数据模型：$modelNmae";
             $data['modelData'][$key] = App::model($modelNmae)->get($val);
         }
         
         //获取当前页面的视图名称
         $data['pagemodel'] = T::arrayValue('pageModel.'.$page,$modelConfig);
-        //T::print_pre($data);exit;
+        //T::print_pre($data['pagemodel']); //exit;
         return $this->render('index',$data);
     }
     

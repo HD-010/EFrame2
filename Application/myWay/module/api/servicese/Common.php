@@ -26,7 +26,7 @@ class Common
      * 参数说明：
      * m:module 的首字母，把每个用户的网站看作系统中的一个module
      * c:channel　的首字母,把一个类型的事物看作一个channel,与数据表channeltype一一对应
-     * v:view 页面名称,每一个view表示一个页面。与$modelConfig['pageModel']中的项一一对应　
+     * v:view 页面名称,每一个 type view 表示一个页面。与$modelConfig['pageModel']中的项对应
      * tid:typeid 栏目id,表示当前视图展示的是该typeid下的内容
      * aid: 表示当前视图展示的是该aid的内容,与数据表archives中的id一一对应
      * 
@@ -56,7 +56,7 @@ class Common
         //栏目id
         $tid = T::getStrVal('tid',$param);
         $this->param['tid'] = App::request()->get('tid',$tid);
-        //页面名称
+        //页面名称artical view
         $v = App::request()->get('v','index');
         $this->param['v'] = T::getStrVal('v',$param,$v);
         //页面类型
@@ -75,5 +75,17 @@ class Common
         return $this->param;
     }
 
+    //解析视图前缀
+    public function parseVewFrefix(){
+        $page = '';
+        if(App::request()->get('tid')) $page .= 'list_';
+        if(App::request()->get('ad')) $page .= 'artical_';
+        if(App::request()->get('c')) $page .= App::request()->get('c').'_';
 
+        return $page;
+    }
+    //解析视图名称
+    public function parseView(){
+        return  $this->parseVewFrefix().App::request()->get('v','index');
+    }
 }

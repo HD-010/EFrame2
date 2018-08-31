@@ -15,8 +15,12 @@ $pageType = App::request()->get('c','index');
 for($i = 0; $i < count($data['pagemodel']); $i ++){
     //视图模块名称
     $modelName = T::arrayValue('pagemodel.'.$i,$data,null);
+    //视图模块前缀
+    $widgetPrefix = App::$global['siteInfor']['widgetsPrefix'];
+    //T::print_pre($widgetPrefix);
     //header|footer适用于行业内所有页面，不按页面分类处理
-    $widgetsName = preg_match('/header|footer/', $modelName) ? $modelName : $pageType.'_'.$modelName;
+    $widgetsName = preg_match('/header|footer/', $modelName) ? $modelName : $widgetPrefix.$modelName;
+    echo "加载的小部件名称：".$widgetsName."<br/>";
     //视图模块数据
     $modelData = T::arrayValue('modelData.'.$modelName,$data,null);
     //返回视图小部件
