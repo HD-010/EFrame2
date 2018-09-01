@@ -45,3 +45,40 @@ newsArticle:示该小部件的名称。用于描述该小部件的功能与作�
 article_shop_commodityView_0.php
 article_shop_commodityView_1.php 等……
 当在modelConfig配置文件中使用时，直接写'commodityView_0'、'commodityView_1'等
+
+小部件制作概述
+小部件又为页面的功能模块，每个小部件都具有完整的功能性，以一个单独的文件存在。
+在使用小部件时，在视图中用$this->renderWidgets($widgets,$widgetData)将小部件引入。
+在小部件中使用$data变量，可以访问到由外部视图传到小部的数据。可以var_dump($data)输出数据结构。
+如果在小部件中引入Eframe\Helper\T,也可以使用T::print_pre($data)输出格式化后的数据
+
+小部件数据输出前的初始化过程
+小部件数据在输出前需要对其进行预处理，使其数据内容输出需求
+1、navication（导航栏）数据输出前的处理如下：
+            <?php
+        	   for($i = 0; $i < count ($data) -1; $i ++):
+                   $list = $data[$i];
+
+        	       //定义栏目连接
+                   $typeUrl = T::replaceToVal(T::arrayValue('param.tUrl',$data),[
+                       'm'=>T::arrayValue('param.m', $data),
+                       'c'=>T::arrayValue('nid', $list),
+                       'v'=>T::getStrVal(-1, $list['typedir']),
+                       'tid'=>T::arrayValue('id', $list),
+                   ]);
+
+                   //定义栏目名称
+                   $typeName = T::arrayValue('typename', $list);
+        	?>
+                   <li><a title="<?=$typeName?>" href="<?=$typeUrl?>"><?=$typeName?></a></li>
+            <?php endfor?>
+
+关于小部件模板功能的开发，模板调用格式如下：
+   {{typelist for:data}}
+        <li><a title=typeName href=typeUrl>typeName</a></li>
+        <ul>
+        {{typelist for:data.sun}}
+            <li><a title=typeName href=typeUrl>typeName</a></li>
+        }}
+        <ul>
+   }}

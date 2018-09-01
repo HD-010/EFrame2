@@ -29,8 +29,8 @@ use EFrame\Helper\T;
                    //定义栏目名称
                    $typeName = T::arrayValue('typename', $list);
         	?>
-            
-            <li><a title="<?=$typeName?>" href="<?=$typeUrl?>"><?=$typeName?></a></li>
+
+                   <li><a title="<?=$typeName?>" href="<?=$typeUrl?>"><?=$typeName?></a></li>
             
             <?php endfor?>
         </ul>
