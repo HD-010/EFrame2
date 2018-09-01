@@ -1,6 +1,7 @@
-<section class="ad_met_m1156_1 lazy" m-id="37" m-type="nocontent" data-background="    "></section>
+<link rel="stylesheet" type="text/css" href="/static/css/message_index_cn.css">
+<section class="ad_met_m1156_1 lazy" m-id="37" m-type="nocontent" data-background=""></section>
 
-<section class="message_met_m1156_1 lazy met-show" m-id="27" data-background="../../static/images/picture/1519751847.jpg">
+<section class="message_met_m1156_1 lazy met-show" m-id="27" data-background="/static/images/picture/1519751847.jpg">
 	<div class="container">
 		<div class="row">
 			<div class="contact-map" id="message_met_m1156_1_map" dark="0" level="14" coordinate="120.102116,30.300177"></div>
@@ -30,13 +31,38 @@
 				</div>
 			</div>
 			<div class="message-subpage">
+				
+				
 				<h4>给我们留言</h4>
 				<!--
                 	作者：offline
                 	时间：2018-09-01
                 	描述：给我们留言表单
                 -->
-                <?php include 'form.php';?>
+                <form method='POST' class="met-form met-form-validation" enctype="multipart/form-data" action='http://index.wuhao.vip/message/index.php?action=add&lang=cn'>
+                	<input type='hidden' name='lang' value='cn' />
+                	<div class='form-group'>
+                		<input name='para137' class='form-control' type='text' placeholder='姓名 ' />
+                	</div>
+                	<div class='form-group'>
+                		<input name='para186' class='form-control' type='text' placeholder='Email ' />
+                	</div>
+                	<div class='form-group'>
+                		<input name='para138' class='form-control' type='text' placeholder='联系电话 ' />
+                	</div>
+                	<div class='form-group'>
+                		<input name='para139' class='form-control' type='text' placeholder='联系地址 ' />
+                	</div>
+                	<div class='form-group'>
+                		<textarea name='para140' class='form-control' placeholder='留言内容 ' rows='5'></textarea>
+                	</div>
+                	<div class="form-group m-b-0">
+                		<button type="submit" class="btn btn-primary btn-block btn-squared">
+                		提交留言
+                		</button>
+                	</div>
+                </form>
+                
                 	
                 	
 			</div>
@@ -63,3 +89,4 @@
 		</div>
 	</div>
 </section>
+

@@ -1,3 +1,11 @@
+<?php 
+use EFrame\Helper\T;
+
+//if(!$data['status']) return;
+//T::print_pre($data);
+?>
+
+
 <section class="banner_met_m1156_1     " data-title="" m-id="20" m-type="banner">
 	<div class="banner-box">
 		<div class="banner-wrapper">

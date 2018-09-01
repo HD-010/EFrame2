@@ -142,7 +142,8 @@ class UserModelView
      */
     protected function initIndustroyCode(){
         //行业代码,例如食品|餐饮美食
-        $industroyCode = '2410|223';
+        //$industroyCode = '2410|223';
+        $industroyCode = '4536|396';
         $this->industroyCode = $industroyCode;
     }
 }

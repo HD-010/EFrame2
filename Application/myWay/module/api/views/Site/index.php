@@ -25,7 +25,7 @@ for($i = 0; $i < count($data['pagemodel']); $i ++){
     //视图模块数据
     $modelData = T::arrayValue('modelData.'.$modelName,$data,null);
     //返回视图小部件
-    echo $industroyCode[0].'\\'.$industroyCode[1].'\\'.$widgetsName."<br/>";
+    //echo $industroyCode[0].'\\'.$industroyCode[1].'\\'.$widgetsName."<br/>";
     $this->renderWidget($industroyCode[0].'\\'.$industroyCode[1].'\\'.$widgetsName,$modelData);
 }
 

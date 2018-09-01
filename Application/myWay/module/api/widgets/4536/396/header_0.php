@@ -1,3 +1,9 @@
+<?php 
+use EFrame\Helper\T;
+
+//T::print_pre($data);
+?>
+
 <header class="head_nav_met_m1156_1 swiper-header
 scroll
 slide" m-id="38" m-type="nocontent">
@@ -12,7 +18,7 @@ slide" m-id="38" m-type="nocontent">
 			<div class="side-shadow"></div>
 			<div class="side-bin">
 				<div class="side-search">
-					<form method="get" action="    search/">
+					<form method="get" action="search/">
 						<input type="hidden" name="lang" value="cn" />
 						<input type="hidden" name="class1" value="10001" />
 						<div class="form-group">
@@ -30,7 +36,78 @@ slide" m-id="38" m-type="nocontent">
                 	时间：2018-09-01
                 	描述：nav右边导航栏
                 -->
-				<?php include '../common/nav.php';?>
+                <nav class="side-nav" m-id="noset" m-type="head_nav" role="heading">
+                	<ul>
+                		<?php 
+                		      $m = T::arrayValue('param.m', $data);
+                		      $hUrl = T::replaceToVal(T::arrayValue('param.hUrl',$data),[
+                		          'm'=>$m,
+                		      ]);
+                		?>
+                	
+                		<li class="nav-first">
+                    		<a href="<?=$hUrl ?>" title="网站首页">
+                    		<i class="icon fa-home"></i>
+                    		<b>网站首页</b>
+                    		</a>
+            		    </li>
+            		    
+                		<?php 
+                		
+                    	   for($i = 0; $i < count ($data) -1; $i ++):
+                               $list = $data[$i];
+                    	       
+                    	       //定义栏目连接
+                               $typeUrl = T::replaceToVal(T::arrayValue('param.tUrl',$data),[
+                                   'm'=>$m,
+                                   'c'=>T::arrayValue('nid', $list),
+                                   'v'=>T::getStrVal(-1, $list['typedir']),
+                                   'tid'=>T::arrayValue('id', $list),
+                               ]);
+                               
+                               //定义栏目名称
+                               $typeName = T::arrayValue('typename', $list);
+                    	?>
+        				
+							<li class="nav-first has">
+                			<a href="<?=$typeUrl ?>" target=_self title="<?=$typeName ?>">
+                				<i class="fa-camera"></i>
+                				<b><?=$typeName ?></b>
+                			</a>
+                			<u>&nbsp;</u><i>&nbsp;</i>
+                			<?php 
+                			if(T::arrayValue('sun', $list, false)):
+                			     for($j = 0; $j < count($list['sun']); $j ++):
+                			     $listSun = $list['sun'][$j];
+                			     //定义栏目连接
+                			     $typeUrl = T::replaceToVal(T::arrayValue('param.tUrl',$data),[
+                			         'm'=>$m,
+                			         'c'=>T::arrayValue('nid', $listSun),
+                			         'v'=>T::getStrVal(-1, $listSun['typedir']),
+                			         'tid'=>T::arrayValue('id', $listSun),
+                			     ]);
+                			     //定义栏目名称
+                			     $typeName = T::arrayValue('typename', $listSun);
+                			?>
+                			<ul>
+                				<li class="nav-second     ">
+                					<a href="<?=$typeUrl ?>" target='_self' title="<?=$typeName ?>">
+                						<b><?=$typeName ?></b>
+                					</a>
+                				</li>
+                			</ul>
+                				<?php endfor?>
+                			<?php endif?>
+                		</li>
+                               
+                        
+                        <?php endfor?>
+                	</ul>
+                </nav>
+
+
+
+
 					
 				<div class="side-foot">
 					<div class="side-phone">
@@ -42,18 +119,9 @@ slide" m-id="38" m-type="nocontent">
 						</p>
 						<i class="icon fa-qrcode" data-toggle="modal" data-target="#met-ewm-modal"></i>
 					</div>
-					<div class="social-box">
-						<audio id="audio" src="http://index.wuhao.vip/upload/201802/bg.mp3" status="1"></audio>
-						<canvas id="canvas" width="105" height="34"></canvas>
-						<a href="http://wpa.qq.com/msgrd?v=3&uin=11111111&site=qq&menu=yes" rel="nofollow" target="_blank">
-							<i class="icon fa-qq"></i>
-						</a>
-						<a href="http://www.weibo.com/" rel="nofollow" target="_blank">
-							<i class="icon fa-weibo"></i>
-						</a>
-					</div>
+					
 					<div class="side-text">
-						Copyright © 2018 吾号应用
+						Copyright © 2018 朴艺科技
 					</div>
 				</div>
 			</div>
@@ -62,7 +130,7 @@ slide" m-id="38" m-type="nocontent">
 	<div class="side-head     ">
 		<div class="side-logo">
 			<a href="" title="APP应用开发|网站建设|平面设计">
-				<img data-original="../../static/images/sking/1535191906.png" alt="APP应用开发|网站建设|平面设计">
+				<img data-original="/static/images/sking/1535191906.png" alt="APP应用开发|网站建设|平面设计">
 			</a>
 		</div>
 		<div class="sign-box">
@@ -76,7 +144,7 @@ slide" m-id="38" m-type="nocontent">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">×</span>
 					</button>
-					<img data-original="../../static/images/sking/1535193571.jpg" alt="APP应用开发|网站建设|平面设计">
+					<img data-original="/static/images/sking/1535193571.jpg" alt="APP应用开发|网站建设|平面设计">
 				</div>
 			</div>
 		</div>

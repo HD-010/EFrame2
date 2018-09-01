@@ -1,3 +1,39 @@
+<?php
+use EFrame\Helper\T;
+
+//T::print_pre($data);exit;
+
+if(!$data['status']) {
+//     echo "还没有数据...";
+//     return;
+}
+
+$m = T::replaceToVal(T::arrayValue('param.m', $data));
+$v = T::replaceToVal(T::arrayValue('param.v', $data));
+$c = T::replaceToVal(T::arrayValue('param.c', $data));
+$aUrl = T::arrayValue('param.aUrl', $data);
+?>
+
+        <?php 
+        //             for($i = 0; $i < count($data['data']); $i ++):
+        //             $list = $data['data'][$i];
+        //             $title = T::limitStr(10, $list['title']);
+        //             $aid = $list['id'];
+        //             $pubdate = date('Y/m/d',$list['pubdate']);
+        //             $aUrl = T::replaceToVal($aUrl,[
+        //                 'm' => $m,
+        //                 'v' => $v,
+        //                 'c' => $c,
+        //                 'aid' => $aid,
+        //             ]);
+        ?>
+        
+       <!-- 列表内容………… -->
+        
+        <?php 
+            //endfor; 
+        ?>
+
 <section class="news_list_page_met_m1156_1 lazy" m-id="36"data-background="../../static/images/picture/1519794022.png">
 	<div class="met-news animsition type-0">
 		<div class="container">
