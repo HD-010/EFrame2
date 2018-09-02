@@ -73,7 +73,43 @@ article_shop_commodityView_1.php 等……
                    <li><a title="<?=$typeName?>" href="<?=$typeUrl?>"><?=$typeName?></a></li>
             <?php endfor?>
 
-关于小部件模板功能的开发，模板调用格式如下：
+2、首页分类列表数据输出前的处理如下：
+        <?php
+            if(!$data['status']) return ;
+
+            //栏目名称
+            $typeName = T::arrayValue('arctypeInfor.0.typename',$data);
+            $m = T::arrayValue('param.m', $data);
+            $c = T::arrayValue('arctypeInfor.0.nid', $data);
+            $v = T::getStrVal(-1, $data['arctypeInfor'][0]['typedir']);
+            $tid = T::arrayValue('typeId', $data);
+
+            //更多按钮指向的栏目链接
+            $lUrl = T::replaceToVal(T::arrayValue('param.lUrl', $data),[
+                'm' => $m,
+                'c' => $c,
+                'v' => $v,
+                'tid' => $tid
+            ]);
+
+            for($i = 0; $i < count ($data['data']); $i ++):
+            $list = $data['data'][$i];
+
+            //文章地址
+            $aUrl = T::replaceToVal(T::arrayValue('param.aUrl', $data),[
+                'm' => $m,
+                'c' => $c,
+                'v' => $v,
+                'aid' => T::arrayValue('id', $list)
+            ]);
+
+            //文章标题
+            $title = T::arrayValue('title', $list);
+        ?>
+
+
+
+关于小部件模板功能的开发，模板调用格式如下： 待叙……
    {{typelist for:data}}
         <li><a title=typeName href=typeUrl>typeName</a></li>
         <ul>

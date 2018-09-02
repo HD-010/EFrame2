@@ -10,8 +10,9 @@ use \App;
 class View{
     private $viewPath;
     private $layoutPath;
+    private $main;
     private $data;
-    
+
     /**
      * @param unknown $fileName
      * @param unknown $data 传到小部件的数据
@@ -43,6 +44,16 @@ class View{
             require($this->viewPath);
         }
     }
+
+    /**
+     * 设置布局文件名称（路径）
+     * @param string $main 布局文件名称，如：'/path/name'
+     */
+    public function layOut($main=null){
+        $this->main = $main;
+
+        return $this;
+    }
     
     /**
      * 该方法将视图内容返回到布局
@@ -57,7 +68,8 @@ class View{
         $this->viewPath = $viewPath;
         
         //这里声明布局文件路径
-        $layoutPath = App::params('@root').'/module/'.App::module().'/layout/main.php';
+        $main = $this->main ? $this->main : '/main';
+        $layoutPath = App::params('@root').'/module/'.App::module().'/layout'.$main.'.php';
         $this->layoutPath = $layoutPath;
         
         //这里载入布局文件
