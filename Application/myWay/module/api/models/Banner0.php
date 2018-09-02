@@ -10,7 +10,7 @@ namespace myWay\module\api\models;
 use App;
 use EFrame\Helper\T;
 
-class HeaderBanner0
+class Banner0
 {
     protected $typeName;
     protected $ADList;
@@ -22,6 +22,9 @@ class HeaderBanner0
      */
     public function get($param){
         $this->initParams($param);
+        $this->setADList();
+
+        return $this->ADList;
     }
 
     /**
@@ -39,11 +42,11 @@ class HeaderBanner0
      * 需要指明typename的值
      * @return $this
      */
-    protected function setArticalList(){
+    protected function setADList(){
         //获取该类型下广告列表
         $MyAD = App::service('MyAD')->options('MyAD');
         //设置获取的广告列表
-        $this->ADList = $MyAD->setParam(['typeId'=>$this->typeName])->getList();
+        $this->ADList = $MyAD->setParam(['typeName'=>$this->typeName])->getList();
 
         return $this;
     }

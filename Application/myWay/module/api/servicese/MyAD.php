@@ -25,10 +25,9 @@ class MyAD{
      * @return mixed
      */
     public function getList(){
-
         $this->setList();
         
-        return $this->articalList;
+        return $this->myadList;
     }
 
     /**
@@ -42,7 +41,7 @@ class MyAD{
     }
 
     /**
-     * 查询文章列表
+     * 查询广告列表
      * @return $this
      */
     protected function setList(){
@@ -55,65 +54,13 @@ class MyAD{
         ];
 
         //添加查询条件
-        if($this->typeId) $q['WHERE'][] = "@#_madd.clsid = (select id from @#_myadtype WHERE typename='".$this->typeMame."')";
-        $q['LIMIT'] = "0,10";
 
+        if($this->typeName) $q['WHERE'][] = "@#_myad.clsid = (select id from @#_myadtype WHERE typename='".$this->typeName."')";
+        $q['LIMIT'] = "0,10";
+        echo App::DB()->selectCommond($q)->showQuery();
         $res = App::DB()->selectCommond($q)->query()->fetchAll();
         //添加数据状态
         $this->myadList = T::addStatus($res);
-
-        return $this;
-    }
-
-
-    /**
-     * 查询文章内容
-     * @return $this
-     */
-    protected function setArtical(){
-        $q = [
-            [
-                "@#_archives" => [
-                    'id','writer','pubdate','litpic','keywords','title','description','click'
-                ],
-                $this->addonTable => [
-                    "*",
-                ],
-            ],
-            "LEFT_JOIN" =>[
-                $this->addonTable => " ON @#_archives.id = ".$this->addonTable . ".aid",
-            ],
-        ];
-
-        if($this->aid) $q['WHERE'][] = "@#_archives.id = $this->aid";
-
-
-        //echo App::DB()->selectCommond($q)->showQuery();exit;
-        $res = App::DB()->selectCommond($q)->query()->fetch(1);
-        $this->artical = T::addStatus($res);
-
-        return $this;
-    }
-
-    /**
-     * 查询附加表
-     * @return $this
-     */
-    protected function setAddonTable(){
-        $q = [
-            [
-                '@#_channeltype' => [
-                    'addtable'
-                ],
-            ],
-        ];
-        //组织查询条件
-        if($this->typeId) $q['WHERE'][] =  "id = (SELECT channel from @#_archives WHERE typeid = $this->typeId LIMIT 1)";
-        $q['LIMIT'] = '0,1';
-        //执行查询语句
-        $res = App::DB()->selectCommond($q)->query()->fetch();
-        //T::print_pre($res);
-        $this->addonTable = $res['addtable'];
 
         return $this;
     }

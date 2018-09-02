@@ -1,5 +1,8 @@
 <?php 
 use EFrame\Helper\T;
+
+
+T::print_pre($data);
 ?>
 
 <style>

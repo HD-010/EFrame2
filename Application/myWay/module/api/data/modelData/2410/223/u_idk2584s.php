@@ -16,7 +16,7 @@ return $modelData = [
         //页面小部件名称 => '数据模型名称'  数据模型名称与models中的模型名称相应
         'header_0'=>'header_0',
         //页面小部件名称
-        'headerBanner_0' => 'HeaderBanner_0',
+        'headerBanner_0' => 'Banner_0',
         //首页导航
         'navication_0'=>'Navication_0',
         //首页商品推荐
