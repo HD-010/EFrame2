@@ -62,7 +62,7 @@ class Site extends Control
         //获取当前页面的视图名称
         $data['pagemodel'] = T::arrayValue('pageModel.'.$page,$modelConfig);
         //T::print_pre($data['pagemodel']); //exit;
-        $layOut = '';
+        $layOut = '/main_4536_396';
         return $this->layOut($layOut)->render('index',$data);
     }
     

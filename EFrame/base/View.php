@@ -50,7 +50,8 @@ class View{
      * @param string $main 布局文件名称，如：'/path/name'
      */
     public function layOut($main=null){
-        if($main && !preg_match('/^//',$main)) $main = '/'.$main;
+        if($main && !preg_match('/^\W/',$main)) $main = '/'.$main;
+        //exit($main);
         $this->main = $main;
 
         return $this;
