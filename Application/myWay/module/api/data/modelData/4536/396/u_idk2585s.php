@@ -15,6 +15,8 @@ return $modelData = [
     'index_index'=>[
         //页面小部件名称 => '数据模型名称'  数据模型名称与models中的模型名称相应
         'header_0'=>'Navication_0',
+        'sectionAbout_0' => 'ArctypeInfor_0|tid=25',
+        'sectionVideo_0' => 'ArticalList_0|tid=28',
        
     ],
     

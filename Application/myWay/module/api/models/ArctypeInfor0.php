@@ -27,8 +27,12 @@ class ArctypeInfor0
      * @return mixed
      */
     public function get($param=null){
+//      T::print_pre($this->arctypeInfor);exit;
         $this->initParams($param)->setArctypeInfor();
-
+        
+        //调用公共服务
+        $this->arctypeInfor['param'] = App::service('Common')->options('Common')->parseModelParam($param);
+        
         return $this->arctypeInfor;
     }
     

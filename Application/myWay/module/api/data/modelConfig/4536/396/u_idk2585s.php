@@ -22,11 +22,11 @@ return $modelConfig = [
             'header_0',
             'sectionIndex_0',
             'sectionAbout_0',
-            'sectionProduct_0',
+//             'sectionProduct_0',
             'sectionVideo_0',
-            'sectionMessage_0',
-            'sectionContact_0',
-            'footer_0'
+//             'sectionMessage_0',
+//             'sectionContact_0',
+//             'footer_0'
         ],
         
         //列表页关于我们模块名称

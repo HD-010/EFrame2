@@ -73,18 +73,16 @@ class Arctype
                     "nid","typename as nname","maintable","addtable",
                 ]
             ],
-            "WHERE" => [
-                "@#_arctype.topid='0'",
-            ],
-            "LEFT_JOIN" => [
-                "@#_channeltype" => "ON @#_channeltype.id=@#_arctype.channeltype",
-            ],
-            "ORDER_BY" => [
-                "sortrank",
-            ],
             
-            "LIMIT" => '0,10'
         ];
+        
+        //添加子查询
+        $o['WHERE'][] = "@#_arctype.topid='0'";
+        $o['WHERE'][] = "@#_arctype.ishidden='0'";
+        $o['LEFT_JOIN']["@#_channeltype"] = "ON @#_channeltype.id=@#_arctype.channeltype";
+        $o['ORDER_BY'][] = "sortrank";
+        $O['LIMET'] = '0,10';
+        
         
         $arctypeTop = App::DB()->selectCommond($o)->query()->fetchAll();
         //T::print_pre(arctype);
@@ -111,17 +109,14 @@ class Arctype
                     "nid","typename as nname","maintable","addtable",
                 ]
             ],
-            "WHERE" => [
-                "@#_arctype.topid ".$this->topId,
-            ],
-            "LEFT_JOIN" => [
-                "@#_channeltype" => "ON @#_channeltype.id=@#_arctype.channeltype",
-            ],
-            "ORDER_BY" => [
-                "@#_arctype.topid",
-            ],
-            
         ];
+        
+        //添加子查询
+        $o['WHERE'][] = "@#_arctype.topid ".$this->topId;
+        $o['WHERE'][] = "@#_arctype.ishidden='0'";
+        $o['LEFT_JOIN']["@#_channeltype"] = "ON @#_channeltype.id=@#_arctype.channeltype";
+        $o['ORDER_BY'][] = "@#_arctype.topid";
+        
      
         $arctypeSun = App::DB()->selectCommond($o)->query()->fetchAll();
         //T::print_pre($sunArctype);

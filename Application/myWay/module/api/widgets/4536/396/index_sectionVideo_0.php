@@ -1,10 +1,17 @@
+<?php 
+use EFrame\Helper\T;
+
+T::print_pre($data);exit;
+
+?>
+
 <section class="video_list_met_m1156_1 lazy full" m-id="45" data-title="视频" data-background="../../static/images/sking/1519793505.jpg">
 	<div class="container video-box">
 		<div class="row">
 			<div class="video-left active">
 				<div class="video-content">
-					<img class="lazy" data-src="../../static/images/picture/1519826764.jpg" alt="什么是响应式？">
-					<video loop controls src="                http://www.metinfo.cn/templates/metinfo2016/min/video/met-index-mb.mp4            "></video>
+					<img class="lazy" data-src="/static/images/picture/1519826764.jpg" alt="什么是响应式？">
+					<video loop controls src="http://www.metinfo.cn/templates/metinfo2016/min/video/met-index-mb.mp4            "></video>
 				</div>
 				<div class="video-text">
 					<h3>什么是响应式？</h3>
