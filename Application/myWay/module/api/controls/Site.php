@@ -34,8 +34,9 @@ class Site extends Control
         //网站信息
         $siteInfor = App::service('SiteInfor')->options('SiteInfor');
         App::$global['siteInfor'] = $siteInfor->getInfor();
+        App::$global['sysConfig'] = $siteInfor->getSysConfig();
         App::$global['siteInfor']['widgetsPrefix'] = $widgetsPrefix;
-
+        
         //用户视图模块
         $userModelView = App::service('UserModelView')->options('UserModelView');
         //用户从事行业代码
