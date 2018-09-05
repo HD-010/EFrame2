@@ -12,6 +12,7 @@ use EFrame\Helper\T;
  * @package myWay\module\api\servicese
  */
 class Archives{
+    protected $topId;               //文章所在栏目的上一级栏目id
     protected $typeId;              //栏目id
     protected $aid;                 //文章id
     protected $flag;                //文章标签
@@ -72,7 +73,12 @@ class Archives{
      * param = ['typeId'=>7]
      */
     public function setParam($param = []){
+        //文章所在栏目的上一级栏目id
+        $this->topId = T::arrayValue('topId',$param,null);
+        //文章所在栏目的id
         $this->typeId = T::arrayValue('typeId',$param,null);
+        //文章id
+        $this->aid = T::arrayValue('articleId',$param,null);
 
         return $this;
     }
@@ -92,11 +98,12 @@ class Archives{
 
         //添加查询条件
         if($this->typeId) $q['WHERE'][] = '@#_archives.typeid = '.$this->typeId;
+        if($this->topId) $q['WHERE'][] = '@#_archives.typeid in (select id from @#_arctype where topid='.$this->topId.')';
         if($this->flag) $q['WHERE'][] = '@#_archives.flag like %'.str_replace(',','%',$this->flag).'%';
-        //分面开始数据
+        //分页开始数据
         $startPage = ($this->currentPage - 1) * $this->pageSize;
         $q['LIMIT'] = "$startPage,$this->pageSize";
-
+        $q['ORDER_BY'] ='typeid,sortrank';
         $res = App::DB()->selectCommond($q)->query()->fetchAll();
         //添加数据状态
         $this->articalList = T::addStatus($res);

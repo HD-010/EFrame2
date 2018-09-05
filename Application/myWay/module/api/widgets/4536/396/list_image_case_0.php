@@ -1,24 +1,29 @@
 <?php 
 use EFrame\Helper\T;
 
-//if(!$data['status']) return;
-//T::print_pre($data);
+if(!$data['status']) return;
+
+$m = T::replaceToVal(T::arrayValue('param.m', $data));
+$v = T::replaceToVal(T::arrayValue('param.v', $data));
+$c = T::replaceToVal(T::arrayValue('param.c', $data));
+$aUrl = T::arrayValue('param.aUrl', $data);
+
 ?>
 
-
+<link rel="stylesheet" type="text/css" href="/static/css/img_cn.css">
 <section class="banner_met_m1156_1     " data-title="" m-id="20" m-type="banner">
 	<div class="banner-box">
 		<div class="banner-wrapper">
 			<div class="banner-slide">
 				<ul>
-					<li class="pc     height">
-						<img     src="../../static/images/picture/1519800571.jpg"     height="80" alt="">
+					<li class="pc  height">
+						<img     src="/static/images/picture/1519800571.jpg"     height="80" alt="">
 					</li>
-					<li class="pad     height">
-						<img data-src="../../static/images/picture/1519800571.jpg"     height="80" alt="">
+					<li class="pad height">
+						<img data-src="/static/images/picture/1519800571.jpg"     height="80" alt="">
 					</li>
-					<li class="phone     height">
-						<img data-src="../../static/images/picture/1519800571.jpg"     height="60" alt="">
+					<li class="phone height">
+						<img data-src="/static/images/picture/1519800571.jpg"     height="60" alt="">
 					</li>
 				</ul>
 
@@ -30,20 +35,42 @@ use EFrame\Helper\T;
 <section class="ad_met_m1156_1 lazy" m-id="37" m-type="nocontent" data-background="    "></section>
 
 <section class="img_list_page_met_m1156_1 lazy" m-id="24"
-data-background="../../static/images/picture/1519793312.png">
+data-background="/static/images/picture/1519793312.png">
 	<div class="met-img animsition     imgs0">
 		<div class="container">
 			<div class="row">
 				<ul class="blocks-2 blocks-md-2 blocks-lg-4 blocks-xxl-4  met-pager-ajax" data-scale="390x540">
+					
+					
+					<?php 
+					for($i = 0; $i < count($data['data']); $i ++):
+					$list = $data['data'][$i];
+					$title = T::limitStr(10, $list['title']);
+					$click = $list['click'];
+					$aid = $list['id'];
+					$description = $list['description'];
+					$pubDate = date('Y/m/d',$list['pubdate']);
+					$href = T::replaceToVal($aUrl,[
+					    'm' => $m,
+					    'v' => $v,
+					    'c' => $c,
+					    'aid' => $aid,
+					]);
+					?>
 					<li class="img-li">
 						<span>
-						<a href="http://index.wuhao.vip/case/case29.html" title="多功能应用开发" target=_self>
-							<img class="imgloading" data-original="http://qn.wuhao.vip/upload/thumb_src/540_390/1519806454.jpg" alt="多功能应用开发">
-							<font>多功能应用开发</font>
+						<a href="<?=$href ?>" title="<?=$title ?>" target=_self>
+							<img class="imgloading" data-original="http://qn.wuhao.vip/upload/thumb_src/540_390/1519806454.jpg" alt="<?=$title ?>">
+							<font><?=$title ?></font>
 						</a>
-						<p class="fa fa-search met-img-showbtn" data-imglist="        多功能应用开发*-=http://qn.wuhao.vip/upload/201802/1519806454.jpg+|-"></p> </span>
+						<p class="fa fa-search met-img-showbtn" data-imglist="        <?=$title ?>*-=http://qn.wuhao.vip/upload/201802/1519806454.jpg+|-"></p> </span>
 					</li>
-					<li class="img-li">
+					
+					<?php endfor?>
+					
+					
+					
+					<!-- <li class="img-li">
 						<span>
 						<a href="http://index.wuhao.vip/case/case30.html" title="超级音乐播放器" target=_self>
 							<img class="imgloading" data-original="http://qn.wuhao.vip/upload/thumb_src/540_390/1519805780.png" alt="超级音乐播放器">
@@ -130,7 +157,7 @@ data-background="../../static/images/picture/1519793312.png">
 							<font>音乐播放器</font>
 						</a>
 						<p class="fa fa-search met-img-showbtn" data-imglist="        音乐播放器*-=http://qn.wuhao.vip/upload/201802/1519808435.png+|-"></p> </span>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>

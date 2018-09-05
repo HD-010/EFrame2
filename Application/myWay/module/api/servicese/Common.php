@@ -28,7 +28,14 @@ class Common
      * c:channel　的首字母,把一个类型的事物看作一个channel,与数据表channeltype一一对应
      * v:view 页面名称,每一个 type view 表示一个页面。与$modelConfig['pageModel']中的项对应
      * tid:typeid 栏目id,表示当前视图展示的是该typeid下的内容
+     * topid:topid 栏目id,表示当前视图展示的是该topid下级的所有子栏目的内容。topid或topid均用于栏目列表查询，
+     *   这两个参数在一个模块中同时只能有一个出现。如果是tid，则查询返回 的数据$data['arctypeInfor']有一条记录；
+     *   如果是topid，则查询返回的数据$data['arctypeInfor']有多条记录，索引为0的表示为topid对应的记录
      * aid: 表示当前视图展示的是该aid的内容,与数据表archives中的id一一对应
+     * flag: 表示文章标签
+     * cp: 当前页码
+     * ps: 分页步长
+     * 
      * 
      * 这些参数可以在$modelData的页面下模块名称后进行配置。需要注意的是，这些参数的值可能来源及优先级如下：
      * url传递 > 模块名称后配置的参数  > 系统给定的默认值

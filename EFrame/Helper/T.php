@@ -160,4 +160,42 @@ class T
         return $str;
     }
     
+    /**
+     * 在一个多维数组findArray中，以key＝＝val为条件查找findKey，并返回找到的值
+     * @param unknown $array
+     * 结构如：
+     * [
+     *  key,            
+     *  val,
+     *  findKey,
+     *  findArray
+     * ]
+     */
+    public static function lookAbout($array){
+        $findArray = $array[3];
+        if(!is_array($findArray)) return false;
+        $key = $array[0];
+        $val = $array[1];
+        $findKey = $array[2];
+        
+        $res = '';
+        
+        foreach($findArray as $k=>$v){
+            if(is_array($v)){
+                $res = self::lookAbout([
+                    $key,
+                    $val,
+                    $findKey,
+                    $v
+                ]);
+            }
+            //echo $k . "===" .$key ."|||". $v."==".$val."<br/>";
+            if($k == $key && $v == $val ){
+                $res = $findArray[$findKey];
+            }
+        }
+        
+        return $res;
+    }
+    
 }

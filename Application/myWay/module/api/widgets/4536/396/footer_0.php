@@ -1,33 +1,43 @@
+<?php 
+use EFrame\Helper\T;
+
+//T::print_pre($data);exit;
+?>
+
 <footer class="foot_info_met_m1156_1     lr" m-id="9" m-type="foot">
 	<div class="foot-left">
 		<div class="foot-nav" m-id="noset" m-type="foot_nav">
-			<a href="https://index.wuhao.vip/about/" target='_self' title="关于我们">
-				关于我们
+			
+			<?php 
+		       $m = T::arrayValue('param.m', $data);
+        	   for($i = 0; $i < count ($data) -1; $i ++):
+                   $list = $data[$i];
+        	       
+        	       //定义栏目连接
+                   $typeUrl = T::replaceToVal(T::arrayValue('param.tUrl',$data),[
+                       'm'=>$m,
+                       'c'=>T::arrayValue('nid', $list),
+                       'v'=>T::getStrVal(-1, $list['typedir']),
+                       'tid'=>T::arrayValue('id', $list),
+                   ]);
+                   
+                   //定义栏目名称
+                   $typeName = T::arrayValue('typename', $list);
+        	?>
+			
+			<a href="<?=$typeUrl ?>" target='_self' title="<?=$typeName ?>">
+				<?=$typeName ?>
 			</a>
-			<a href="https://index.wuhao.vip/server/" target='_self' title="服务项目">
-				服务项目
-			</a>
-			<a href="https://index.wuhao.vip/picture/" target='_self' title="产品中心">
-				产品中心
-			</a>
-			<a href="https://index.wuhao.vip/news/" target='_self' title="新闻资讯">
-				新闻资讯
-			</a>
-			<a href="https://index.wuhao.vip/case/" target='_self' title="案例展示">
-				案例展示
-			</a>
-			<a href="https://index.wuhao.vip/message/" target='_self' title="联系我们">
-				联系我们
-			</a>
+			<?php endfor?>
 		</div>
 		<div class="foot-copyright"></div>
 		<div class="foot-lang" m-type="lang" m-id="0"></div>
 		<div class="powered_by_metinfo">
 			Powered by
-			<a href="http://www.Wuhao.vip" target="_blank" title="MetInfo企业网站管理系统">
-				Wuhao
+			<a href="index?m=idk2585s" target="_blank" title="MetInfo企业网站管理系统">
+				朴艺科技
 			</a>
-			6.1.0
+			
 		</div>
 	</div>
 	<div class="foot-right">
@@ -41,21 +51,12 @@
 				<li>
 					友情链接：
 				</li>
-				<li>
+				<!-- <li>
 					<a href="https://www.wuhao.vip" title="品牌设计" target="_blank">
 						<span>品牌设计</span>
 					</a>
-				</li>
-				<li>
-					<a href="https://www.wuhao.vip" title="LOGO设计" target="_blank">
-						<span>LOGO设计</span>
-					</a>
-				</li>
-				<li>
-					<a href="https://www.wuhao.vip" title="产品设计" target="_blank">
-						<span>产品设计</span>
-					</a>
-				</li>
+				</li> -->
+				
 			</ul>
 		</div>
 	</div>

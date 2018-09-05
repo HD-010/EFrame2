@@ -1,10 +1,12 @@
 <link rel="stylesheet" type="text/css" href="/static/css/message_index_cn.css">
 <section class="ad_met_m1156_1 lazy" m-id="37" m-type="nocontent" data-background=""></section>
 
-<section class="message_met_m1156_1 lazy met-show" m-id="27" data-background="/static/images/picture/1519751847.jpg">
+<section class="message_met_m1156_1 lazy met-show" m-id="27" data-background="../../static/images/picture/1519751847.jpg">
 	<div class="container">
 		<div class="row">
-			<div class="contact-map" id="message_met_m1156_1_map" dark="0" level="14" coordinate="120.102116,30.300177"></div>
+			<div class="contact-map" id="message_met_m1156_1_map" dark="0" level="14" coordinate="120.102116,30.300177">
+			<iframe style="width:100%;height:100%;border:0;" src='http://api.map.baidu.com/geocoder?location=25.102213,104.914738&coord_type=gcj02&output=html&src=webapp.baidu.openAPIdemo' ></iframe>
+			</div>
 			<div class="contact-sub">
 				<p class="b">
 					Internet service technology, Limited by Share Ltd
@@ -39,21 +41,21 @@
                 	时间：2018-09-01
                 	描述：给我们留言表单
                 -->
-                <form method='POST' class="met-form met-form-validation" enctype="multipart/form-data" action='http://index.wuhao.vip/message/index.php?action=add&lang=cn'>
+                <form method='POST' class="met-form met-form-validation" enctype="multipart/form-data" action='index?'>
                 	<input type='hidden' name='lang' value='cn' />
-                	<div class='form-group'>
+                	<div class='form-group' style="width:33.3333333%">
                 		<input name='para137' class='form-control' type='text' placeholder='姓名 ' />
                 	</div>
-                	<div class='form-group'>
+                	<div class='form-group' style="width:33.3333333%">
                 		<input name='para186' class='form-control' type='text' placeholder='Email ' />
                 	</div>
-                	<div class='form-group'>
+                	<div class='form-group' style="width:33.3333333%">
                 		<input name='para138' class='form-control' type='text' placeholder='联系电话 ' />
                 	</div>
-                	<div class='form-group'>
+                	<div class='form-group' style="width:33.3333333%">
                 		<input name='para139' class='form-control' type='text' placeholder='联系地址 ' />
                 	</div>
-                	<div class='form-group'>
+                	<div class='form-group' style="width:100%">
                 		<textarea name='para140' class='form-control' placeholder='留言内容 ' rows='5'></textarea>
                 	</div>
                 	<div class="form-group m-b-0">
@@ -66,27 +68,11 @@
                 	
                 	
 			</div>
-			<div class="message-list">
-				<h4>推荐留言</h4>
-				<ul class="list-group list-group-dividered list-group-full met-pager-ajax"></ul>
-				<div class="page-box" m-type="nosysdata">
-					<div class='met_pager'>
-						<span class='PreSpan'>上一页</span>
-						<a href='http://index.wuhao.vip/message/index.html' class='Ahover'>
-							1
-						</a><span class='NextSpan'>下一页</span>
-						<span class='PageText'>转至第</span>
-						<input type='text' id='metPageT' data-pageurl='index.php?lang=cn&class1=85&page=|.html|1' value='1' />
-						<input type='button' id='metPageB' value='页' />
-					</div>
-				</div>
-				<div class="met-pager-ajax-link hidden-md-up" m-type="nosysdata">
-					<button type="button" class="btn btn-primary btn-block btn-squared ladda-button" id="met-pager-btn" data-page="1">
-					<i class="icon wb-chevron-down m-r-5" aria-hidden="true"></i>
-					</button>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </section>
+
+
+
 

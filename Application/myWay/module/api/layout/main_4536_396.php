@@ -10,7 +10,7 @@ use EFrame\Helper\T;
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
 		<meta name="format-detection" content="telephone=no">
-		<title>杭州吾号科技有限公司</title>
+		<title>贵州朴艺科技有限公司</title>
 		<meta name="description" content="模板建站和纯手工建站的区别在于：模板是“成衣”，你只需要去服装店挑选，而所谓的纯手工建站是裁缝师傅给你定制。功能和稳定性模板+成熟的CMS管理后台大大优于“裁缝店”">
 		<meta name="keywords" content="APP应用开发|网站建设|平面设计">
 		<!--<meta name="generator" content="MetInfo 6.1.0" data-variable="https://index.wuhao.vip/|cn|cn|m1156ui001|10001|10001|0" data-user_name="">-->
@@ -40,33 +40,7 @@ use EFrame\Helper\T;
 	<?php 
         echo  $this->contents();
     ?>
-		<!--头部导航-->
-		<?php //include 'header.php'; ?>
-
-		<!-- section 首页-->
-		<?php //include 'section_index.php'; ?>
-
-		<!-- section 关于-->
-		<?php //include 'section_about.php'; ?>
-
-		<!-- section 产品-->
-		<?php //include 'section_product.php'; ?>
-
-		<!-- section 视频-->
-		<?php //include 'section_video.php'; ?>
-
-		
-		<!-- section 资讯-->
-		<?php //include 'section_message.php'; ?>
-			
-			
-		<!-- section 联系-->
-		<?php //include 'section_contact.php'; ?>
-			
-		<!-- section footer-->
-		<?php //include '../common/footer.php'; ?>
-
-</body>
+	</body>
 </html>
 
 <script src="/static/js/basic.js"></script>

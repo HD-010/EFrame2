@@ -19,6 +19,7 @@ use EFrame\Helper\T;
 class ArticalList0
 {
     protected $param;           //模块参数
+    protected $topId;           //文章所在栏目的上一级栏目id
     protected $typeId;          //栏目id
     protected $articalList;     //文章列表
 
@@ -38,8 +39,12 @@ class ArticalList0
      * 初始化参数
      */
     protected function initParams($param){
+        //文章所在栏目的上一级栏目id
+        $this->topId = T::getStrVal('topid',$param,false);
+       
         //模块中设置的默认typeid,如果没有设置则使用系统定义的默认值
-        $typeId = T::getStrVal('tid',$param,8);
+        $default = $this->topId ? false : 8;
+        $typeId = T::getStrVal('tid',$param,$default);
         
         //获取获取url中的栏目id参数，如查没有则采用模块中的设置　的
         $this->typeId = App::request()->get('tid',$typeId);
@@ -64,20 +69,23 @@ class ArticalList0
         //获取栏目下文章列表
         $articalList = App::service('Archives')->options('Archives');
         //设置获取的文章列表
-        $this->articalList = $articalList->setParam(['typeId'=>$this->typeId])->getList();
-        //设置栏目id
-        $this->articalList['typeId'] = $this->typeId;
+        $this->articalList = $articalList->setParam([
+            'topId' => $this->topId,
+            'typeId'=>$this->typeId
+            
+        ])->getList();
 
         return $this;
     }
 
-    //设置栏目内容信息
+    //设置栏目内容信息,如果按上级栏目查，则返回上级栏目信息
     protected function setArctypeInfor(){
         //获取栏目信息
         $serviceName = 'ArctypeInfor|'.$this->typeId;
         $arctypeInfor = App::service($serviceName)->options($serviceName);
         $arctypeInfor = $arctypeInfor->setParam([
-            'typeId' => $this->typeId
+            'topId' => $this->topId,
+            'typeId' => $this->typeId,
         ])->getContent();
         if(!$arctypeInfor['status']) return;
         $this->articalList['arctypeInfor'] = $arctypeInfor['data'];

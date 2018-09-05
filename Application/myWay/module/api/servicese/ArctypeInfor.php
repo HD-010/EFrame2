@@ -12,6 +12,7 @@ use EFrame\Helper\T;
  */
 class ArctypeInfor
 {
+    protected $topId;           //上一级栏目id，用于查询其下级所有栏目信息
     protected $arctype;         //所有栏目信息
     protected $typeId;          //栏目id
     
@@ -28,7 +29,9 @@ class ArctypeInfor
     
     //设置参数
     public function setParam($param = []){
-        //设置栏目id
+        //上一级栏目id，用于查询其下级所有栏目信息
+        $this->topId = T::arrayValue('topId', $param,false);
+        //设置栏目id，用于查询自身栏目信息
         $this->typeId = T::arrayValue('typeId', $param,false);
 
         return $this;    
@@ -53,7 +56,11 @@ class ArctypeInfor
         
         //添加查询条件
         if($this->typeId) $o['WHERE'][] = "@#_arctype.id='".$this->typeId."'";
-        $o['LIMIT'] = '0,1';
+        //查询多个子栏目信息
+        if($this->topId) $o['WHERE'][] = "@#_arctype.id in (select id from  @#_arctype where topid='".$this->topId."') or @#_arctype.id='".$this->topId."'";
+        
+        $q['ORDER_BY'] ='typeid';
+        $o['LIMIT'] = '0,10';
 
         //执行查询语句
         //echo App::DB()->selectCommond($o)->showQuery();

@@ -59,7 +59,7 @@ $tUrl = T::replaceToVal($data['param']['tUrl'],[
 				</ul>
 				<p>
 					<?=$description ?>
-				</p> -->
+				</p>
 				<a class="click-box" href="<?=$tUrl ?>" target=_self>
 					<span>READ MORE</span>
 				</a>

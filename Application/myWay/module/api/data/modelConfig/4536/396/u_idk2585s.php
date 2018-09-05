@@ -23,10 +23,11 @@ return $modelConfig = [
             'sectionIndex_0',
             'sectionAbout_0',
 //             'sectionProduct_0',
-            'sectionVideo_0',
-//             'sectionMessage_0',
-//             'sectionContact_0',
-//             'footer_0'
+//             'sectionVideo_0',
+            'sectionCase_0',
+            'sectionMessage_0',
+            'sectionContact_0',
+            'footer_0'
         ],
         
         //列表页关于我们模块名称
@@ -71,6 +72,26 @@ return $modelConfig = [
             'footer_0'
         ],
         
+        //内容页公司新闻模块名称
+        'article_article_gongsixinwen' => [
+            'header_1',
+            'sectionArticle_0',
+            'footer_0'
+        ],
+        
+        //内容页行业资讯模块名称
+        'article_article_xingyezixun' => [
+            'header_1',
+            'sectionArticle_0',
+            'footer_0'
+        ],
+        
+        //内容页案例展示模块名称
+        'article_image_anlizhanshi' => [
+            'header_1',
+            'sectionImage_0',
+            'footer_0'
+        ],
 
     ],
 

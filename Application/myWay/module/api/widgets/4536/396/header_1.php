@@ -130,14 +130,14 @@ scroll
 	</div>
 	<div class="side-head     ">
 		<div class="side-logo">
-			<a href="https://index.wuhao.vip/" title="APP应用开发|网站建设|平面设计">
-				<img data-original="http://qn.wuhao.vip/upload/201808/1535191906.png" alt="APP应用开发|网站建设|平面设计">
+			<a href="index?m=idk2585s" title="APP应用开发|网站建设|平面设计">
+				<img data-original="/static/images/sking/1535191906.png" alt="APP应用开发|网站建设|平面设计">
 			</a>
 		</div>
 		<div class="sign-box">
 			<ul class="sign-ul swiper-nav">
 				<li class="sign-li     active">
-					<a href="https://index.wuhao.vip/about/" target='_self' title="关于我们">
+					<a href="index?m=idk2585s&c=article&v=guanyuwomen&tid=25" target='_self' title="关于我们">
 						<b>关于我们</b>
 					</a>
 				</li>
@@ -151,7 +151,7 @@ scroll
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">×</span>
 					</button>
-					<img data-original="../../static/images/sking/1535193571.jpg" alt="APP应用开发|网站建设|平面设计">
+					<img data-original="/static/images/sking/1535193571.jpg" alt="APP应用开发|网站建设|平面设计">
 				</div>
 			</div>
 		</div>

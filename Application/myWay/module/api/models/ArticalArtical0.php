@@ -18,7 +18,7 @@ use EFrame\Helper\T;
  */
 class ArticalArtical0
 {
-    protected $typeId;
+    protected $articleId;
     protected $articalArtical;
 
     /**
@@ -37,10 +37,10 @@ class ArticalArtical0
      */
     protected function initParams($param){
         //模块中设置的默认typeid,如果没有设置则使用系统定义的默认值
-        $typeId = T::getStrVal('tid',$param,7);
+        $articleId = T::getStrVal('aid',$param);
         
-        //获取获取url中的栏目id参数，如查没有则采用模块中的设置　的
-        $this->typeId = App::request()->get('tid',$typeId);
+        //获取获取url中的文章d参数，如查没有则采用模块中的设置　的
+        $this->articleId = App::request()->get('aid',$articleId);
         
         return $this;
     }
@@ -52,7 +52,7 @@ class ArticalArtical0
      */
     public function setArticalArtical(){
         $articalArtical = App::service('Archives')->options('Archives');
-        $this->articalArtical = $articalArtical->setParam(['typeId'=>$this->typeId])->getArtical();
+        $this->articalArtical = $articalArtical->setParam(['articleId'=>$this->articleId])->getArtical();
 
         return $this;
     }
