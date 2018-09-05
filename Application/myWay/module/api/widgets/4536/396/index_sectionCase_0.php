@@ -2,8 +2,8 @@
 use EFrame\Helper\T;
 
 
-//T::print_pre($data);//exit;
-
+//T::print_pre($data);exit;
+if(!$data['status']) return;
 $title = $data['data'][0]['title'];
 $description = T::limitStr(190, $data['data'][0]['description']);
 $c =  $data['arctypeInfor'][0]['nid'];

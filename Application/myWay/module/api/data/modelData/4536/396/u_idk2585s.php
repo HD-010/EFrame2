@@ -20,7 +20,13 @@ return $modelData = [
         'sectionCase_0' => 'ArticalList_0|tid=29',
         'sectionMessage_0' => 'ArticalList_0|topid=28',
         'footer_0' => 'Navication_0',
-       
+    ],
+
+    //配置搜索模块数据
+    'list_search_search' => [
+        'header_0' => 'Navication_0',
+        'sectionSearch_0' => 'SearchArtical_0',
+        'footer_0' => 'Navication_0'
     ],
     
     //列表页关于我们模块数据

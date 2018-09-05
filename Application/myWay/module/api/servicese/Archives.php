@@ -17,10 +17,12 @@ class Archives{
     protected $aid;                 //文章id
     protected $flag;                //文章标签
     protected $articalList;         //文章列表
+    protected $searchList;          //搜索列表
     protected $artical;             //文章内容
     protected $addonTable;          //付加表
     protected $pageSize;            //分面步长
     protected $currentPage;         //当前页
+    protected $searchWord;          //搜索关键字
     protected $param;
 
     /**
@@ -33,17 +35,20 @@ class Archives{
      * @return mixed
      */
     public function getList(){
-        //初始化typyid
-        //$this->typeId = App::request()->get('tid');
-        //初始化flag
-        $this->flag = App::request()->get('flag');
-        //初始化分页步长
-        $this->pageSize = App::request()->get('ps',20);
-        //初始化当前页数
-        $this->currentPage = App::request()->get('cp',1);
         $this->setList();
         
         return $this->articalList;
+    }
+
+    /**
+     * 获取搜索文章列表
+     * 调用文章列表服务需要传入以下参数：
+     * @return mixed
+     */
+    public function getSearchList(){
+        $this->setSearchList();
+
+        return $this->searchList;
     }
 
     /**
@@ -79,6 +84,12 @@ class Archives{
         $this->typeId = T::arrayValue('typeId',$param,null);
         //文章id
         $this->aid = T::arrayValue('articleId',$param,null);
+        //搜索关键字
+        $this->searchWord = T::arrayValue('searchWord',$param,null);
+
+        $this->flag = T::arrayValue('flag',$param,null);
+        $this->pageSize = T::arrayValue('pageSize',$param,null);
+        $this->currentPage = T::arrayValue('currentPage',$param,null);
 
         return $this;
     }
@@ -93,20 +104,66 @@ class Archives{
                 "@#_archives" => [
                     "*",
                 ],
+                "@#_channeltype" =>[
+                    "nid"
+                ]
             ],
         ];
+
+        $q['LEFT_JOIN']["@#_channeltype"] = "ON @#_archives.channel = @#_channeltype.id";
 
         //添加查询条件
         if($this->typeId) $q['WHERE'][] = '@#_archives.typeid = '.$this->typeId;
         if($this->topId) $q['WHERE'][] = '@#_archives.typeid in (select id from @#_arctype where topid='.$this->topId.')';
         if($this->flag) $q['WHERE'][] = '@#_archives.flag like %'.str_replace(',','%',$this->flag).'%';
+
         //分页开始数据
         $startPage = ($this->currentPage - 1) * $this->pageSize;
         $q['LIMIT'] = "$startPage,$this->pageSize";
         $q['ORDER_BY'] ='typeid,sortrank';
+        //echo App::DB()->selectCommond($q)->showQuery()."<br/>";
         $res = App::DB()->selectCommond($q)->query()->fetchAll();
         //添加数据状态
         $this->articalList = T::addStatus($res);
+
+        return $this;
+    }
+
+    /**
+     * 模糊查询文章列表
+     * @return $this
+     */
+    protected function setSearchList(){
+        $q = [
+            [
+                "@#_archives" => [
+                    "*",
+                ],
+                "@#_channeltype" =>[
+                    "nid"
+                ],
+                "@#_arctype" =>[
+                    "typedir"
+                ],
+            ],
+        ];
+
+        $q['LEFT_JOIN']["@#_channeltype"] = "ON @#_archives.channel = @#_channeltype.id";
+        $q['LEFT_JOIN']["@#_arctype"] = "ON @#_archives.typeid = @#_arctype.id";
+
+        //添加查询条件
+        if($this->searchWord) {
+            $searchWord = preg_replace('/\s/','%',$this->searchWord);
+            $q['WHERE'][] = "@#_archives.title like '%".$searchWord."%'";
+        }
+        //分页开始数据
+        $startPage = ($this->currentPage - 1) * $this->pageSize;
+        $q['LIMIT'] = "$startPage,$this->pageSize";
+        $q['ORDER_BY'] ='typeid,sortrank';
+        //echo App::DB()->selectCommond($q)->showQuery()."<br/>";
+        $res = App::DB()->selectCommond($q)->query()->fetchAll();
+        //添加数据状态
+        $this->searchList = T::addStatus($res);
 
         return $this;
     }

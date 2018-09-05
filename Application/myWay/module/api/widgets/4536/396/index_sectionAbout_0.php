@@ -1,6 +1,6 @@
 <?php 
 use EFrame\Helper\T;
-
+if(!$data['status']) return;
 $typeName = $data['data'][0]['typename'];
 $description = T::limitStr(190, $data['data'][0]['description']);
 $c =  $data['data'][0]['nid'];

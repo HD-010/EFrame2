@@ -35,7 +35,7 @@ class Common
      * flag: 表示文章标签
      * cp: 当前页码
      * ps: 分页步长
-     * 
+     * sw:搜索关键字
      * 
      * 这些参数可以在$modelData的页面下模块名称后进行配置。需要注意的是，这些参数的值可能来源及优先级如下：
      * url传递 > 模块名称后配置的参数  > 系统给定的默认值
@@ -85,6 +85,7 @@ class Common
     //解析视图前缀
     public function parseVewFrefix(){
         $page = '';
+        if(App::request()->get('sw')) $page .= 'list_';
         if(App::request()->get('tid')) $page .= 'list_';
         if(App::request()->get('aid')) $page .= 'article_';
         if(App::request()->get('c')) $page .= App::request()->get('c').'_';

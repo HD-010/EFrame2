@@ -22,7 +22,7 @@ for($i = 0; $i < count($data['pagemodel']); $i ++){
        //T::print_pre($widgetPrefix);
        //header|footer适用于行业内所有页面，不按页面分类处理
        $widgetsName = preg_match('/header_|footer_/', $modelName) ? $modelName : $widgetPrefix.$modelName;
-       //echo "加载的小部件名称：".$widgetsName."<br/>";
+//     echo "加载的小部件名称：".$widgetsName."<br/>";
 //     //视图模块数据
        $modelData = T::arrayValue('modelData.'.$modelName,$data,null);
 

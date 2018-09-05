@@ -2,6 +2,7 @@
 use EFrame\Helper\T;
 
 //T::print_pre($data);
+$m = T::arrayValue('param.m', $data);
 ?>
 
 <header class="head_nav_met_m1156_1 swiper-header
@@ -18,18 +19,19 @@ scroll
 			<div class="side-shadow"></div>
 			<div class="side-bin">
 				<div class="side-search">
-					<form method="get" action="    ../search/">
-						<input type="hidden" name="lang" value="cn" />
-						<input type="hidden" name="class1" value="76" />
-						<div class="form-group">
-							<div class="input-search">
-								<button type="submit" class="input-search-btn">
-								<i class="icon wb-search" aria-hidden="true"></i>
-								</button>
-								<input class="form-control none-border" name="searchword" placeholder="Search title ...">
-							</div>
-						</div>
-					</form>
+                    <form method="get" action="index">
+                        <input type="hidden" name="m" value="<?=$m ?>" />
+                        <input type="hidden" name="c" value="search" />
+                        <input type="hidden" name="v" value="search" />
+                        <div class="form-group">
+                            <div class="input-search">
+                                <button type="submit" class="input-search-btn">
+                                    <i class="icon wb-search" aria-hidden="true"></i>
+                                </button>
+                                <input class="form-control none-border" name="sw" placeholder="Search title ...">
+                            </div>
+                        </div>
+                    </form>
 				</div>
 				<!--
                 	作者：offline
@@ -130,7 +132,7 @@ scroll
 	</div>
 	<div class="side-head     ">
 		<div class="side-logo">
-			<a href="index?m=idk2585s" title="APP应用开发|网站建设|平面设计">
+			<a href="<?=$hUrl ?>" title="APP应用开发|网站建设|平面设计">
 				<img data-original="/static/images/sking/1535191906.png" alt="APP应用开发|网站建设|平面设计">
 			</a>
 		</div>

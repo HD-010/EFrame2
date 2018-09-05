@@ -3,7 +3,7 @@ use EFrame\Helper\T;
 
 //T::print_pre($data);exit;
 
-
+if(!$data['status']) return;
 $m = $data['param']['m'];
 $tid = $data['param']['tid'];
 ?>

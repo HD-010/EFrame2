@@ -29,6 +29,13 @@ return $modelConfig = [
             'sectionContact_0',
             'footer_0'
         ],
+
+        //配置搜索模块名称
+        'list_search_search' => [
+            'header_0',
+            'sectionSearch_0',
+            'footer_0'
+        ],
         
         //列表页关于我们模块名称
         'list_article_guanyuwomen' => [

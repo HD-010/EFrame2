@@ -66,5 +66,7 @@ class Site extends Control
         $layOut = '/main_4536_396';
         return $this->layOut($layOut)->render('index',$data);
     }
+
+
     
 }
