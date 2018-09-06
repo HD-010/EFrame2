@@ -27,6 +27,19 @@ artical:表示页面类型为内容页
 shop:表示资源类型为shop,在数据表中与channeltype表的nid对应
 commodityView：表示页面名称，在数据表中与arctype表中的typedir字段表示的最后一级目录名称一至。
 
+搜索列表页命名规则举例说明
+//配置搜索模块名称
+'list_search_search' => [
+    'header_0',
+    'sectionSearch_0',
+    'footer_0'
+]
+list:表示页面类型为列表页
+search：第一个表示资源为搜索结果。与其他不同，在数据表中没有与其对应的值
+        第二个表示页面名称，在数据表中没有与其对应的值
+
+
+
 
 行业分类信息表
 

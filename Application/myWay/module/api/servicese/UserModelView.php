@@ -126,7 +126,7 @@ class UserModelView
     }
 
     /**
-     * 用户视图模块样式表
+     * 用户视图模块数据
      * @return $this
      */
     protected function parseModelData(){
@@ -142,8 +142,13 @@ class UserModelView
      */
     protected function initIndustroyCode(){
         //行业代码,例如食品|餐饮美食
-        //$industroyCode = '2410|223';
-        $industroyCode = '4536|396';
-        $this->industroyCode = $industroyCode;
+        //先定义一个数组用于模拟数据
+        $industroyCode = [
+            'idk2584s' => '2410|223',
+            'idk2585s' => '4536|396',
+        ];
+
+        $this->industroyCode = $industroyCode[$this->modelId];
     }
+
 }

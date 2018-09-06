@@ -57,7 +57,7 @@ class MyAD{
 
         if($this->typeName) $q['WHERE'][] = "@#_myad.clsid = (select id from @#_myadtype WHERE typename='".$this->typeName."')";
         $q['LIMIT'] = "0,10";
-        echo App::DB()->selectCommond($q)->showQuery();
+        //echo App::DB()->selectCommond($q)->showQuery();
         $res = App::DB()->selectCommond($q)->query()->fetchAll();
         //添加数据状态
         $this->myadList = T::addStatus($res);

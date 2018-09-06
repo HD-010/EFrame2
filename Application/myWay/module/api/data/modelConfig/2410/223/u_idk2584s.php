@@ -23,9 +23,9 @@ return $modelConfig = [
             //头部广告
             'headerBanner_0',
             //首页导航
-            'navication_0',
+            //'navication_0',
             //首页商品推荐
-            'indexCommodityRecommendation_0',
+            //'indexCommodityRecommendation_0',
             //关于我们
             //'aboutMe_0',
             //成功案例

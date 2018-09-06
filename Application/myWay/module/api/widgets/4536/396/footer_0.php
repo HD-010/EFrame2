@@ -139,7 +139,7 @@ window.onscroll= function(){
     	var cp = getQueryString('cp');
     	if(cp == 'NaN') cp = 1;
     	cp = parseInt(cp);
-    
+    console.log(cp);
     	if(cp > 1 && (scrollObj.top == 0)){
     		localStorage.paging = 1;
     		cp --;

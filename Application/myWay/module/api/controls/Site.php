@@ -41,6 +41,7 @@ class Site extends Control
         $userModelView = App::service('UserModelView')->options('UserModelView');
         //用户从事行业代码
         $data['industroyCode'] = $userModelView->getIndustroyCode();
+        //T::print_pre($data['industroyCode']);exit;
         //用户视图模型配置
         $modelConfig = $userModelView ->parse('modelConfig')->get();
         //用户页面模型与数据模型的对照关系
@@ -50,7 +51,7 @@ class Site extends Control
         $models = T::arrayValue($page,$modelData);
         //T::print_pre($models);exit;
 
-        //加载数据模型
+        //按数据模型名称加载数据
         $data['modelData'] = [];
         foreach($models as $key => $val){
             //模型名称
@@ -63,7 +64,10 @@ class Site extends Control
         //获取当前页面的视图名称
         $data['pagemodel'] = T::arrayValue('pageModel.'.$page,$modelConfig);
         //T::print_pre($data['pagemodel']); //exit;
-        $layOut = '/main_4536_396';
+
+        //布局文件名称
+        $layOut = '/main_'.implode('_',$data['industroyCode']);
+
         return $this->layOut($layOut)->render('index',$data);
     }
 
