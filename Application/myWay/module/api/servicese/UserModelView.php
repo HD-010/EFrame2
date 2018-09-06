@@ -55,6 +55,14 @@ class UserModelView
                 .'\\'.$this->getIndustroyCode('TOP')
                 .'\\'.$this->getIndustroyCode('SON')
                 .'\\u_'.$this->modelId.'.php';
+            //检查文件路径真实性,如果文件不存在，则使用默认路径
+            if(!is_file($this->filePath)){
+                $this->filePath = $this->viewConfig
+                    .'\\'.$parseOption
+                    .'\\0000'.
+                    .'\\000'.
+                    .'\\u_idk0s.php';
+            }
             //调用解析方法
             $this->$methodName();
 
@@ -105,7 +113,8 @@ class UserModelView
      * @return $this
      */
     protected function parseModelConfig(){
-        if(is_file($this->filePath)) require_once($this->filePath);
+        if(is_file($this->filePath))  require_once($this->filePath);
+
         //T::print_pre($modelConfig);
         $this->modelConfig = $modelConfig;
 
