@@ -1,3 +1,8 @@
+<?php
+use EFrame\Helper\T;
+
+?>
+
 <link rel="stylesheet" type="text/css" href="/static/css/message_index_cn.css">
 <section class="ad_met_m1156_1 lazy" m-id="37" m-type="nocontent" data-background=""></section>
 

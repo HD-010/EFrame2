@@ -107,6 +107,45 @@ article_shop_commodityView_1.php 等……
             $title = T::arrayValue('title', $list);
         ?>
 
+3、列表页列表数据输出前的处理如下：
+    在文件顶部位置：
+        <?php
+            use EFrame\Helper\T;
+
+            //启用分页器
+            $this->usePaging();
+
+            if(!$data['status']) return;
+
+            $m = T::replaceToVal(T::arrayValue('param.m', $data));
+            $aUrl = T::arrayValue('param.aUrl', $data);
+        ?>
+    在列表元素循环输出前的数据处理：
+        <?php
+            for($i = 0; $i < count($data['data']); $i ++):
+            //这里可以输出多个数据表字段内容
+            $list = $data['data'][$i];
+            $title = T::limitStr(10, $list['title']);
+            $click = $list['click'];
+            $v = T::getStrVal(-1, $list['typedir']);
+            $c = $list['nid'];
+            $aid = $list['id'];
+            $description = $list['description'];
+            $pubDate = date('Y/m/d',$list['pubdate']);
+            $href = T::replaceToVal($aUrl,[
+                'm' => $m,
+                'v' => $v,
+                'c' => $c,
+                'aid' => $aid,
+            ]);
+        ?>
+        //这里是被循环输出的列表元素
+        ......
+        //结束循环
+        <?php  endfor ?>
+
+
+
 
 
 关于小部件模板功能的开发，模板调用格式如下： 待叙……

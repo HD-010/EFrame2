@@ -1,9 +1,7 @@
 <?php
 use EFrame\Helper\T;
 
-//T::print_pre($data);
-$usePaging = ($data['status']) ? "<script> window.paging = 1 </script>" : "<script> window.paging = -1 </script>";
-echo $usePaging;
+$this->usePaging();
 if(!$data['status']) return;
 ?>
 <link rel="stylesheet" type="text/css" href="../../static/css/news_cn.css">
