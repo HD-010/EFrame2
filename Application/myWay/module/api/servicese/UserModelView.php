@@ -59,8 +59,8 @@ class UserModelView
             if(!is_file($this->filePath)){
                 $this->filePath = $this->viewConfig
                     .'\\'.$parseOption
-                    .'\\0000'.
-                    .'\\000'.
+                    .'\\0000'
+                    .'\\000'
                     .'\\u_idk0s.php';
             }
             //调用解析方法

@@ -30,8 +30,8 @@
           <file leaf-file-name="Site.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Application/myWay/module/api/controls/Site.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="216">
-                  <caret line="45" column="37" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="37" />
+                <state relative-caret-position="240">
+                  <caret line="10" column="63" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="63" />
                   <folding>
                     <element signature="e#44#52#0#PHP" expanded="true" />
                   </folding>
@@ -46,8 +46,8 @@
           <file leaf-file-name="UserModelView.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Application/myWay/module/api/servicese/UserModelView.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="364">
-                  <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+                <state relative-caret-position="196">
+                  <caret line="61" column="29" lean-forward="true" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
@@ -265,75 +265,6 @@
               <item name="module" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modelConfig" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="0000" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EFrame2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EFrame2" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="myWay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="module" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modelConfig" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="0000" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="000" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EFrame2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EFrame2" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="myWay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="module" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modelConfig" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="2410" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EFrame2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EFrame2" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="myWay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="module" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modelConfig" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="2410" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="223" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EFrame2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EFrame2" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="myWay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="module" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modelConfig" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="4536" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EFrame2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EFrame2" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="myWay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="module" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modelConfig" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="4536" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="396" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EFrame2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EFrame2" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="myWay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="module" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="modelData" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -481,12 +412,12 @@
       <workItem from="1535926678052" duration="4400000" />
       <workItem from="1536165231839" duration="6018000" />
       <workItem from="1536233192392" duration="11763000" />
-      <workItem from="1536271194917" duration="5452000" />
+      <workItem from="1536271194917" duration="6205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150322000" />
+    <option name="totallyTimeSpent" value="151075000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -945,16 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/myWay/module/api/controls/Site.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="45" column="37" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="37" />
-          <folding>
-            <element signature="e#44#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/myWay/config/params.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -971,10 +892,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Application/myWay/module/api/controls/Site.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="63" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="63" />
+          <folding>
+            <element signature="e#44#52#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/myWay/module/api/servicese/UserModelView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+        <state relative-caret-position="196">
+          <caret line="61" column="29" lean-forward="true" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
           <folding />
         </state>
       </provider>
