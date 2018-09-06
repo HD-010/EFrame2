@@ -44,7 +44,8 @@ class ArticalList0
      */
     protected function initParams($param){
         //文章所在栏目的上一级栏目id
-        $this->topId = T::getStrVal('topid',$param,false);
+        $topId = App::request()->get('topid',false);
+        $this->topId = T::getStrVal('topid',$param,$topId);
        
         //模块中设置的默认typeid,如果没有设置则使用系统定义的默认值
         $default = $this->topId ? false : 8;

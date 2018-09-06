@@ -81,6 +81,9 @@ scroll
                 			<u>&nbsp;</u><i>&nbsp;</i>
                 			<?php 
                 			if(T::arrayValue('sun', $list, false)):
+                			?>
+                			<ul>
+                			<?php 
                 			     for($j = 0; $j < count($list['sun']); $j ++):
                 			     $listSun = $list['sun'][$j];
                 			     //定义栏目连接
@@ -93,14 +96,13 @@ scroll
                 			     //定义栏目名称
                 			     $typeName = T::arrayValue('typename', $listSun);
                 			?>
-                			<ul>
                 				<li class="nav-second     ">
                 					<a href="<?=$typeUrl ?>" target='_self' title="<?=$typeName ?>">
                 						<b><?=$typeName ?></b>
                 					</a>
                 				</li>
-                			</ul>
                 				<?php endfor?>
+                			</ul>
                 			<?php endif?>
                 		</li>
                                

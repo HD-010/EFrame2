@@ -87,6 +87,7 @@ class Common
         $page = '';
         if(App::request()->get('sw')) $page .= 'list_';
         if(App::request()->get('tid')) $page .= 'list_';
+        if(App::request()->get('topid')) $page .= 'list_';
         if(App::request()->get('aid')) $page .= 'article_';
         if(App::request()->get('c')) $page .= App::request()->get('c').'_';
         

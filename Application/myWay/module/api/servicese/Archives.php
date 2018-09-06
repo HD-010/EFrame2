@@ -106,15 +106,19 @@ class Archives{
                 ],
                 "@#_channeltype" =>[
                     "nid"
-                ]
+                ],
+                "@#_arctype" =>[
+                    "typedir"
+                ],
             ],
         ];
 
         $q['LEFT_JOIN']["@#_channeltype"] = "ON @#_archives.channel = @#_channeltype.id";
+        $q['LEFT_JOIN']["@#_arctype"] = "ON @#_archives.typeid = @#_arctype.id";
 
         //添加查询条件
         if($this->typeId) $q['WHERE'][] = '@#_archives.typeid = '.$this->typeId;
-        if($this->topId) $q['WHERE'][] = '@#_archives.typeid in (select id from @#_arctype where topid='.$this->topId.')';
+        if($this->topId) $q['WHERE'][] = '@#_archives.typeid in (select id from @#_arctype where topid='.$this->topId.') or @#_archives.typeid="'.$this->topId.'"';
         if($this->flag) $q['WHERE'][] = '@#_archives.flag like %'.str_replace(',','%',$this->flag).'%';
 
         //分页开始数据

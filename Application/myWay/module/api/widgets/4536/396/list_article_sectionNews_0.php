@@ -1,16 +1,13 @@
 <?php
 use EFrame\Helper\T;
 
-//T::print_pre($data);exit;
+//T::print_pre($data);//exit;
 
-if(!$data['status']) {
-//     echo "还没有数据...";
-//     return;
-}
+$usePaging = ($data['status']) ? "<script> window.paging = 1 </script>" : "<script> window.paging = -1 </script>";
+echo $usePaging;
+if(!$data['status']) return;    
 
 $m = T::replaceToVal(T::arrayValue('param.m', $data));
-$v = T::replaceToVal(T::arrayValue('param.v', $data));
-$c = T::replaceToVal(T::arrayValue('param.c', $data));
 $aUrl = T::arrayValue('param.aUrl', $data);
 
 ?>
@@ -29,6 +26,8 @@ $aUrl = T::arrayValue('param.aUrl', $data);
                                     $list = $data['data'][$i];
                                     $title = T::limitStr(10, $list['title']);
                                     $click = $list['click'];
+                                    $v = T::getStrVal(-1, $list['typedir']);
+                                    $c = $list['nid'];
                                     $aid = $list['id'];
                                     $description = $list['description'];
                                     $pubDate = date('Y/m/d',$list['pubdate']);
@@ -113,6 +112,8 @@ $aUrl = T::arrayValue('param.aUrl', $data);
                                         if(preg_match('/c/',$flag)) continue;
                                         
                                         $click = $list['click'];
+                                        $v = T::getStrVal(-1, $list['typedir']);
+                                        $c = $list['nid'];
                                         $aid = $list['id'];
                                         $description = $list['description'];
                                         $pubDate = date('Y/m/d',$list['pubdate']);
@@ -142,23 +143,6 @@ $aUrl = T::arrayValue('param.aUrl', $data);
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="page-box" m-type="nosysdata">
-			<div class='met_pager'>
-				<span class='PreSpan'>上一页</span>
-				<a href='http://index.wuhao.vip/news/index.html' class='Ahover'>
-					1
-				</a>
-				<a href='http://index.wuhao.vip/news/news_83_2.html' >
-					2
-				</a>
-				<a href='http://index.wuhao.vip/news/news_83_2.html' class='NextA'>
-					下一页
-				</a>
-				<span class='PageText'>转至第</span>
-				<input type='text' id='metPageT' data-pageurl='index.php?lang=cn&class1=83&page=|.html|2' value='1' />
-				<input type='button' id='metPageB' value='页' />
 			</div>
 		</div>
 	</div>

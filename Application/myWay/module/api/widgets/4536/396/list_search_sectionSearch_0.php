@@ -2,7 +2,9 @@
 use EFrame\Helper\T;
 
 //T::print_pre($data);
-
+$usePaging = ($data['status']) ? "<script> window.paging = 1 </script>" : "<script> window.paging = -1 </script>";
+echo $usePaging;
+if(!$data['status']) return;
 ?>
 <link rel="stylesheet" type="text/css" href="../../static/css/news_cn.css">
 <section class="news_list_page_met_m1156_1 lazy" m-id="36"data-background="../../static/images/picture/1519794022.png">
@@ -150,23 +152,6 @@ use EFrame\Helper\T;
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="page-box" m-type="nosysdata">
-			<div class='met_pager'>
-				<span class='PreSpan'>上一页</span>
-				<a href='http://index.wuhao.vip/news/index.html' class='Ahover'>
-					1
-				</a>
-				<a href='http://index.wuhao.vip/news/news_83_2.html' >
-					2
-				</a>
-				<a href='http://index.wuhao.vip/news/news_83_2.html' class='NextA'>
-					下一页
-				</a>
-				<span class='PageText'>转至第</span>
-				<input type='text' id='metPageT' data-pageurl='index.php?lang=cn&class1=83&page=|.html|2' value='1' />
-				<input type='button' id='metPageB' value='页' />
 			</div>
 		</div>
 	</div>

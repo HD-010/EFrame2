@@ -50,6 +50,19 @@ return $modelData = [
         'sectionNews_0' => 'ArticalList_0',
         'footer_0' => 'Navication_0',
     ],
+    //列表页行业资讯模块数据
+    'list_article_xingyezixun' => [
+        'header_1' =>'Navication_0',
+        'sectionNews_0' => 'ArticalList_0',
+        'footer_0' => 'Navication_0',
+    ],
+    
+    //列表页公司新闻模块数据
+    'list_article_gongsixinwen' => [
+        'header_1' =>'Navication_0',
+        'sectionNews_0' => 'ArticalList_0',
+        'footer_0' => 'Navication_0',
+    ],
     
     //列表页案例展示模块数据
     'list_image_anlizhanshi' => [
@@ -60,6 +73,12 @@ return $modelData = [
     //列表页联系我们模块数据
     'list_article_lianxiwomen' => [
         'header_1' => 'Navication_0',
+    ],
+    
+    //内容页新闻资讯模块数据
+    'article_article_xinwenzixun' => [
+        'header_1' => 'Navication_0',
+        'sectionArticle_0' => 'ArticalArtical_0',
     ],
     
     //内容页公司新闻模块数据

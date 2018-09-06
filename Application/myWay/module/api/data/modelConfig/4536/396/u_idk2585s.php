@@ -65,6 +65,20 @@ return $modelConfig = [
             'footer_0'
         ],
         
+        //列表页行业资讯模块名称
+        'list_article_xingyezixun' => [
+            'header_1',
+            'sectionNews_0',
+            'footer_0'
+        ],
+        
+        //列表页公司新闻模块名称
+        'list_article_gongsixinwen' => [
+            'header_1',
+            'sectionNews_0',
+            'footer_0'
+        ],
+        
         //列表页案例展示模块名称
         'list_image_anlizhanshi' => [
             'header_1',
@@ -76,6 +90,13 @@ return $modelConfig = [
         'list_article_lianxiwomen' => [
             'header_1',
             'sectionMessage_0',
+            'footer_0'
+        ],
+        
+        //内容页新闻资讯模块名称
+        'article_article_xinwenzixun' => [
+            'header_1',
+            'sectionArticle_0',
             'footer_0'
         ],
         

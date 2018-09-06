@@ -173,29 +173,31 @@ class T
      */
     public static function lookAbout($array){
         $findArray = $array[3];
-        if(!is_array($findArray)) return false;
-        $key = $array[0];
-        $val = $array[1];
-        $findKey = $array[2];
-        
         $res = '';
-        
-        foreach($findArray as $k=>$v){
-            if(is_array($v)){
-                $res = self::lookAbout([
-                    $key,
-                    $val,
-                    $findKey,
-                    $v
-                ]);
-            }
-            //echo $k . "===" .$key ."|||". $v."==".$val."<br/>";
-            if($k == $key && $v == $val ){
-                $res = $findArray[$findKey];
+        if(is_array($findArray)){
+            $key = $array[0];
+            $val = $array[1];
+            $findKey = $array[2];
+            
+            foreach($findArray as $k=>$v){
+                //echo $k . "===" .$key ."|||". $v."==".$val."<br/>";
+                if(is_array($v)){
+                    $res = self::lookAbout([
+                        $key,
+                        $val,
+                        $findKey,
+                        $v
+                    ]);
+                }elseif($k == trim($key) && $v == trim($val) ){
+                    $res = $findArray[$findKey];
+                    
+                    break;
+                }
             }
         }
         
         return $res;
+        
     }
     
 }

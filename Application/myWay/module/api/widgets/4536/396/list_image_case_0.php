@@ -1,6 +1,8 @@
 <?php 
 use EFrame\Helper\T;
 
+$usePaging = ($data['status']) ? "<script> window.paging = 1 </script>" : "<script> window.paging = -1 </script>";
+echo $usePaging;
 if(!$data['status']) return;
 
 $m = T::replaceToVal(T::arrayValue('param.m', $data));
@@ -159,17 +161,6 @@ data-background="/static/images/picture/1519793312.png">
 						<p class="fa fa-search met-img-showbtn" data-imglist="        音乐播放器*-=http://qn.wuhao.vip/upload/201802/1519808435.png+|-"></p> </span>
 					</li> -->
 				</ul>
-			</div>
-		</div>
-		<div class="page-box" m-type="nosysdata">
-			<div class='met_pager'>
-				<span class='PreSpan'>上一页</span>
-				<a href='http://index.wuhao.vip/case/index.html' class='Ahover'>
-					1
-				</a><span class='NextSpan'>下一页</span>
-				<span class='PageText'>转至第</span>
-				<input type='text' id='metPageT' data-pageurl='index.php?lang=cn&class1=94&page=|.html|1' value='1' />
-				<input type='button' id='metPageB' value='页' />
 			</div>
 		</div>
 		<div class="met-pager-ajax-link hidden-md-up" m-type="nosysdata">
