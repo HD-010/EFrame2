@@ -2,9 +2,9 @@
 use EFrame\Helper\T;
 
 //T::print_pre($data);//exit;
+//启用分页器
+$this->usePaging();
 
-$usePaging = ($data['status']) ? "<script> window.paging = 1 </script>" : "<script> window.paging = -1 </script>";
-echo $usePaging;
 if(!$data['status']) return;    
 
 $m = T::replaceToVal(T::arrayValue('param.m', $data));

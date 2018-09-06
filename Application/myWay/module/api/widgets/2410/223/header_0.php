@@ -2,6 +2,7 @@
 use EFrame\Helper\T;
 
 //T::print_pre($data);
+
 $hUrl = T::replaceToVal(T::arrayValue('param.hUrl',$data),[
         'm' => T::arrayValue('param.m',$data),
 ]);
