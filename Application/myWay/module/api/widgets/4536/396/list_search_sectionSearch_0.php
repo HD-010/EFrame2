@@ -3,6 +3,7 @@ use EFrame\Helper\T;
 
 $this->usePaging();
 if(!$data['status']) return;
+$imgServer = \App::params('@imgServer');
 ?>
 <link rel="stylesheet" type="text/css" href="../../static/css/news_cn.css">
 <section class="news_list_page_met_m1156_1 lazy" m-id="36"data-background="../../static/images/picture/1519794022.png">

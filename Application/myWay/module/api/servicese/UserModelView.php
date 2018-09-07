@@ -51,17 +51,19 @@ class UserModelView
             $this->parseOption = $parseOption;
             //设置配置文件路径
             $this->filePath = $this->viewConfig
-                .'\\'.$parseOption
-                .'\\'.$this->getIndustroyCode('TOP')
-                .'\\'.$this->getIndustroyCode('SON')
-                .'\\u_'.$this->modelId.'.php';
+                .'/'.$parseOption
+                .'/'.$this->getIndustroyCode('TOP')
+                .'/'.$this->getIndustroyCode('SON')
+                .'/u_'.$this->modelId.'.php';
+            $this->filePath = str_replace('\\', '/', $this->filePath);
             //检查文件路径真实性,如果文件不存在，则使用默认路径
             if(!is_file($this->filePath)){
                 $this->filePath = $this->viewConfig
-                    .'\\'.$parseOption
-                    .'\\0000'
-                    .'\\000'
-                    .'\\u_idk0s.php';
+                    .'/'.$parseOption
+                    .'/0000'
+                    .'/000'
+                    .'/u_idk0s.php';
+                $this->filePath = str_replace('\\', '/', $this->filePath);
             }
             //调用解析方法
             $this->$methodName();

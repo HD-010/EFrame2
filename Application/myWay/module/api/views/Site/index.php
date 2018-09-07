@@ -28,7 +28,7 @@ for($i = 0; $i < count($data['pagemodel']); $i ++){
 
 //     //返回视图小部件
 //     //echo $industroyCode[0].'\\'.$industroyCode[1].'\\'.$widgetsName."<br/>";
-       $this->renderWidget($industroyCode[0].'\\'.$industroyCode[1].'\\'.$widgetsName,$modelData);
+       $this->renderWidget($industroyCode[0].'/'.$industroyCode[1].'/'.$widgetsName,$modelData);
 }
 
 

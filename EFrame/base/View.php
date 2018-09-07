@@ -24,6 +24,7 @@ class View{
 
         //组织小部件路径
         $widgetPath = App::params('@root').'/module/'.App::module().'/widgets/'.$fileName.'.php';
+        $widgetPath = str_replace("\\", "/", $widgetPath);
         try{
             if(!is_file($widgetPath)){
                 throw new \Exception('视图文件不存在：'.$widgetPath);
@@ -77,7 +78,7 @@ class View{
         //这里声明布局文件路径
         $main = $this->main ? $this->main : '/main';
         $layoutPath = App::params('@root').'/module/'.App::module().'/layout'.$main.'.php';
-        $this->layoutPath = $layoutPath;
+        $this->layoutPath = str_replace("\\", "/", $layoutPath);
         
         //这里载入布局文件
         if(is_file($this->layoutPath)){
@@ -91,7 +92,7 @@ class View{
     public function renderPartial($fileName,$data=null){
         //这里申明视图文件路径
         $viewPath = App::params('@root').'/module/'.App::module().'/views/'.App::control().'/'.$fileName.'.php';
-        $this->viewPath = $viewPath;
+        $this->viewPath = str_replace("\\", "/", $viewPath);
         
         //这里载入视图文件
         if(is_file($this->viewPath)){
@@ -106,7 +107,7 @@ class View{
         
         //这里申明视图文件路径
         $viewPath = App::params('@root').'/module/'.App::module().'/views/'.App::control().'/'.$fileName.'.php';
-        $this->viewPath = $viewPath;
+        $this->viewPath = str_replace("\\", "/", $viewPath);
         
         //这里载入视图文件
         if(!is_file($this->viewPath)) return;

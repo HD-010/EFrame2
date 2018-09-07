@@ -18,8 +18,10 @@ class Model{
      */
     public function init($className){
         if(!isset(App::$model->$className)){
-            $app = substr(App::params('@root'),strrpos(App::params('@root'),"\\")+1);
+            $root = preg_split('/\\\|\//', App::params('@root'));
+            $app = $root[count($root)-1];
             $modelName = "\\$app\\module\\".App::module()."\\models\\".$className;
+            
             eval("\$modelName = \"$modelName\";");
             
             //如果该model不存在，则 实例化 并返回
