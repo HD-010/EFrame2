@@ -21,52 +21,21 @@ return $modelConfig = [
             //页面头部
             'header_0',
             //头部广告
-            'headerBanner_0',
+            'banner_0',
             //首页导航
-            //'navication_0',
+            'navication_0',
             //首页商品推荐
-            //'indexCommodityRecommendation_0',
+            'product_0',
             //关于我们
-            //'aboutMe_0',
+            'about_0',
             //成功案例
-            //'succsessCase_0',
+            'case_0',
             //最新资讯
-            //'latestInformation_0'
+            'message_0',
+
+            'footer_0'
         ],   
+    ]
 
-        //新闻栏目索引页模块名称
-        'list_article_xinwenzhongxin' => [
-            'header_0',
-            'newList_0',
-            'footer_0'
-        ],
-
-        //图片文章内容页模块名称
-        'artical_article_xinwenzhongxin' => [
-            'header_0',
-            'newsArticle_0',
-            'footer_0'
-        ],
-
-        //关于我们栏目索引页模块名称
-        'list_article_guanyuwomen' => [
-            'header_0',
-            'article_0',
-            'footer_0'
-        ],
-
-        //产品与服务栏目索引页模块名称
-        'list_article_chanpinyufuwu' => [
-            'header_0',
-            'article_0',
-            'footer_0'
-        ],
-        //产品与服务栏目索引页模块名称
-        'article_article_chanpinyufuwu' => [
-            'header_0',
-            'footer_0'
-        ],
-
-    ],
 
 ];

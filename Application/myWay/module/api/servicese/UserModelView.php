@@ -143,7 +143,7 @@ class UserModelView
     protected function parseModelData(){
         if(is_file($this->filePath)) require_once($this->filePath);
         //T::print_pre($modelStyle);
-        $this->modelData = $modelData;
+        $this->modelData = isset($modelData) ? $modelData : false;
 
         return $this;
     }
@@ -159,7 +159,7 @@ class UserModelView
             'idk2585s' => '4536|396',
         ];
 
-        $this->industroyCode = $industroyCode[$this->modelId];
+        $this->industroyCode = T::arrayValue($this->modelId,$industroyCode,false);
     }
 
 }

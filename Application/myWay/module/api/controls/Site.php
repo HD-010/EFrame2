@@ -44,8 +44,13 @@ class Site extends Control
         //T::print_pre($data['industroyCode']);exit;
         //用户视图模型配置
         $modelConfig = $userModelView ->parse('modelConfig')->get();
+        //T::print_pre($modelConfig);exit;
         //用户页面模型与数据模型的对照关系
         $modelData = $userModelView ->parse('modelData')->get();
+        if(!$modelData) {
+            App::$error->error404();
+            return;
+        }
         //当前页面模型对应的数据模型
         //echo $page;
         $models = T::arrayValue($page,$modelData);

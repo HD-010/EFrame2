@@ -77,6 +77,7 @@ class Base{
         return $control;
         
     }
+
     /**
      * 实例化一个Model对象
      * @param unknown $modelName
@@ -97,7 +98,14 @@ class Base{
     public static function authorize(){
         return new \EFrame\base\Authorize();
     }
- 
+
+    /**
+     * 实例化错误对象
+     */
+    public static function error(){
+        return new \EFrame\base\Error();
+    }
+
     /**
      * 返回数据库连接对象
      * @param $configName string 数据库连接配置名称，如“db|db2"等，由config中db配置 的键名决定

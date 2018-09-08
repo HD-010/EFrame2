@@ -21,6 +21,7 @@ class App{
     public static $db;
     public static $user;
     public static $global;
+    public static $error;
     
     public function __construct($config){
         $params = $config['params'];
@@ -196,6 +197,8 @@ class App{
         self::$control = Base::control();
         //初始化视图对象
         self::$view = Base::view();
+        //初始化错误对象
+        self::$error = Base::error();
     }
     
     /**
@@ -232,9 +235,8 @@ class App{
      */
     protected function load404(){
         //如果访问控制器下的操作不存在，则加载404页面
-        
         if(self::$control === false) {
-            (new Error())->error404();
+            self::$error->error404();
             return true;
         }
     }
